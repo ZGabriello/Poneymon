@@ -44,7 +44,7 @@ Ouvrez dans votre navigateur
 [forge.univ-lyon1.fr](http://forge.univ-lyon1.fr). Si vous vous
 connectez pour la première fois, le système vous permettra de
 vérifier/modifier les informations qui vous concernent, idem pour
-votre éventuel binôme. Ajouter ce dernier comme développeur de votre
+votre éventuel binôme. Ajoutez ce dernier comme développeur de votre
 projet (Configuration → Membres).
 
 Nous allons utiliser le dépôt Git du cours comme base pour votre
@@ -55,9 +55,9 @@ une copie du projet sur votre espace de la forge.
 
 **IMPORTANT**: pour l'instant, le fork de votre projet est public sur
 la forge. Nous vous demandons **impérativement de passer ce projet en
-« privé »** pour que vous collègues ne puisse pas recopier votre code.
+« privé »** pour que vos collègues ne puissent pas recopier votre code.
 En cas de copie, nous sanctionnerons les étudiants ayant copié **et**
-ceux ayant fourni leur code. Pour rendre votre projet privé,
+ceux ayant laissé copier leur code. Pour rendre votre projet privé,
 rendez-vous dans « settings → general » en bas de la barre latérale de
 gauche, puis « Permissions ». Le premier réglage est « Project
 visibility ». Dans le menu, choisissez « private », puis cliquez sur
@@ -139,24 +139,27 @@ git commit
 git push
 ```
 
-Dans le navigateur, naviguer dans le dépôt: vous pouvez voir les
+Dans le navigateur, naviguez dans le dépôt: vous pouvez voir les
 révisions déjà présentes et même regarder le code source en ligne, ainsi
 que les différences entre les révisions.
 
 ## .gitignore et gestion d’un ticket
 
-Depuis le projet forge, créer une nouvelle demande (*issue*) intitulée:
-“ignorer le répertoire target”. Ce dossier target sera créé par maven au
-moment du build, et contiendra les fichier .class et le jar.
+Les utilitaires comme Maven génèrent un grand nombre de fichiers qu'ils ne
+faut pas ajouter à vos dépôts. Vous allez donc configurer ce projet de
+manière à les ignorer. Pour cela vous allez utiliser en plus l'outil de
+gestion de tickets.
 
-Accéder à la liste des demandes de votre projet, puis à la demande
-précédente. Modifier cette demande en assignant un des membres du projet
-à cette tâche. Poursuivre le TP puis revenir à la demande et la marquer
-comme fermée (*closed*) une fois le travail terminé. Noter le numéro
-`#xxxx` de la demande.
+Depuis l'interface web de la forge, créez une nouvelle demande (*issue*)
+intitulée: “ignorer le répertoire target”. Ce dossier `target` sera créé par
+Maven au moment du build, et contiendra les fichiers `.class` et le jar.
 
-Créer un fichier .gitignore à la base du répertoire de travail
-balleauprisonnier et y ajouter les lignes suivantes :
+Accédez à la liste des demandes de votre projet puis modifiez la demande
+précédente en assignant un des membres du projet à cette tâche. Notez bien
+le numéro `#xxxx` de la demande (sans doute #1).
+
+Créez un fichier `.gitignore` à la base du répertoire `poneymon_fx` et
+ajoutez-y les lignes suivantes :
 
 ```
 # Ignore les fichiers de configuration d'Eclipse
@@ -175,7 +178,7 @@ log/
 target/
 ```
 
-Ce fichier contient la liste des fichiers à ignorer par git: la
+Ce fichier contient la liste des fichiers que git doit ignorer: la
 commande `git status` ne les mentionnera pas dans la section
 `Untracked files`, et la commande `git add` refusera par défaut de les
 ajouter.
@@ -185,7 +188,7 @@ git status
 ```
 
 n’affiche à présent plus les fichiers dans target, mais affiche le
-fichier `.gitignore`. Ajouter ce fichier dans les fichiers versionnés:
+fichier `.gitignore`. Ajoutez ce fichier dans les fichiers versionnés:
 
 ```
 git add .gitignore
@@ -204,9 +207,9 @@ puis faire le push
 git push
 ```
 
-Dans le projet forge, aller voir le dépôt et cliquer sur le dernier
-commit. Vous pouvez vérifier que le `#xxx` est un lien vers votre
-demande, et que la présence de `fixes #xxx` dans un message de commit
+Dans le projet forge, allez voir le dépôt et cliquez sur le dernier
+commit. Vous pouvez vérifier que le `#xxxx` est un lien vers votre
+demande, et que la présence de `fixes #xxxx` dans un message de commit
 a automatiquement fermé le ticket correspondant.
 
 ### Un gitignore local par utilisateur
@@ -216,7 +219,7 @@ manipuler des fichiers que vous ne voulez pas partager et donc ajouter
 au `.gitignore` (par exemple, ignorer `*~` si votre éditeur de texte
 laisse des `fichier~` en guise de backup, ou ignorer `.DS_Store` si
 vous êtes sous Mac OS). Mais d'une part, vous voulez ignorer ces fichiers
-pour tous vos projets (donc pas modifier le `.gitignore` de chaque
+pour tous vos projets (sans avoir à modifier le `.gitignore` de chaque
 projet), et d'autre part vous ne voulez pas forcément faire gonfler le
 `.gitignore` des projets auxquels vous contribuez avec des entrées qui
 ne concernent pas les autres.
@@ -234,7 +237,7 @@ n'existe pas). Mettez-y par exemple ce contenu :
 
 ## Invocation de maven
 
-Regarder le code de la classe `poneymon_fx.App`.
+Regardez le code de la classe `poneymon_fx.....App`.
 
 Invoquer
 
@@ -262,7 +265,7 @@ mvn test
 
 La phase de vérification doit renvoyer au moins une erreur : vos
 enseignants sont taquins et vous ont volontairement fourni du code
-avec défauts. Vous corrigerez ces défauts un peu plus tard.
+avec un ou des défauts. Vous corrigerez ces défauts un peu plus tard.
 
 En pratique on veut souvent nettoyer le dossier target, et relancer le
 processus de build, tests compris :
@@ -292,7 +295,7 @@ générer un jar exécutable incluant les bibliothèques utilisées (voir
 Tester en lancer java via
 
 ```
-java -jar target/balleauprisonnier_mvn-0.0.1-jar-with-dependencies.jar
+java -jar target/poneymon_fx-0.0.1-jar-with-dependencies.jar
 ```
 
 ## Gérer les conflits
