@@ -395,7 +395,7 @@ Ouvrez ce fichier dans votre éditeur de texte. La dernière ligne
 Remplacez-la par :
 
 ```
-    - cd lab2/poneymon_fx/ && mvn test --batch-mode
+    - cd lab2-tools/poneymon_fx/ && mvn test --batch-mode
 ```
 
 (Attention, l'indentation compte : cette ligne doit être indentée en
