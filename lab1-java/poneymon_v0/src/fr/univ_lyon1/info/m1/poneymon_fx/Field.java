@@ -63,11 +63,7 @@ public class Field extends Canvas {
          */
         this.setOnKeyPressed(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent e) {
-                String code = e.getCode().toString();
-                // only add once... prevent duplicates
-                if (!input.contains(code)) {
-                    input.add(code);
-                }
+                ; // TODO
             }
         });
 
@@ -77,8 +73,7 @@ public class Field extends Canvas {
          */
         this.setOnKeyReleased(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent e) {
-                String code = e.getCode().toString();
-                input.remove(code);
+                ; // TODO
             }
         });
 
@@ -96,11 +91,7 @@ public class Field extends Canvas {
 
                 // Deplacement et affichage des poneys
                 for (int i = 0; i < poneys.length; i++) {
-                    if (i == 0 && input.contains("RIGHT")) {
-                        poneys[i].boost();
-                    } else {
-                        poneys[i].move();
-                    }
+                    poneys[i].move();
                     poneys[i].display();
                 }
             }
