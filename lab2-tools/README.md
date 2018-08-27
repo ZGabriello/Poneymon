@@ -266,6 +266,9 @@ mvn test
 La phase de vérification doit renvoyer au moins une erreur : vos
 enseignants sont taquins et vous ont volontairement fourni du code
 avec un ou des défauts. Vous corrigerez ces défauts un peu plus tard.
+Si vous voulez, vous pouvez relancer la commande en ajoutant
+`-DskipTests  -Dcheckstyle.skip` pour sauter la phase de tests et le
+plugin checkstyle temporairement.
 
 En pratique on veut souvent nettoyer le dossier target, et relancer le
 processus de build, tests compris :
@@ -277,6 +280,7 @@ mvn clean install
 Pour lancer l’application en ligne de commande on utilise :
 
 ```
+mvn compile
 mvn exec:java
 ```
 
@@ -440,6 +444,94 @@ Il y a deux choses à corriger :
   
 Une fois ces deux corrections faites, faites un commit et un push, et
 vérifiez que l'intégration continue de la forge valide ce commit.
+
+### Quelques détails sur le pom.xml
+
+Si ce n'est pas déjà fait, parcourez le fichier `pom.xml`. C'est
+verbeux (XML), mais il n'y a rien de sorcier. En pratique, on édite
+rarement ce fichier entièrement à la main : soit on utilise un outil
+automatique, soit on copie-colle et on adapte des portions de code
+fournies sur le site des outils utilisés. Pour le cas qui nous
+intéresse, les portions importantes sont :
+
+Le plugin `exec-maven-plugin` pour lancer l'application :
+
+```
+  <plugin>
+	<groupId>org.codehaus.mojo</groupId>
+	<artifactId>exec-maven-plugin</artifactId>
+	<version>1.5.0</version>
+	<executions>
+	  <execution>
+	    <goals>
+	      <goal>java</goal>
+	    </goals>
+	  </execution>
+	</executions>
+	<configuration>
+	  <source>1.8</source>
+	  <target>1.8</target>
+	  <mainClass>fr.univ_lyon1.info.m1.poneymon_fx.App</mainClass>
+	</configuration>
+  </plugin>
+```
+
+L'important ici est de spécifier la classe principale (`<mainClass>`).
+
+Les tests utilisent l'API JUnit :
+
+```
+<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-api</artifactId>
+    <version>5.3.0-RC1</version>
+    <scope>test</scope>
+</dependency>
+```
+
+Ce morceau de code est copié-collé depuis [le site web de
+Jupiter](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api/5.3.0-RC1).
+
+La mention `<scope>test</scope>` permet de rendre cette dépendance
+disponible pendant la commande `mvn test`, mais pas dans les
+exécutions autres que les tests.
+
+Le plugin checkstyle :
+
+```
+     <plugin> <!-- https://maven.apache.org/plugins/maven-checkstyle-plugin/usage.html -->
+       <groupId>org.apache.maven.plugins</groupId>
+       <artifactId>maven-checkstyle-plugin</artifactId>
+       <version>3.0.0</version>
+       <executions>
+         <execution>
+           <id>validate</id>
+           <phase>test</phase>
+           <configuration>
+             <configLocation>src/main/config/checkstyle.xml</configLocation>
+             <encoding>UTF-8</encoding>
+             <consoleOutput>true</consoleOutput>
+	         <!-- mvn test fails for any warning or error -->
+             <failsOnError>true</failsOnError>
+             <violationSeverity>warning</violationSeverity>
+             <linkXRef>false</linkXRef>
+           </configuration>
+           <goals>
+             <goal>check</goal>
+           </goals>
+         </execution>
+       </executions>
+     </plugin>
+```
+
+Checkstyle peut être configuré pour forcer des règles différentes
+selon les projets. Le fichier de configuration est spécifié avec
+`<configLocation>`. Ici, il est configuré de manière assez stricte :
+la validation échoue pour les warnings et pas seulement pour les
+erreurs. On demande à exécuter pendant `mvn test` (via
+`<phase>test</phase>`) la cible `check` (`<goal>check</goal>`) du
+plugin.
   
 ## Et les merge-requests (alias pull-requests) ?
 
@@ -470,3 +562,24 @@ scolaire, mais si le temps le permet et que vous êtes déjà à l'aise
 avec les bases, nous vous encourrageons à expérimenter et pourquoi pas
 à lire la [documentation de GitLab sur les
 merge-requests](https://docs.gitlab.com/ce/user/project/merge_requests/).
+
+## Si le temps le permet : Maven et les IDE
+
+Les IDE comme Eclipse ou Netbeans ont besoin d'un certain nombre
+d'information sur le projet pour fonctionner correctement :
+dépendances, options de compilation, classe principale, ... Ce sont
+justement les informations fournies par le `pom.xml` ! Plutôt que de
+configurer le projet à la main dans votre IDE, vous pouvez donc
+laisser votre IDE charger le `pom.xml` :
+
+* Netbeans : le support de Maven est inclu de base dans l'outil. Il
+  suffit d'ouvrir le répertoire contenant le `pom.xml`.
+  
+* Eclipse : installer le plugin [m2e](http://www.eclipse.org/m2e/),
+  puis importer le projet en temps que projet Maven.
+
+Au niveau de la gestion de version (Git), on versionne (`git add`) le
+fichier `pom.xml`, mais pas les fichiers générés par les IDE (comme
+`.project` et `.classpath` pour Eclipse), car ceux-si peuvent être
+différents d'un utilisateur à l'autre (par exemple parce qu'ils
+contiennent des chemins absolus comme `/home/toto/.m2/...`).
