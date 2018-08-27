@@ -92,6 +92,10 @@ Réfléchissez maintenant à la dépendance entre vos classe, et à la
 visibilité (public, private, final, protected) de vos variables et
 méthodes de classe.
 
+Quelques éléments de reflexion (ne les lisez pas avant d'y avoir
+réfléchi vous-mêmes) :
+[architecture-et-dependances.md](architecture-et-dependances.md).
+
 On va maintenant permettre aux Poneys de se connaitre.
 
 -   Faites en sorte que chaque poney connaisse les autres (chaque classe
