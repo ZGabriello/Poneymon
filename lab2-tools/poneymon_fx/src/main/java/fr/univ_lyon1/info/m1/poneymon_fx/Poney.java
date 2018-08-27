@@ -20,7 +20,6 @@ public class Poney {
     // On cree trois images globales pour ne pas les recreer en permanence
     Image currentPoney;
     Image poneyImage;
-    Image poneyImageBoost;
 
     GraphicsContext graphicsContext;
 
@@ -41,10 +40,8 @@ public class Poney {
             graphicsContext = gc;
             poneyColor = color;
 
-            // On charge les deux representations possibles du Poney
+            // On charge l'image associée au poney
             poneyImage = new Image("assets/pony-" + color + "-running.gif");
-            poneyImageBoost =
-                new Image("assets/pony-" + color + "-rainbow.gif");
 
             currentPoney = poneyImage;
         }
@@ -70,16 +67,5 @@ public class Poney {
             x = -poneyImage.getWidth();
         }
         currentPoney = poneyImage;
-    }
-
-    /**
-     *  Deplacement du poney en mode boost.
-     */
-    void boost() {
-        currentPoney = poneyImageBoost;
-        x += speed * 2;
-        if (x > 520) {
-            x = -poneyImage.getWidth();
-        }
     }
 }
