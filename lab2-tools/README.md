@@ -266,9 +266,6 @@ mvn test
 La phase de vérification doit renvoyer au moins une erreur : vos
 enseignants sont taquins et vous ont volontairement fourni du code
 avec un ou des défauts. Vous corrigerez ces défauts un peu plus tard.
-Si vous voulez, vous pouvez relancer la commande en ajoutant
-`-DskipTests  -Dcheckstyle.skip` pour sauter la phase de tests et le
-plugin checkstyle temporairement.
 
 En pratique on veut souvent nettoyer le dossier target, et relancer le
 processus de build, tests compris :
@@ -284,9 +281,15 @@ mvn compile
 mvn exec:java
 ```
 
-Ou bien, on peut lancer l'application via la commande `java` :
+Ou bien, on peut lancer l'application via la commande `java` après
+avoir généré le `.jar` avec `mvn install`:
 
 ```
+# Pour cette fois, on autorise la construction du .jar même en
+# présence d'erreur dans le tests et le style (-DskipTests
+# -Dcheckstyle.skip) :
+mvn -DskipTests  -Dcheckstyle.skip install
+
 java -cp target/poneymon_fx-0.0.1-SNAPSHOT.jar fr.univ_lyon1.info.m1.poneymon_fx.App
 ```
 
@@ -481,17 +484,21 @@ L'important ici est de spécifier la classe principale (`<mainClass>`).
 Les tests utilisent l'API JUnit :
 
 ```
-<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
-<dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter-api</artifactId>
-    <version>5.3.0-RC1</version>
-    <scope>test</scope>
-</dependency>
+  <dependencies>
+    <!-- https://mvnrepository.com/artifact/junit/junit -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 ```
 
-Ce morceau de code est copié-collé depuis [le site web de
-Jupiter](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api/5.3.0-RC1).
+Ce morceau de code est copié-collé depuis l'URL donnée en commentaire.
+Nous utilisons ici JUnit 4.8 même si la version 5 est sortie, car la
+combinaison Maven + JUnit 5 + Eclipse semble poser problème pour
+l'instant.
 
 La mention `<scope>test</scope>` permet de rendre cette dépendance
 disponible pendant la commande `mvn test`, mais pas dans les
@@ -576,7 +583,8 @@ laisser votre IDE charger le `pom.xml` :
   suffit d'ouvrir le répertoire contenant le `pom.xml`.
   
 * Eclipse : installer le plugin [m2e](http://www.eclipse.org/m2e/),
-  puis importer le projet en temps que projet Maven.
+  puis importer le projet en temps que projet Maven (File -> Import...
+  -> Maven -> Existing Maven Projects).
 
 Au niveau de la gestion de version (Git), on versionne (`git add`) le
 fichier `pom.xml`, mais pas les fichiers générés par les IDE (comme
