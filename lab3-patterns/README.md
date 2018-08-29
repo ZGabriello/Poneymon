@@ -89,6 +89,15 @@ vue doit s'afficher en plus de la vue principale (vous pouvez au choix
 utiliser une seconde fenêtre graphique ou l'affichage texte via
 `System.out`).
 
+#### Anticiper sur le TP 5 "test"
+
+Avant d'aller plus loin sur les extensions, c'est une bonne idée de
+progresser en tests : nous serons plus en sécurité pour continuer le
+refactoring et les extensions avec une bonne base de tests. Allez
+jeter un œil au [TP "Test"](../lab5-test/README.md) (en particulier la
+section sur le TDD), et revenez pour la suite de ce TP après. A vous
+de voir dans quel ordre vous voulez avancer précisément.
+
 ### Partie 3 : Extension
 
 #### Boutons pour contrôler le jeu

@@ -25,7 +25,11 @@
 
 ## Course 5: Design-patterns
 
-## Lab 3 & 4:
+## Lab 3 & 4: design patterns & refactoring
 
 * [lab3-patterns/README.md](lab3-patterns/README.md) and some help
   with [MVC](lab3-patterns/mvc.md)
+
+## Lab 5: tests
+
+* [lab5-tests/README.md](lab5-tests/README.md)
