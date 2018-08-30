@@ -25,6 +25,8 @@
 
 ## Course 5: Design-patterns
 
+* Les transparents : [CM-patterns.pdf](https://perso.liris.cnrs.fr/lionel.medini/enseignement/M1IF01/CM-patterns.pdf)
+
 ## Lab 3 & 4: design patterns & refactoring
 
 * [lab3-patterns/README.md](lab3-patterns/README.md) and some help
