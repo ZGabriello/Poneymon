@@ -66,8 +66,9 @@ le bouton « save changes ».
 Pour vérifier que votre projet est bien privé (indispensable),
 retournez à la page d'accueil de votre projet
 (`https://forge.univ-lyon1.fr/votre.nom/m1if01`) et copiez l'URL.
-Ouvrez une fenêtre de navigation privée (Control-Shift-P sous Firefox,
-Control-Shift-N sous Chrom{e,ium}), et collez l'URL de votre projet
+Ouvrez une fenêtre de navigation privée
+(<kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> sous Firefox,
+<kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> sous Chrom{e,ium}), et collez l'URL de votre projet
 dans la barre d'URL. Comme le projet est privé, vous devez avoir le
 message « You need to sign in or sign up before continuing. ». Si ce
 n'est pas le cas, vous avez raté quelque chose, recommencez la
@@ -371,7 +372,7 @@ chaque push, et dans quel environnent. Cela se fait dans le fichier
 `.gitlab-ci.yml` à la racine de votre projet Git. Un `.gitlab-ci.yml`
 typique pour un petit projet ressemble à ceci :
 
-```
+```yaml
 tests:
   image: ubuntu
   script:
@@ -459,7 +460,7 @@ intéresse, les portions importantes sont :
 
 Le plugin `exec-maven-plugin` pour lancer l'application :
 
-```
+```xml
   <plugin>
 	<groupId>org.codehaus.mojo</groupId>
 	<artifactId>exec-maven-plugin</artifactId>
@@ -483,7 +484,7 @@ L'important ici est de spécifier la classe principale (`<mainClass>`).
 
 Les tests utilisent l'API JUnit :
 
-```
+```xml
   <dependencies>
     <!-- https://mvnrepository.com/artifact/junit/junit -->
     <dependency>
@@ -506,7 +507,7 @@ exécutions autres que les tests.
 
 Le plugin checkstyle :
 
-```
+```xml
      <plugin> <!-- https://maven.apache.org/plugins/maven-checkstyle-plugin/usage.html -->
        <groupId>org.apache.maven.plugins</groupId>
        <artifactId>maven-checkstyle-plugin</artifactId>
@@ -583,8 +584,8 @@ laisser votre IDE charger le `pom.xml` :
   suffit d'ouvrir le répertoire contenant le `pom.xml`.
   
 * Eclipse : installer le plugin [m2e](http://www.eclipse.org/m2e/),
-  puis importer le projet en temps que projet Maven (File -> Import...
-  -> Maven -> Existing Maven Projects).
+  puis importer le projet en temps que projet Maven (File → Import...
+  → Maven → Existing Maven Projects).
 
 Au niveau de la gestion de version (Git), on versionne (`git add`) le
 fichier `pom.xml`, mais pas les fichiers générés par les IDE (comme

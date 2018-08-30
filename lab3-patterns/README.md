@@ -64,7 +64,7 @@ vues, identiques ou non, d'un modèle donné. On peut vérifier
 simplement que notre MVC vérifie cette propriété en ajoutant quelque
 chose comme ceci dans le programme principal :
 
-```
+```java
 // Secondary view
 Stage s2 = new Stage();
 JfxView v2 = new JfxView(s2, 5, 1000, 600);
@@ -110,7 +110,7 @@ interface « jolie » : concentrez-vous sur le fond.
 Un moyen simple d'ajouter une barre de boutons en haut de l'écran est
 d'ajouter ceci après `root.getChildren().add(field);` :
 
-```
+```java
 HBox hb = new HBox(); // Boite où ranger les éléments horizontalement
 
 Button hello = new Button("Say hello");

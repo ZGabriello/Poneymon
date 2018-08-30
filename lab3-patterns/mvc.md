@@ -88,7 +88,7 @@ coordonnées sont mis à jour en interrogeant le modèle à chaque fois
 que le contrôleur notifie la vue qu'un changement a eu lieu.
 
 `PoneyView` et `FieldView` ont chacun une méthode `display()` qui fait
-l'affichage effectif (remplissage du fond en gris our `FieldView`, et
+l'affichage effectif (remplissage du fond en gris pour `FieldView`, et
 affichage de l'image pour `PoneyView`).
 
 `FieldView` s'occupe également de rattraper les évènements claviers
@@ -97,7 +97,7 @@ affichage de l'image pour `PoneyView`).
 Au final, la fonction principale de notre application peut être aussi
 simple que :
 
-```
+```java
     @Override
     public void start(Stage stage) throws Exception {
         FieldModel m = new FieldModel(5); // 5 poneys

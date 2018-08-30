@@ -99,7 +99,7 @@ l'utilisateur) : du code qui teste du code.
 
 Vos pouvez créer la classe de test soit à la
 main, soit en vous laissant guider par votre IDE (exemple sous
-Eclipse : clic droit sur le projet -> « New » -> « Other... » ->
+Eclipse : clic droit sur le projet → « New » → « Other... » →
 « JUnit test case »). Vous devez obtenir une classe
 `CharManipulatorTest` dans `src/test/java` (et non `src/main/java` !)
 qui :
@@ -132,7 +132,7 @@ Essayez de faire les mêmes tests via votre IDE (Sous Eclipse,
 <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>x</kbd> puis <kbd>t</kbd> pour
 lancer le test, <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>d</kbd> puis
 <kbd>t</kbd> pour faire la même chose en mode debug, ou à la souris :
-Clic droit sur un fichier ou un projet -> « Run as » -> « JUnit
+Clic droit sur un fichier ou un projet → « Run as » → « JUnit
 test »)
 
 vous aurez ainsi une jolie barre qui partira rouge et se colorera de
@@ -266,7 +266,7 @@ Faites ensuite de même pour `invertCase`. Pour préciser :
 
 * La fonction `invertCase` est censée inverser la casse, c’est-à-dire inverser les majuscules et les minuscules.
 
-* exemple : "abCD" -> "ABcd"
+* exemple : "abCD" → "ABcd"
 
 ### Test-Driven Development (TDD)
 
