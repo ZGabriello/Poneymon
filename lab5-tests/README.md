@@ -29,11 +29,9 @@ Répondez à quelques questions, comme quel est le :
 
 * `artefactId` : `tp_test`
 
-* `version` : laissez la valeur par défaut (`1.0-SNAPSHOT`) en appuyant sur Entrée
+* `version` : laissez la valeur par défaut (`1.0-SNAPSHOT`) en appuyant sur <kbd>Entrée</kbd>
 
 * `package` : laissez la valeur par défaut (`fr.univ_lyon1.info.m1`)
-
-ou tapez "Entrée" pour valider les choix proposés par défaut.
 
 ## Parcours du projet de test
 
@@ -115,17 +113,27 @@ qui :
   un appel à `fail(...)`, supprimez-le pour l'instant), et à laquelle
   est attachée une annotation `@Test`
 
-Attention, si votre classe dérive de `TestCase`, votre projet utilise JUnit 3 !
-Vous devrez probablement rajouter JUnit4 au path de votre projet, soit en sélectionnant la bonne option lors de la création du test, soit en l’ajoutant à la main.
+Attention, si votre classe dérive de `TestCase`, votre projet utilise
+JUnit 3 ! Vous devrez probablement rajouter JUnit4 au path de votre
+projet, soit en sélectionnant la bonne option lors de la création du
+test, soit en l’ajoutant à la main.
 
-Pour vérifier que vous avez bien tout fait comme il faut, exécutez `mvn test` à la racine de votre projet. Il devrait afficher un gros "Build success" en vert, avec un seul "test run".
-Pour être vraiment sûrs que votre projet est bien configuré, faites échouer votre test. Rappel : un test Junit échoue lorsqu’une exception non catchée est lancée. Pour faire simple, vous pouvez utiliser la fonction `fail(String message);` de JUnit 4. Ensuite, ré-effectuez un  `mvn test`, qui cette fois doit échouer.
-Tout va bien ? Parfait, passez à la suite.
+Pour vérifier que vous avez bien tout fait comme il faut, exécutez
+`mvn test` à la racine de votre projet. Il devrait afficher un gros
+"Build success" en vert, avec un seul "test run". Pour être vraiment
+sûrs que votre projet est bien configuré, faites échouer votre test.
+Rappel : un test Junit échoue lorsqu’une exception non catchée est
+lancée. Pour faire simple, vous pouvez utiliser la fonction
+`fail(String message);` de JUnit 4. Ensuite, ré-effectuez un `mvn
+test`, qui cette fois doit échouer. Tout va bien ? Parfait, passez à
+la suite.
 
 Essayez de faire les mêmes tests via votre IDE (Sous Eclipse,
-`Alt-Shift-x` puis `t` pour lancer le test, `Alt-Shift-d` puis `t`
-pour faire la même chose en mode debug, ou à la souris : Clic droit
-sur un fichier ou un projet -> « Run as » -> « JUnit test »)
+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>x</kbd> puis <kbd>t</kbd> pour
+lancer le test, <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>d</kbd> puis
+<kbd>t</kbd> pour faire la même chose en mode debug, ou à la souris :
+Clic droit sur un fichier ou un projet -> « Run as » -> « JUnit
+test »)
 
 vous aurez ainsi une jolie barre qui partira rouge et se colorera de
 vert à mesure de votre avancée, et vous pourrez ouvrir l'éditeur sur
@@ -297,7 +305,8 @@ Votre IDE a probablement souligné `removePattern`.
 
 Pour écrire le code nécessaire pour que votre test soit compilable,
 vous pouvez vous aider de votre IDE. Par exemple avec Eclipse, en
-passant la souris sur le code souligné (ou bien Control-1 au clavier),
+passant la souris sur le code souligné (ou bien <kbd>Control</kbd>
++<kbd>1</kbd> au clavier),
 l'IDE propose comme correction du problème « create method
 `removePattern(...)` ». Choisissez cette option : l'IDE génère pour
 vous un squelette de méthode. Vérifiez et adaptez le prototype de la
@@ -307,8 +316,9 @@ bien deviné les types des arguments, il n'a probablement pas inventé
 de nom pertinent : à vous de le faire.
 
 Une fois le squelette de méthode concrète défini, on peut demander à
-l'IDE de l'ajouter dans l'interface (toujours Control-1 sous Eclipse,
-puis « create `removePattern()` in super type »).
+l'IDE de l'ajouter dans l'interface (toujours
+<kbd>Control</kbd>+<kbd>1</kbd> sous Eclipse, puis « create
+`removePattern()` in super type »).
 
 Vous pouvez maintenant lancer le test : il est compilable, mais doit
 échouer. S'il n'échoue pas, c'est que vous avez mal écrit votre test
@@ -339,8 +349,8 @@ code, ...
 
 Votre IDE peut vous aider ici aussi (sous Eclipse, regardez le contenu
 de menu « Refactor », accessible via un clic droit sur du code ou bien
-Shift-Alt-t). Refaites passer les tests régulièrement pour vérifier
-que vous n'avez rien cassé.
+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>t</kbd>). Refaites passer les
+tests régulièrement pour vérifier que vous n'avez rien cassé.
 
 #### Commit :-)
 
@@ -373,10 +383,19 @@ tests :
 * Les outils de mock comme [Mockito](https://site.mockito.org/), qui
   vous permettent de fabriquer des « mocks », c'est à dire des faux
   objets, pour tester une classe sans avoir besoin d'instancier ses
-  dépendances. Par exemple, on pourrait tester le controleur de notre
-  programme MVC en isolution en faisant des « mocks » de la vue et du
+  dépendances. Par exemple, on pourrait tester le contrôleur de notre
+  programme MVC en isolation en faisant des « mocks » de la vue et du
   modèle.
-
+  
+* Les bibliothèques d'assertions avancées, comme alternative aux
+  assertions JUnit, comme
+  [AssertJ](http://joel-costigliola.github.io/assertj/) ou [Google
+  truth](http://google.github.io/truth/) qui permettent d'écrire des
+  assertions plus proches du langage naturel
+  (`assertThat(string).startsWith("awe");` : enlevez la ponctuation et
+  vos avez la phrase en anglais) et de mieux bénéficier de la
+  complétion automatique de votre IDE.
+  
 ## Tests unitaires du projet
 
 Vous avez probablement beaucoup modifié le projet de base lors du TP
