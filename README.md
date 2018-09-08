@@ -15,7 +15,12 @@
 
 * [lab2-tools/README.md](lab2-tools/README.md)
 
-## Course 3: use-cases
+## Course 3: Coding style and use-cases
+
+* [03-coding-style-slides.pdf](03-coding-style-slides.pdf)
+  (printable version: [03-coding-style-handout.pdf](03-coding-style-handout.pdf))
+
+* [04-UML-CU.pdf](04-UML-CU.pdf)
 
 ## Tutorial 1: use-cases
 
