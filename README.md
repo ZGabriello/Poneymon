@@ -22,7 +22,10 @@
 
 * [04-UML-CU.pdf](04-UML-CU.pdf)
 
-## Tutorial 1: use-cases
+## Tutorial 1: Use-cases and coding style
+
+* [tuto1-uc-style/TD_UseCaseFffound_et_style.pdf](tuto1-uc-style/TD_UseCaseFffound_et_style.pdf)
+  (corrigé : [tuto1-uc-style/TD_UseCaseFffound_et_style_correction.pdf](tuto1-uc-style/TD_UseCaseFffound_et_style_correction.pdf))
 
 ## Course 4: Agile
 
