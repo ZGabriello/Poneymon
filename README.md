@@ -9,7 +9,10 @@
 
 * [lab1-java/README.md](lab1-java/README.md)
 
-## Course 2: Build tools, dependency management
+## Course 2: Build tools, dependency management, forge
+
+* [02-cm-maven-forge-ic-slides.pdf](02-cm-maven-forge-ic-slides.pdf)
+  (printable version: [02-cm-maven-forge-ic-handout.pdf](02-cm-maven-forge-ic-handout.pdf))
 
 ## Lab 2: 
 
