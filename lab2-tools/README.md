@@ -632,6 +632,8 @@ la section `<dependencies>` le code suivant :
 Un fichier `pom.xml` complet incluant cette section est disponible
 dans [../lib/pom-jfxrt-hack.xml](../lib/pom-jfxrt-hack.xml).
 
+### Compilation et exécution
+
 Vous pouvez maintenant compiler votre projet normalement :
 
     mvn compile
