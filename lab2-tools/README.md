@@ -18,6 +18,11 @@ Ce TP est à réaliser de préférence sous Linux (accès à `mvn` et `git`
 en ligne de commande). L’utilisation d’IDE est n’est pas recommandée
 pour ce TP.
 
+Sur les machines de Lyon 1, Maven n'est pas installé sous Windows donc
+vous ne pourrez travailler que sous Linux. Une fois tout cela mis en
+place, vous pourez travailler sous Windows si vous le souhaitez avec
+Eclipse et le plugin m2e.
+
 ## Démarrage
 
 ### Installations
@@ -245,6 +250,10 @@ Invoquer
 ```
 mvn compile
 ```
+
+Si vous avez des erreurs en rapport avec JavaFX (c'est le cas sur les
+machines de Lyon 1), lisez la section « Installation manuelle de
+JavaFX » en bas de cette page.
 
 à la racine du projet et constater que la construction du projet est
 bien déclenchée.
@@ -592,3 +601,47 @@ fichier `pom.xml`, mais pas les fichiers générés par les IDE (comme
 `.project` et `.classpath` pour Eclipse), car ceux-si peuvent être
 différents d'un utilisateur à l'autre (par exemple parce qu'ils
 contiennent des chemins absolus comme `/home/toto/.m2/...`).
+
+## Installation manuelle de JavaFX
+
+En principe, JavaFX est installé avec Java, et n'est donc pas une
+dépendence explicite dans le `pom.xml`. En pratique, malheureusement,
+les distributions Linux fournissent souvent Java sans JavaFX. Lorsque
+c'est possible, le mieux est d'installer JavaFX en utilisant le
+gestionnaire de paquets de sa distribution. Sur les machines de la fac
+où vous n'êtes pas root, voici un contournement (malheureusement peu
+satisfaisant) :
+
+### Ajout de la dépendance dans pom.xml
+
+Ajoutez JavaFX comme une dépendance dans pom.xml. Vu que JavaFX n'est
+pas packagé pour Maven, il y a une syntaxe particulière. Ajoutez dans
+la section `<dependencies>` le code suivant :
+
+```xml
+   <dependency>
+      <groupId>javafx</groupId>
+      <artifactId>jfxrt</artifactId>
+      <version>2.0</version>
+      <type>jar</type>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/../../lib/jfxrt.jar</systemPath>
+    </dependency>
+```
+
+Un fichier `pom.xml` complet incluant cette section est disponible
+dans [../lib/pom-jfxrt-hack.xml](../lib/pom-jfxrt-hack.xml).
+
+Vous pouvez maintenant compiler votre projet normalement :
+
+    mvn compile
+	
+Pour l'exécution, la dépendance que nous avons ajoutée n'est pas
+incluse automatiquement dans le `CLASSPATH`, mais on peut demander à
+avoir le même `CLASSPATH` à l'exécution qu'à la compilation :
+
+    mvn exec:java -Dexec.classpathScope=compile
+
+Notez que cette section présente un hack peu élégant, ce qui est assez
+ironique en cours de GL. La solution propre est bien sûr d'installer
+proprement JavaFX sur la machine.

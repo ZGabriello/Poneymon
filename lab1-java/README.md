@@ -26,11 +26,17 @@ Pour développer en Java durant le TP, vous pouvez choisir d'utiliser :
     effectuer la compilation et l'exécution en ligne de commande
     (*javac*, *java*)
 
+Vous pouvez travailler au choix sous Linux ou sous Windows.
+
 En cas de problème avec Linux, il peut être nécessaire d'installer
 JavaFX explicitement (`sudo apt install openjfx` sous Ubuntu 18.04).
-Si votre distribution ne le fournit pas, utilisez le [le fichier
-jfxrt.jar](../lib/jfxrt.jar) (disponible dans l'archive Git du cours),
-et rajoutez-le dans votre `CLASSPATH`.
+Si votre distribution ne le fournit pas, ou bien sur les machines de
+Lyon 1 où il n'est pas completement installé, utilisez la bibliothèque
+fournie dans le dépôt Git du cours. Nous vous fournissons un script à
+sourcer dans votre shell :
+
+    source lib/setup-local-jfxrt.sh
+
 Si vous avez installé JavaFX via votre distribution et que Java ne
 trouve pas les classes JavaFX, ajoutez explicitement les fichiers JAR
 concernés à votre classpath, avec quelque chose comme :

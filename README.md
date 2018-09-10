@@ -9,26 +9,15 @@
 
 * [lab1-java/README.md](lab1-java/README.md)
 
-## Course 2: Build tools, dependency management, forge
-
-* [02-cm-maven-forge-ic-slides.pdf](02-cm-maven-forge-ic-slides.pdf)
-  (printable version: [02-cm-maven-forge-ic-handout.pdf](02-cm-maven-forge-ic-handout.pdf))
+## Course 2: Build tools, dependency management
 
 ## Lab 2: 
 
 * [lab2-tools/README.md](lab2-tools/README.md)
 
-## Course 3: Coding style and use-cases
+## Course 3: use-cases
 
-* [03-coding-style-slides.pdf](03-coding-style-slides.pdf)
-  (printable version: [03-coding-style-handout.pdf](03-coding-style-handout.pdf))
-
-* [04-UML-CU.pdf](04-UML-CU.pdf)
-
-## Tutorial 1: Use-cases and coding style
-
-* [tuto1-uc-style/TD_UseCaseFffound_et_style.pdf](tuto1-uc-style/TD_UseCaseFffound_et_style.pdf)
-  (corrigé : [tuto1-uc-style/TD_UseCaseFffound_et_style_correction.pdf](tuto1-uc-style/TD_UseCaseFffound_et_style_correction.pdf))
+## Tutorial 1: use-cases
 
 ## Course 4: Agile
 

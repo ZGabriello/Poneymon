@@ -48,12 +48,45 @@ En d'autres termes, nous vous imposons un modèle MVC.
 L’utilisation d’entrées claviers ou souris entraînera des changements
 dans le modèle métier en passant par un contrôleur.
 
-Essayez d'appliquer un maximum de patterns vus en cours, et documentez
-dans votre rapport lesquels vous avez utilisé.
+Appliquez un maximum de patterns et principes vus en cours, et
+documentez dans votre rapport lesquels vous avez utilisé.
+
+Ne vous contentez pas de vous dire (ni d'écrire dans votre rapport)
+« nous faisons du MVC » ! Il y a bien plus de questions à vous poser,
+comme par exemple :
+
+* Comment faire communiquer Modèle, Vue et Contrôleur ? Des appels de
+  méthodes directement sur les classes ? Un patron
+  « [Observateur](https://en.wikipedia.org/wiki/Observer_pattern) » ?
+  Un appel de méthode en passant par une classe abstraite ou une
+  interface pour faire une inversion de dépendance (le « D » de
+  [SOLID](https://en.wikipedia.org/wiki/SOLID)) ?
+  
+* Comment découper Modèle, Vue et Contrôleur ? Par exemple, mettre
+  tout le modèle dans une classe violerait le
+  [SRP](https://en.wikipedia.org/wiki/Single_responsibility_principle),
+  mais comment le découper correctement ? Comment faire circuler
+  l'information d'une classe à l'autre
+  ([delegation](https://en.wikipedia.org/wiki/Delegation_pattern) ?
+  Observateur ? ...) ? L'API exposée au reste du programme doit-elle
+  refléter la structure de nos classes, ou bien est-ce pertinent
+  d'utiliser une
+  [facade](https://en.wikipedia.org/wiki/Facade_pattern) pour en
+  exposer une plus simple via des
+  [indirections](https://en.wikipedia.org/wiki/GRASP_(object-oriented_design)#Indirection) ?
+  
+* ...
+
+Reprenez les transparents du cours et parcourez la liste des patterns
+GRASP, des patterns de création, de structure, des principes SOLID, et
+posez-vous la question de l'applicabilité sur votre projet.
 
 Si vous êtes assez à l'aise avec les design patterns, à vous de jouer,
 vous êtes libres ! Si vous voulez plus de conseils, voici quelques
-éléments pour démarrer : [Mettre en place le pattern MVC](mvc.md)
+éléments pour démarrer : [Mettre en place le pattern MVC](mvc.md). Ce
+document donne quelques éléments de réponses aux questions ci-dessus,
+mais ce ne sont ni les seules questions ni les seules réponses
+pertinentes.
 
 ### Partie 2 : Vérification de la flexibilité du MVC
 
@@ -99,6 +132,11 @@ section sur le TDD), et revenez pour la suite de ce TP après. A vous
 de voir dans quel ordre vous voulez avancer précisément.
 
 ### Partie 3 : Extension
+
+Dans toute cette partie, l'ajout de fonctionnalité est un prétexte
+pour se servir de design-patterns. Ajoutez chaque fonctionnalité en
+appliquant les principes et patterns vus en cours, et justifiez-le
+dans le rapport.
 
 #### Boutons pour contrôler le jeu
 
@@ -156,9 +194,12 @@ Assurez-vous que votre programme respecte toujours le style imposé
 
 #### Ajouter des règles
 
-A vous de jouer pour la suite : vous pouvez ajouter des obstacles, des
-pièces bonus à ramasser pour prolonger/augmenter le boost, des
-possibilités de tacler les poneys suffisament proches, ...
+A vous de jouer pour la suite : vous pouvez ajouter d'autres types de
+coureurs que les Poneys (pourquoi pas des crocodiles qui avanceraient
+plus doucement mais croqueraient les poneys qui s'aventureraient trop
+près d'eux sans courir assez vite ?), des pièces bonus à ramasser pour
+prolonger/augmenter le boost, des possibilités de tacler les poneys
+suffisament proches, ...
 
 Rendu du TP / projet
 --------------------
