@@ -28,8 +28,16 @@ Pour développer en Java durant le TP, vous pouvez choisir d'utiliser :
 
 En cas de problème avec Linux, il peut être nécessaire d'installer
 JavaFX explicitement (`sudo apt install openjfx` sous Ubuntu 18.04).
-Si votre distribution ne le fournit pas, télécharger le [le fichier
-jfxrt.jar](../lib/jfxrt.jar), et rajoutez-le dans votre `CLASSPATH`.
+Si votre distribution ne le fournit pas, utilisez le [le fichier
+jfxrt.jar](../lib/jfxrt.jar) (disponible dans l'archive Git du cours),
+et rajoutez-le dans votre `CLASSPATH`.
+Si vous avez installé JavaFX via votre distribution et que Java ne
+trouve pas les classes JavaFX, ajoutez explicitement les fichiers JAR
+concernés à votre classpath, avec quelque chose comme :
+
+    CLASSPATH="$CLASSPATH":/usr/share/java/openjfx/jre/lib/ext/jfxrt.jar
+    CLASSPATH="$CLASSPATH":/usr/share/java/openjfx/jre/lib/jfxswt.jar
+    export CLASSPATH
 
 Travail demandé
 ---------------
