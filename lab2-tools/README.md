@@ -18,10 +18,15 @@ Ce TP est à réaliser de préférence sous Linux (accès à `mvn` et `git`
 en ligne de commande). L’utilisation d’IDE est n’est pas recommandée
 pour ce TP.
 
-Sur les machines de Lyon 1, Maven n'est pas installé sous Windows donc
-vous ne pourrez travailler que sous Linux. Une fois tout cela mis en
-place, vous pourez travailler sous Windows si vous le souhaitez avec
-Eclipse et le plugin m2e.
+Sur les machines de Lyon 1, Maven n'est pas installé sous Windows.
+Vous pouvez tout de même travailler sous Windows mais vous devrez
+[installer Maven sur votre
+compte](https://www.mkyong.com/maven/how-to-install-maven-in-windows/).
+Vous pouvez aussi travailler sous Linux pour les manipulations avec
+`mvn`.
+
+Pour les TPs suivants, vous pourrez travailler avec un IDE (Eclipse
+avec plugin m2e et IntelliJ sont installés sous Windows à Lyon 1).
 
 ## Démarrage
 
