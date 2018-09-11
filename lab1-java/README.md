@@ -65,8 +65,8 @@ Décompressez l'archive dans un dossier sur votre compte. Explorez le
 code source. Compilez et lancez le programme principal *Poneymon*.
 
 Consultez la documentation de [Java
-8](https://docs.oracle.com/javase/10/docs/api/overview-summary.html) et de
-[JavaFX Graphics](https://docs.oracle.com/javase/10/docs/api/javafx.graphics-summary.html)
+8](https://docs.oracle.com/javase/8/docs/api/overview-summary.html) et de
+[JavaFX Graphics](https://docs.oracle.com/javase/8/javafx/api/toc.htm)
 (la bibliothèque graphique utilisée).
 
 > Il est possible qu'Eclipse signale une erreur ou un warning de
