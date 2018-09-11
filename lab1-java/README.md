@@ -73,6 +73,11 @@ Consultez la documentation de [Java
 > restriction d'access lors de l'utilisation de javafx. Ce problème peut
 > être résolu en [modifiant les propriétés du projet pour autoriser
 > javafx](http://stackoverflow.com/questions/22812488/using-javafx-in-jre-8).
+> En résumé : clic droit sur le projet dans le project / package
+> explorer > Properties > Section Java Build Path > Onglet Libraries >
+> Selectionner Access Rules > Cliquer sur le bouton Edit > Cliquer sur
+> le bouton Add > Changer l'option "Forbbiden" en "Accessible" et
+> saisir "javafx/**" comme Rule pattern.
 
 ### Amélioration du programme
 
