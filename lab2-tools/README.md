@@ -317,7 +317,7 @@ générer un jar exécutable incluant les bibliothèques utilisées (voir
 Tester en lancer java via
 
 ```
-java -jar target/poneymon_fx-0.0.1-jar-with-dependencies.jar
+java -jar target/poneymon_fx-0.0.1-SNAPSHOT-jar-with-dependencies.jar
 ```
 
 ## Gérer les conflits
