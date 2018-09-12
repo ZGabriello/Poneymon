@@ -154,6 +154,13 @@ Dans le navigateur, naviguez dans le dépôt: vous pouvez voir les
 révisions déjà présentes et même regarder le code source en ligne, ainsi
 que les différences entre les révisions.
 
+Il est probable que vous voyez une erreur comme celle-ci :
+
+![commit: running](../fig/commit-error.png)
+
+Ne paniquez pas : le commit est bien là, c'est l'intégration continue
+qui a échouée, vous verrez pourquoi à la fin du TP.
+
 ## .gitignore et gestion d’un ticket
 
 Les utilitaires comme Maven génèrent un grand nombre de fichiers qu'ils ne
