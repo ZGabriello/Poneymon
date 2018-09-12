@@ -622,7 +622,7 @@ les distributions Linux fournissent souvent Java sans JavaFX. Lorsque
 c'est possible, le mieux est d'installer JavaFX en utilisant le
 gestionnaire de paquets de sa distribution. Sur les machines de la fac
 où vous n'êtes pas root, voici un contournement (malheureusement peu
-satisfaisant) :
+satisfaisant), à lire jusqu'au bout :
 
 ### Ajout de la dépendance dans pom.xml
 
@@ -644,7 +644,7 @@ la section `<dependencies>` le code suivant :
 Un fichier `pom.xml` complet incluant cette section est disponible
 dans [../lib/pom-jfxrt-hack.xml](../lib/pom-jfxrt-hack.xml).
 
-### Compilation et exécution
+### Compilation et exécution avec Maven
 
 Vous pouvez maintenant compiler votre projet normalement :
 
@@ -659,3 +659,10 @@ avoir le même `CLASSPATH` à l'exécution qu'à la compilation :
 Notez que cette section présente un hack peu élégant, ce qui est assez
 ironique en cours de GL. La solution propre est bien sûr d'installer
 proprement JavaFX sur la machine.
+
+### Exécution en Java "de base"
+
+La commande `java` a besoin aussi d'avoir le bon classpath. Si vous
+préférez `java` à `mvn`, vous pouvez lancer l'application avec :
+
+    java -cp $PWD/../../lib/jfxrt.jar:target/poneymon_fx-0.0.1-SNAPSHOT-jar-with-dependencies.jar  fr.univ_lyon1.info.m1.poneymon_fx.App
