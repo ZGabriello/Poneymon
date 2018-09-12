@@ -10,7 +10,7 @@ import javafx.scene.image.Image;
  *
  */
 public class Poney {
-    static final int X_INIT = -100 ;
+    static final int X_INIT = -100;
 
     double x;       // position horizontale du poney
     final double y; // position verticale du poney

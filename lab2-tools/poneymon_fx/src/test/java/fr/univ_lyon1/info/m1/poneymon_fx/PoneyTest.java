@@ -31,7 +31,7 @@ public class PoneyTest {
         p.move();
 
         // Then
-        assertEquals(p.x, 0.43,  // TODO: wrong expected value (should be 0.42)
+        assertEquals(p.x, 0.42,  // TODO: wrong expected value (should be 0.42)
                      0.001);
     }
 }
