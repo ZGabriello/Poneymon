@@ -8,8 +8,8 @@
   <packaging>jar</packaging>
 
   <name>poneymon_fx</name>
-  <url>https://forge.univ-lyon1.fr/matthieu.moy/m1if01</url>
-  
+  <url>https://forge.univ-lyon1.fr/p1103680/m1if01</url>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
