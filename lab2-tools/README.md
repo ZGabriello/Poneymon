@@ -504,14 +504,14 @@ Les tests utilisent l'API JUnit :
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.8.1</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
 ```
 
 Ce morceau de code est copié-collé depuis l'URL donnée en commentaire.
-Nous utilisons ici JUnit 4.8 même si la version 5 est sortie, car la
+Nous utilisons ici JUnit 4.12 même si la version 5 est sortie, car la
 combinaison Maven + JUnit 5 + Eclipse semble poser problème pour
 l'instant.
 
