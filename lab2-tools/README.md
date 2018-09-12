@@ -391,7 +391,7 @@ Avant tout, vérifiez que les pipelines sont activés sur votre projet :
 Il faut maintenant dire à GitLab quelle commande il doit lancer à
 chaque push, et dans quel environnent. Cela se fait dans le fichier
 `.gitlab-ci.yml` à la racine de votre projet Git. Un `.gitlab-ci.yml`
-typique pour un petit projet ressemble à ceci :
+typique pour un petit projet (pas pour le notre) ressemble à ceci :
 
 ```yaml
 tests:
@@ -409,15 +409,16 @@ termine par `exit 1`), on considère que les tests échouent.
 ### Mise en place
 
 Pour notre projet, nous vous fournissons un `.gitlab-ci.yml` qui fait
-un peu plus que cela :
+un peu plus que cela. Ouvrez le fichier
+[../gitlab-ci.yml](../gitlab-ci.yml). Ce fichier permet de :
 
-* Utilisation d'une image docker sur laquelle Maven et JavaFX sont
+* Utiliser une image docker sur laquelle Maven et JavaFX sont
   disponibles.
   
-* Mise en cache du répertoire `.m2/repository`, pour éviter de
+* Mettre en cache le répertoire `.m2/repository`, pour éviter de
   re-télécharger toutes les dépendances à chaque pipeline.
   
-* Configuration du proxy HTTP, qui est nécessaire sur la forge Lyon 1.
+* Configurer le proxy HTTP, qui est nécessaire sur la forge Lyon 1.
 
 Ouvrez ce fichier dans votre éditeur de texte. La dernière ligne
 (derrière `script:`) ne fait pour l'instant rien d'intelligent.
