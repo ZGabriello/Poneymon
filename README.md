@@ -28,7 +28,7 @@
 ## Tutorial 1: Use-cases and coding style
 
 * [tuto1-uc-style/TD_UseCaseFffound_et_style.pdf](tuto1-uc-style/TD_UseCaseFffound_et_style.pdf)
-  (corrigé : [tuto1-uc-style/TD_UseCaseFffound_et_style_correction.pdf](tuto1-uc-style/TD_UseCaseFffound_et_style_correction.pdf))
+  (corrected version : [tuto1-uc-style/TD_UseCaseFffound_et_style_correction.pdf](tuto1-uc-style/TD_UseCaseFffound_et_style_correction.pdf))
 
 ## Course 4: Agile
 
@@ -36,7 +36,7 @@
 
 ## Course 5: Design-patterns
 
-* Les transparents : [CM-patterns.pdf](https://perso.liris.cnrs.fr/lionel.medini/enseignement/M1IF01/CM-patterns.pdf)
+* Slides : [CM-patterns.pdf](https://perso.liris.cnrs.fr/lionel.medini/enseignement/M1IF01/CM-patterns.pdf)
 
 ## Lab 3 & 4: design patterns & refactoring
 
@@ -46,3 +46,28 @@
 ## Lab 5: tests
 
 * [lab5-tests/README.md](lab5-tests/README.md)
+
+# How to use this repository
+
+This repository contains course material and code skeletons. The
+recommended way to use it is:
+
+* Fork the project from
+  https://forge.univ-lyon1.fr/matthieu.moy/m1if01 and make it private.
+  
+* Clone your fork and work in the fork.
+
+To get updates from the teacher's repository, run once :
+
+    git remote add moy https://forge.univ-lyon1.fr/matthieu.moy/m1if01.git
+
+Then, each time you want to fetch updates, run :
+
+    git pull moy master
+
+This downloads and applies changes made by the teachers. You can keep
+working as usual with your private repository. In summary:
+
+    git pull            # get changes from your private fork (i.e. your co-worker)
+	git push            # send changes to your private fork
+	git pull moy master # get updates from teachers
