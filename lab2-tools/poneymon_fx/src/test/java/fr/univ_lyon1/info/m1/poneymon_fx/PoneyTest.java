@@ -18,12 +18,12 @@ public class PoneyTest {
     }
 
     /**
-     * Simple example test for the Poney class.
+     * Simple example test for the PoneyModel class.
      */
     @Test
     public void testMoveSpeed() {
         // Given
-        Poney p = new PoneyModel("green", 0);
+        PoneyModel p = new PoneyModel("green", 0);
         p.speed = 0.42;
         p.x = 0;
 
