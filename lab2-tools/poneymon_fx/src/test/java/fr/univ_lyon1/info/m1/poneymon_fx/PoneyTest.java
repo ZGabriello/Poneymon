@@ -23,12 +23,12 @@ public class PoneyTest {
     @Test
     public void testMoveSpeed() {
         // Given
-        Poney p = new Poney(null, "green", 0);
+        Poney p = new PoneyModel("green", 0);
         p.speed = 0.42;
         p.x = 0;
 
         // When
-        p.move();
+        p.step();
 
         // Then
         assertEquals(p.x, 0.42,  // TODO: wrong expected value (should be 0.42)
