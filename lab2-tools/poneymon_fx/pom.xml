@@ -22,6 +22,14 @@
       <version>4.8.1</version>
       <scope>test</scope>
     </dependency>
+		<dependency>
+       <groupId>javafx</groupId>
+       <artifactId>jfxrt</artifactId>
+       <version>2.0</version>
+       <type>jar</type>
+       <scope>system</scope>
+       <systemPath>${project.basedir}/../../lib/jfxrt.jar</systemPath>
+     </dependency>
   </dependencies>
 
   <build>
