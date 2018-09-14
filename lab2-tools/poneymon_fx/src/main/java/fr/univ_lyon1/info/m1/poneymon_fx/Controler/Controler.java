@@ -3,28 +3,23 @@ package fr.univ_lyon1.info.m1.poneymon_fx.Controler;
 import java.util.ArrayList;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel;
-import fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView;
 import fr.univ_lyon1.info.m1.poneymon_fx.View.JfxView;
 
 public class Controler {
     FieldModel fieldModel;
-    JfxView jfxView;
-
-    // TODO faire liste de vues
-    ArrayList<AbstractView> abstractViews = new ArrayList<AbstractView>();
+    ArrayList<JfxView> jfxViews = new ArrayList<JfxView>();
 
     /**
      * Creates the controler.
      */
     public Controler() {
-
     }
 
     /**
      * Adds the view to the controler.
      */
     public void addView(JfxView v) {
-        this.jfxView = v;
+        this.jfxViews.add(v);
     }
 
     /**
@@ -39,16 +34,31 @@ public class Controler {
     /**
      * Calls notifyFieldView().
      */
-    public void notifyView() {
-        jfxView.notifyFieldView();
-    }
+    /*public void notifyView() {
+        for (int i = 0; i < nbViews; i++) {
+            jfxView[i].notifyFieldView();            
+        }        
+    }*/
+    
+    /**
+     * Calls notifyFieldModel().
+     */
+    public void notifyModel() {
+        for (int i = 0; i < jfxViews.size(); i++) {
+            jfxViews.get(i).notifyFieldModel(fieldModel);            
+        }        
+    } 
 
     /**
      * Starts the timer.
      */
     public void startTimer() {
-        fieldModel.step();
-        jfxView.display();
-        jfxView.show();
+        if (fieldModel != null) {
+            fieldModel.step();
+        }        
+        for (int i = 0; i < jfxViews.size(); i++) {
+            jfxViews.get(i).display();
+            jfxViews.get(i).show();
+        }
     }
 }

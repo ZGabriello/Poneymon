@@ -8,9 +8,11 @@ public class PoneyView {
     double x;
     double y;
     Image currentPoney;
-    Image poneyImage;
+    Image poneyRunning;
+    Image poneyRainbow;
     String color;
     boolean isWinner = false;
+    boolean isNian = false;
 
     /**
      * Creates PoneyView.
@@ -19,8 +21,9 @@ public class PoneyView {
      */
     public PoneyView(String color) {
         this.color = color;
-        poneyImage = new Image("assets/pony-" + color + "-running.gif");
-        currentPoney = poneyImage;
+        poneyRunning = new Image("assets/pony-" + color + "-running.gif");
+        poneyRainbow = new Image("assets/pony-" + color + "-rainbow.gif");
+        // currentPoney = poneyRunning;
     }
 
     /**
@@ -29,6 +32,11 @@ public class PoneyView {
      * @param graphicsContext.
      */
     public void display(GraphicsContext graphicsContext) {
+        if (!isNian) {
+            currentPoney = poneyRunning;
+        } else {
+            currentPoney = poneyRainbow;
+        }
         graphicsContext.drawImage(currentPoney, x, y);
     }
 
@@ -60,6 +68,23 @@ public class PoneyView {
     }
 
     /**
+     * Sets isNian.
+     * 
+     * @param boolean.
+     */
+    public void setIsNian(boolean b) {
+        this.isNian = b;
+    }
+
+    /**
+     * Gets color.
+     * 
+     */
+    public String getColor() {
+        return this.color;
+    }
+
+    /**
      * Checks if the poney has won.
      */
     public boolean isWinner() {
@@ -70,9 +95,16 @@ public class PoneyView {
      * Checks the poney information.
      */
     public void check() {
-        System.out.println("Poney color : " + this.color 
-                + " row : " + this.y 
-                + " is winner : " + this.isWinner 
-                + " progression : " + this.x);
+        System.out.println("Poney color : " + this.color + " row : " + this.y + " is winner : "
+                + this.isWinner + " is nian : " + this.isNian + " progression : " + this.x);
+    }
+
+    /**
+     * Returns the poney's rank.
+     * 
+     * @param poney.
+     */
+    public double distance(PoneyView poney) {
+        return this.x - poney.x;
     }
 }

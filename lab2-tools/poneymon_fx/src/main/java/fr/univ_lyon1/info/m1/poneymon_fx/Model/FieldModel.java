@@ -41,11 +41,31 @@ public class FieldModel {
     public int getPoneysNb() {
         return nbPoneys;
     }
+    
+    /**
+     * Gets the number of poneys.
+     */
+    public void setIsNian(boolean b, String color) {
+        for (int i = 0; i < poneysModel.length; i++) {
+            if (poneysModel[i].getColor() == color) {
+                poneysModel[i].setNian(b);
+            }            
+        }
+    }       
 
     /**
      * Gets the poney's array.
      */
     public PoneyModel[] getPoneysModel() {
         return this.poneysModel;
+    }
+    
+    /**
+     * Checks poney's state.
+     */
+    public void check() {
+        for (int i = 0; i < poneysModel.length; i++) {
+            poneysModel[i].check();       
+        }
     }
 }

@@ -6,7 +6,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class JfxView {
+public class JfxView extends AbstractView {
 
     FieldModel fieldModel;
     Controler controler;
@@ -25,12 +25,12 @@ public class JfxView {
      * @param j.
      * @param nbPoneys.
      */
-    public JfxView(Stage stage, int i, int j, int nbPoneys) {
+    public JfxView(Stage stage, int i, int j) {
         this.stage = stage;
 
         stage.setTitle("Poneymon");
 
-        fieldView = new FieldView(i, j, nbPoneys);
+        fieldView = new FieldView(i, j);
     }
 
     /**
@@ -61,10 +61,16 @@ public class JfxView {
     /**
      * Calls fieldView associate().
      */
-    public void notifyFieldView() {
+    /*public void notifyFieldView() {
         fieldView.associate(this.fieldModel);
-    }
+    }*/
 
+    /**
+     * Calls fieldModel setIsNian().
+     */
+    public void notifyFieldModel(FieldModel m) {
+        
+    }
     
     /**
      * Show what's need to be shown.
@@ -75,5 +81,12 @@ public class JfxView {
         root.getChildren().add(fieldView);
         stage.setScene(scene);
         stage.show();
+    }
+    
+    /**
+     * Checks i value.
+     */
+    public void showI() {
+        System.out.println("JfxView i value : " + this.i);
     }
 }

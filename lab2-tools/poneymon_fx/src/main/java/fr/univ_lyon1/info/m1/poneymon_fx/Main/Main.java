@@ -15,17 +15,23 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         final int nb_poneys = 5; // 5 poneys
-
+               
         FieldModel m = new FieldModel(nb_poneys);
-        JfxView v = new JfxView(stage, 600, 600, nb_poneys); // 600x600 pixels
+        JfxView v = new JfxView(stage, 600, 600);      
         Controler c = new Controler();
 
-        c.addView(v);
+        c.addView(v);        
         c.setModel(m);
 
         v.setModel(m);
         v.setControler(c);
-
+        
+        /*Stage stage1 = new Stage();
+        JfxView v1 = new JfxView(stage1, 400, 400);
+        c.addView(v1);
+        v1.setModel(m);
+        v1.setControler(c);*/
+       
         c.startTimer();
     }
 
