@@ -32,11 +32,7 @@ public class PoneyView {
      * @param graphicsContext.
      */
     public void display(GraphicsContext graphicsContext) {
-        if (!isNian) {
-            currentPoney = poneyRunning;
-        } else {
-            currentPoney = poneyRainbow;
-        }
+        currentPoney = isNian ? poneyRainbow : poneyRunning;
         graphicsContext.drawImage(currentPoney, x, y);
     }
 
