@@ -77,7 +77,7 @@ Consultez la documentation de [Java
 > explorer > Properties > Section Java Build Path > Onglet Libraries >
 > Selectionner Access Rules > Cliquer sur le bouton Edit > Cliquer sur
 > le bouton Add > Changer l'option "Forbbiden" en "Accessible" et
-> saisir "javafx/**" comme Rule pattern.
+> saisir "javafx" comme Rule pattern.
 
 ### Amélioration du programme
 

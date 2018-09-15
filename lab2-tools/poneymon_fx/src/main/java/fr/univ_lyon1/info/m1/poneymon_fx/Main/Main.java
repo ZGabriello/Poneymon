@@ -1,42 +1,50 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.Main;
 
-import fr.univ_lyon1.info.m1.poneymon_fx.Controler.Controler;
+import fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel;
+import fr.univ_lyon1.info.m1.poneymon_fx.View.ButtonsView;
 import fr.univ_lyon1.info.m1.poneymon_fx.View.JfxView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+    
+    public static final int NB_PONEYS = 5;
+    public static final int NB_TOURS = 10;
+    public static final int WIDTH = 600;
+    public static final int HEIGHT = 600;
+    
     /**
      * Starts the application.
      * 
      * @param stage.
-     */
+     */    
     @Override
-    public void start(Stage stage) throws Exception {
-        final int nb_poneys = 5; // 5 poneys
-               
-        FieldModel m = new FieldModel(nb_poneys);
-        JfxView v = new JfxView(stage, 600, 600);      
-        Controler c = new Controler();
+    public void start(Stage stage) throws Exception {        
 
-        c.addView(v);        
-        c.setModel(m);
-
-        v.setModel(m);
-        v.setControler(c);
+        // New window for buttons.
+        Stage stageButtons = new Stage();
         
-        /*Stage stage1 = new Stage();
-        JfxView v1 = new JfxView(stage1, 400, 400);
-        c.addView(v1);
-        v1.setModel(m);
-        v1.setControler(c);*/
-       
+        FieldModel m = new FieldModel(NB_PONEYS);
+        Controller c = new Controller();
+
+        JfxView jfxView = new JfxView(stage, WIDTH, HEIGHT);
+        ButtonsView buttonsView = new ButtonsView(stageButtons);
+
+        c.setModel(m);
+        c.addView(jfxView);
+        c.addView(buttonsView);
+
+        jfxView.setModel(m);
+        jfxView.setControler(c);
+
+        buttonsView.setModel(m);
+        buttonsView.setControler(c);
+
         c.startTimer();
     }
 
     public static void main(String[] args) {
-        // System.out.println( "Hello World!" );
         Application.launch(args);
     }
 }

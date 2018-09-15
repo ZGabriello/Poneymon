@@ -2,112 +2,145 @@ package fr.univ_lyon1.info.m1.poneymon_fx.Model;
 
 import java.util.Random;
 
-public class PoneyModel {
+import fr.univ_lyon1.info.m1.poneymon_fx.Main.Main;
+
+public class PoneyModel extends AbstractObjectsModel {
+    Random randomGenerator = new Random();
+    double low = 0.001;
+    double high = 0.002;
+    String[] colorMap = new String[] { "blue", "green", "orange", "purple", "yellow" };
     String poneyColor;
     final double row;
-    public double progression;
+    double progression;
     int lap;
-    public double speed;
-    static final int NB_TOURS = 10;
+    double speed;
     boolean isWinner;
     boolean isNian;
-    boolean canChange;
+    boolean hasUsedNian;
+    CoinModel coin;
 
     /**
      * Create poney's model.
      * 
-     * @param color of the poney.
+     * @param i.
      */
-    public PoneyModel(String color, double row) {
-        Random randomGenerator = new Random();
-        this.speed = randomGenerator.nextFloat() * 0.001;
-        this.poneyColor = color;
-        this.row = row;
-        this.progression = 0;
-        this.lap = 0;
-        this.isNian = false;
-        this.canChange = true;
+    public PoneyModel(int i) {
+        speed = randomGenerator.nextFloat() * (high - low) + low;
+        poneyColor = colorMap[i];
+        row = i;
+        progression = 0;
+        lap = 0;
+        isNian = false;
+        hasUsedNian = false;
     }
 
     /**
      * Calls step() for this poney.
      */
     public void step() {
-        if (canChange) {
-            if (this.isNian) {
+        if (!hasUsedNian) {
+            if (isNian) {
                 speed += speed;
-                canChange = false;
+                hasUsedNian = true;
             }
         }
         progression += speed;
+        /*if (progression > coin.x && coin.visible) {
+            coin.visible = false;
+            isNian = true;
+        }*/
         if (progression > 1) {
             progression = 0;
             lap++;
-            Random randomGenerator = new Random();
-            this.speed = randomGenerator.nextFloat() * 0.001;
-            this.isNian = false;
-            this.canChange = true;
-            if (lap == NB_TOURS) {
-                this.isWinner = true;
+            speed = randomGenerator.nextFloat() * (high - low) + low;
+            isNian = false;
+            if (lap == Main.NB_TOURS) {
+                isWinner = true;
             }
+            //coin.x += 10;
         }
     }
 
     /**
      * Gets the poney's row.
+     * 
+     * @return row.
      */
     public double getRow() {
-        return this.row;
+        return row;
     }
 
     /**
      * Gets the poney's progression.
+     * 
+     * @return progression.
      */
     public double getProgression() {
-        return this.progression;
+        return progression;
     }
 
     /**
      * Gets the poney's color.
+     * 
+     * @return poneyColor.
      */
     public String getColor() {
-        return this.poneyColor;
+        return poneyColor;
     }
 
     /**
      * Gets the poney's boolean isWinner.
+     * 
+     * @return isWinner.
      */
     public boolean getIsWinner() {
-        return this.isWinner;
+        return isWinner;
     }
 
     /**
      * Gets the poney's boolean isNian.
+     * 
+     * @return isNian.
      */
     public boolean getIsNian() {
-        return this.isNian;
+        return isNian;
     }
 
     /**
      * Checks if the poney has won.
+     * 
+     * @return true or false.
      */
     boolean win() {
-        return (lap == NB_TOURS);
+        return (lap == Main.NB_TOURS);
     }
 
     /**
      * Sets the boolean isNian.
+     * 
+     * @param b.
      */
-    public void setNian(boolean b) {
-        this.isNian = b;
+    public void setNianManually(boolean b) {
+        if (!hasUsedNian) {
+            isNian = b;
+        }
     }
 
     /**
      * Checks the poney's information.
      */
     public void check() {
-        System.out.println("Poney color : " + this.poneyColor + " row : " + this.row
-                + " progression : " + this.progression + " lap : " + this.lap + " isNian : "
-                + this.isNian + " speed : " + this.speed);
+        System.out.println("Poney color : " + poneyColor + " row : " + row + " progression : "
+                + progression + " lap : " + lap + " isNian : " + isNian + " speed : " + speed);
+    }
+    
+    /**
+     * Returns the poney's distance with another poney.
+     * 
+     * @param poney.
+     * @return progression.
+     */
+    public double distance(PoneyModel poney) {
+        return progression - poney.progression;
     }
 }
