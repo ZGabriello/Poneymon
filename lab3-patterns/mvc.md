@@ -1,5 +1,39 @@
 # Mettre en place le pattern MVC
 
+Il existe beaucoup de variantes du pattern MVC. 
+Certains mettent la logique métier dans le contrôleur, d'autres dans le modèle. 
+Parfois les entrées de l'utilisateur arrivent via le contrôleur (c'est le cas quand on passe par un serveur Web par exemple p
+arfois c'est la vue qui en est chargée.                                                                                     
+
+Vous êtes libres d'appliquer la variante que vous souhaitez (et donc d'ignorer les suggestions de ce document).
+
+## Les questions à se poser pour mettre en oeuvre le pattern MVC
+
+En revanche, vous ne pouvez  pas vous contenter de dire (ni d'écrire dans votre rapport) « nous faisons du MVC » ! 
+Il y a bien plus de questions à vous poser, comme par exemple :
+
+* Comment faire communiquer Modèle, Vue et Contrôleur ? Des appels de
+  méthodes directement sur les classes ? Un patron
+  « [Observateur](https://en.wikipedia.org/wiki/Observer_pattern) » ?
+  Un appel de méthode en passant par une classe abstraite ou une
+  interface pour faire une inversion de dépendance (le « D » de
+  [SOLID](https://en.wikipedia.org/wiki/SOLID)) ?
+  
+* Comment découper Modèle, Vue et Contrôleur ? Par exemple, mettre
+  tout le modèle dans une classe violerait le
+  [SRP](https://en.wikipedia.org/wiki/Single_responsibility_principle),
+  mais comment le découper correctement ? Comment faire circuler
+  l'information d'une classe à l'autre
+  ([delegation](https://en.wikipedia.org/wiki/Delegation_pattern) ?
+  Observateur ? ...) ? L'API exposée au reste du programme doit-elle
+  refléter la structure de nos classes, ou bien est-ce pertinent
+  d'utiliser une
+  [facade](https://en.wikipedia.org/wiki/Facade_pattern) pour en
+  exposer une plus simple via des
+  [indirections](https://en.wikipedia.org/wiki/GRASP_(object-oriented_design)#Indirection) ?
+  
+* ...
+
 ## Découpage et responsabilités du M, V, C.
 
 Il existe beaucoup de variantes du pattern MVC. Certains mettent la
