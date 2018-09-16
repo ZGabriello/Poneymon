@@ -44,9 +44,9 @@ transparents, donc appliquer le découpage suivant :
 
 ## Mise en place
 
-Nous allons implémenter `Model`, `View` et `Controler` avec 3 packages
+Nous allons implémenter `Model`, `View` et `Controller` avec 3 packages
 java (`fr.univ-lyon1.info.m1.poneymon_fx.Model`, et idem pour `View`
-et `Controler`), contenant chacun une ou plusieurs classes.
+et `Controller`), contenant chacun une ou plusieurs classes.
 
 Commencez par créer un package `Model`, contenant une classe
 `FieldModel`, contenant elle-même un tableau de `PoneyModel` (qui sera
@@ -68,8 +68,8 @@ pour décider que c'est à la classe `PoneyModel` d'appliquer la règle
 « chaque poney avance à chaque pas ».
 
 Créez maintenant le contrôleur : un package
-`fr.univ-lyon1.info.m1.poneymon_fx.Controler` contenant une classe
-`Controler`. Cette classe contient une référence vers le modèle, et
+`fr.univ-lyon1.info.m1.poneymon_fx.Controller` contenant une classe
+`Controller`. Cette classe contient une référence vers le modèle, et
 une liste de vues (`ArrayList<AbstractView>`), avec les méthodes
 associées (`addView`, `setModel`, ...). Elle pourra contenir
 par exemple une méthode `notifyViews` qui appelle la méthode `update`
@@ -102,12 +102,12 @@ simple que :
     public void start(Stage stage) throws Exception {
         FieldModel m = new FieldModel(5); // 5 poneys
         JfxView v = new JfxView(stage, 600, 600); // 600x600 pixels
-        Controler c = new Controler();
+        Controller c = new Controller();
 
         c.addView(v);
         c.setModel(m);
         v.setModel(m);
-        v.setControler(c);
+        v.setController(c);
 
         c.startTimer();
     }
