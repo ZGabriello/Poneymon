@@ -73,8 +73,11 @@ transparents, donc appliquer le découpage suivant :
 * Le contrôleur s'occupe de transmettre l'information. Il est attaché
   à un modèle, et à un nombre quelconque de vues (0, 1, plusieurs).
   Quand le modèle envoie de l'information, il passe par le contrôleur
-  qui route l'information aux vues. Le contrôleur s'occupera aussi de
-  mettre en place le timer qui fait avancer le jeu avec le temps.
+  qui route l'information aux vues. Le contrôleur peut s'occuper aussi
+  de mettre en place le timer qui fait avancer le jeu avec le temps
+  (c'est discutable, le modèle peut aussi s'en occuper mais surtout
+  pas la vue : on ne veut pas d'un jeu qui va deux fois plus vite si
+  on instancie deux vues !)
 
 ## Mise en place
 
