@@ -9,7 +9,7 @@ import java.util.TreeMap;
 public class FieldModel {
     ArrayList<AbstractObjectsModel> objectsModel = new ArrayList<AbstractObjectsModel>();
     PoneyModel[] poneysModel;
-    CoinModel[] coinsModel;    
+    CoinModel[] coinsModel;
     boolean paused;
 
     /**
@@ -20,7 +20,7 @@ public class FieldModel {
     public FieldModel(int nbPoneys) {
         poneysModel = new PoneyModel[nbPoneys];
         coinsModel = new CoinModel[nbPoneys];
-        for (int i = 0; i < nbPoneys; i++) {            
+        for (int i = 0; i < nbPoneys; i++) {
             coinsModel[i] = new CoinModel(i);
             poneysModel[i] = new PoneyModel(i);
         }
@@ -31,8 +31,8 @@ public class FieldModel {
     /**
      * Calls step() for each poneys.
      */
-    public void step() {  
-        //checkPoneyCoin();
+    public void step() {
+        // checkPoneyCoin();
         for (int i = 0; i < objectsModel.size(); i++) {
             objectsModel.get(i).step();
         }
@@ -105,7 +105,7 @@ public class FieldModel {
             objectsModel.get(i).check();
         }
     }
-    
+
     /**
      * Checks if there's a winner.
      * 
@@ -131,25 +131,26 @@ public class FieldModel {
             objectsModel.add(o[i]);
         }
     }
-    
+
     /**
      * Checks if a poney has taken a coin.
      */
     public void checkPoneyCoin() {
         for (int i = 0; i < poneysModel.length; i++) {
-            //System.out.println("progression poney " + i + poneysModel[i].progression);
-            //System.out.println("x pièce " + i + coinsModel[i].getX());
+            // System.out.println("progression poney " + i + poneysModel[i].progression);
+            // System.out.println("x pièce " + i + coinsModel[i].getX());
             if (poneysModel[i].progression > coinsModel[i].getX()) {
                 System.out.println(i);
                 coinsModel[i].setVisible(false);
-            }            
+            }
         }
     }
-    
+
     /**
      * Checks the poney's color rank for the current lap.
      * 
      * @param color.
+     * @return rank.
      */
     public int checkRankLap(String color) {
         ArrayList<Double> ranking = new ArrayList<Double>();
@@ -186,28 +187,33 @@ public class FieldModel {
         if (positiveNumbers == 0) {
             rank = 5;
         }
-        //System.out.println(rank);
+        // System.out.println(rank);
         return rank;
     }
-    
+
+    /**
+     * Checks the poneys' rank. Returns String[]
+     * 
+     * @return scores.
+     */
     public String[] checkRank() {
         TreeMap<Double, String> tmap = new TreeMap<Double, String>();
-        
+
         for (int i = 0; i < poneysModel.length; i++) {
             tmap.put(poneysModel[i].getTraveledDistance(), poneysModel[i].getColor());
-        }        
-        
+        }
+
         int i = 1;
         int j = 0;
         Set<Entry<Double, String>> set = tmap.entrySet();
         Iterator<Entry<Double, String>> iterator = set.iterator();
         String[] scores = new String[poneysModel.length];
-        while(iterator.hasNext()) {
-           Entry<Double, String> mentry = iterator.next();
-           scores[j] = new String( "The " + mentry.getValue() + " poney's rank is " + i);
-           //System.out.println("The " + mentry.getValue() + " poney's rank is " + i);
-           i++;   
-           j++;
+        while (iterator.hasNext()) {
+            Entry<Double, String> mentry = iterator.next();
+            scores[j] = new String("The " + mentry.getValue() + " poney's rank is " + i);
+            // System.out.println("The " + mentry.getValue() + " poney's rank is " + i);
+            i++;
+            j++;
         }
         return scores;
     }

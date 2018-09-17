@@ -47,11 +47,11 @@ public class PoneyModel extends AbstractObjectsModel {
             }
         }
         progression += speed;
-        traveledDistance -=speed; //For the treemap
-        /*if (progression > coin.x && coin.visible) {
-            coin.visible = false;
-            isNian = true;
-        }*/
+        traveledDistance -= speed; // For the treemap
+        /*
+         * if (progression > coin.x && coin.visible) { coin.visible = false; isNian =
+         * true; }
+         */
         if (progression > 1) {
             progression = 0;
             lap++;
@@ -60,7 +60,7 @@ public class PoneyModel extends AbstractObjectsModel {
             if (lap == App.NB_TOURS) {
                 isWinner = true;
             }
-            //coin.x += 10;
+            // coin.x += 10;
         }
     }
 
@@ -108,7 +108,7 @@ public class PoneyModel extends AbstractObjectsModel {
     public boolean getIsNian() {
         return isNian;
     }
-    
+
     /**
      * Gets the poney's boolean isNian.
      * 
@@ -145,7 +145,7 @@ public class PoneyModel extends AbstractObjectsModel {
         System.out.println("Poney color : " + poneyColor + " row : " + row + " progression : "
                 + progression + " lap : " + lap + " isNian : " + isNian + " speed : " + speed);
     }
-    
+
     /**
      * Returns the poney's distance with another poney.
      * 
