@@ -11,7 +11,8 @@
   Consignes : Seules 5 feuilles A4 sont autorisées à l’examen. Leur
   contenu est libre. Elle peuvent être une sélection de transparents,
   ou manuscrites, recto-verso, avec une taille de caractère de votre
-  choix.
+  choix. Les anales de l'examen sont [sur l'ancienne page du
+  cours](http://www.tabard.fr/cours/2017/mif01/).
 
 Barème : 50% examen / 50% TP.
 
