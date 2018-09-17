@@ -40,8 +40,12 @@ public abstract class AbstractView {
         controler = c;
     }
 
+    /**
+     * Updates the view.
+     * 
+     */
     public void update() {
-
+        
     }
 
     public void show() {

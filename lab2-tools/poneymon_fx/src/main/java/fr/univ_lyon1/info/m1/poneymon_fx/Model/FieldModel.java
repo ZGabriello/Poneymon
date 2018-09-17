@@ -3,6 +3,11 @@ package fr.univ_lyon1.info.m1.poneymon_fx.Model;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map.Entry;
+
+import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
+import fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView;
+import javafx.animation.AnimationTimer;
+
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -17,10 +22,10 @@ public class FieldModel {
      * 
      * @param nbPoneys number of poneys.
      */
-    public FieldModel(int nbPoneys) {
-        poneysModel = new PoneyModel[nbPoneys];
-        coinsModel = new CoinModel[nbPoneys];
-        for (int i = 0; i < nbPoneys; i++) {
+    public FieldModel() {
+        poneysModel = new PoneyModel[App.NB_PONEYS];
+        coinsModel = new CoinModel[App.NB_PONEYS];
+        for (int i = 0; i < App.NB_PONEYS; i++) {
             coinsModel[i] = new CoinModel(i);
             poneysModel[i] = new PoneyModel(i);
         }
@@ -29,22 +34,32 @@ public class FieldModel {
     }
 
     /**
-     * Calls step() for each poneys.
+     * Calls step() for each poneys and check the rules for the coins.
      */
     public void step() {
-        // checkPoneyCoin();
-        for (int i = 0; i < objectsModel.size(); i++) {
-            objectsModel.get(i).step();
+        checkPoneyCoin();
+        for (AbstractObjectsModel objectModel : objectsModel) {
+            objectModel.step();
         }
     }
-
+    
     /**
-     * Gets the number of poneys.
-     * 
-     * @return poneysModel.length.
+     * Starts the timer.
      */
-    public int getPoneysNb() {
-        return poneysModel.length;
+    public void startTimer(final ArrayList<AbstractView> views) {
+        new AnimationTimer() {
+            public void handle(long currentNanoTime) {
+                if (!getPaused()) {
+                    step();
+                }
+                for (AbstractView view : views) {
+                    view.update();
+                }
+                if (checkWinner()) {
+                    this.stop();
+                }
+            }
+        }.start(); // On lance la boucle de rafraichissement
     }
 
     /**
@@ -70,6 +85,15 @@ public class FieldModel {
         paused = b;
     }
 
+    /**
+     * Gets the number of poneys.
+     * 
+     * @return poneysModel.length.
+     */
+    public int getPoneysNb() {
+        return poneysModel.length;
+    }
+    
     /**
      * Gets the boolean paused.
      * 
@@ -137,62 +161,19 @@ public class FieldModel {
      */
     public void checkPoneyCoin() {
         for (int i = 0; i < poneysModel.length; i++) {
-            // System.out.println("progression poney " + i + poneysModel[i].progression);
-            // System.out.println("x pièce " + i + coinsModel[i].getX());
-            if (poneysModel[i].progression > coinsModel[i].getX()) {
-                System.out.println(i);
+            // New chance of coin appearing if the poney starts a new lap
+            if (poneysModel[i].progression == 0) {
+                coinsModel[i] = new CoinModel(i);
+            }
+            if (poneysModel[i].progression > coinsModel[i].getX() && coinsModel[i].getVisible()) {
                 coinsModel[i].setVisible(false);
+                poneysModel[i].setNian(true);
             }
         }
     }
 
     /**
-     * Checks the poney's color rank for the current lap.
-     * 
-     * @param color.
-     * @return rank.
-     */
-    public int checkRankLap(String color) {
-        ArrayList<Double> ranking = new ArrayList<Double>();
-        for (int i = 0; i < poneysModel.length; i++) {
-            if (poneysModel[i].getColor() == color) {
-                for (int j = 0; j < poneysModel.length; j++) {
-                    if (i != j) {
-                        ranking.add(poneysModel[i].distance(poneysModel[j]));
-                    }
-                }
-            }
-        }
-        // The number of positive distances indicates
-        // the poney's ranking
-        int positiveNumbers = 0;
-        int rank = 0;
-        for (int i = 0; i < ranking.size(); i++) {
-            if (ranking.get(i) > 0) {
-                positiveNumbers++;
-            }
-        }
-        if (positiveNumbers == 4) {
-            rank = 1;
-        }
-        if (positiveNumbers == 3) {
-            rank = 2;
-        }
-        if (positiveNumbers == 2) {
-            rank = 3;
-        }
-        if (positiveNumbers == 1) {
-            rank = 4;
-        }
-        if (positiveNumbers == 0) {
-            rank = 5;
-        }
-        // System.out.println(rank);
-        return rank;
-    }
-
-    /**
-     * Checks the poneys' rank. Returns String[]
+     * Checks the poneys' rank. Returns a String array.
      * 
      * @return scores.
      */
@@ -203,8 +184,8 @@ public class FieldModel {
             tmap.put(poneysModel[i].getTraveledDistance(), poneysModel[i].getColor());
         }
 
-        int i = 1;
-        int j = 0;
+        int i = 1; // For rank displaying, must be from one to five so it's readable.
+        int j = 0; // For scores incrementing, must be from zero to 4.
         Set<Entry<Double, String>> set = tmap.entrySet();
         Iterator<Entry<Double, String>> iterator = set.iterator();
         String[] scores = new String[poneysModel.length];

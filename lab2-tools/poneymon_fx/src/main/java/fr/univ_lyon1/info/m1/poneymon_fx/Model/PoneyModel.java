@@ -19,6 +19,7 @@ public class PoneyModel extends AbstractObjectsModel {
     boolean hasUsedNian;
     CoinModel coin;
     double traveledDistance;
+    boolean canChange;
 
     /**
      * Create poney's model.
@@ -34,33 +35,28 @@ public class PoneyModel extends AbstractObjectsModel {
         isNian = false;
         hasUsedNian = false;
         traveledDistance = 0;
+        canChange = true;
     }
 
     /**
      * Calls step() for this poney.
      */
     public void step() {
-        if (!hasUsedNian) {
-            if (isNian) {
-                speed += speed;
-                hasUsedNian = true;
-            }
+        if (isNian && canChange) {
+            speed += speed;
+            canChange = false;
         }
         progression += speed;
         traveledDistance -= speed; // For the treemap
-        /*
-         * if (progression > coin.x && coin.visible) { coin.visible = false; isNian =
-         * true; }
-         */
         if (progression > 1) {
             progression = 0;
             lap++;
             speed = randomGenerator.nextFloat() * (high - low) + low;
             isNian = false;
+            canChange = true;
             if (lap == App.NB_TOURS) {
                 isWinner = true;
             }
-            // coin.x += 10;
         }
     }
 
@@ -135,7 +131,17 @@ public class PoneyModel extends AbstractObjectsModel {
     public void setNianManually(boolean b) {
         if (!hasUsedNian) {
             isNian = b;
+            hasUsedNian = true;
         }
+    }
+
+    /**
+     * Sets the boolean isNian.
+     * 
+     * @param b.
+     */
+    public void setNian(boolean b) {
+        isNian = b;
     }
 
     /**

@@ -12,7 +12,7 @@ public class App extends Application {
     
     public static final int NB_PONEYS = 5;
     public static final int NB_TOURS = 10;
-    public static final int WIDTH = 900;
+    public static final int WIDTH = 1000;
     public static final int HEIGHT = 600;
     
     /**
@@ -26,13 +26,20 @@ public class App extends Application {
         // New windows.
         Stage stageButtons = new Stage();
         Stage stageScore = new Stage();
+        Stage stageJfx = new Stage();
         
-        FieldModel m = new FieldModel(NB_PONEYS);
+        FieldModel m = new FieldModel();
         Controller c = new Controller();
 
         ButtonsView buttonsView = new ButtonsView(stageButtons);
         ScoreView scoreView = new ScoreView(stageScore);
-        JfxView jfxView = new JfxView(stage, WIDTH, HEIGHT);
+        JfxView jfxView = new JfxView(stageJfx, WIDTH, HEIGHT);
+        
+        /*Stage stage1 = new Stage();
+        JfxView jfxView1 = new JfxView(stage1, WIDTH, HEIGHT);
+        jfxView1.setModel(m);
+        jfxView1.setControler(c);
+        c.addView(jfxView1);*/
 
         c.setModel(m);
         c.addView(buttonsView);
@@ -48,7 +55,7 @@ public class App extends Application {
         scoreView.setModel(m);
         scoreView.setControler(c);
 
-        c.startTimer();
+        c.start();
     }
 
     public static void main(String[] args) {

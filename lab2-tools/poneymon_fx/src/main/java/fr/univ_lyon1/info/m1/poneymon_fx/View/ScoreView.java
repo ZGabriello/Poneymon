@@ -20,17 +20,18 @@ public class ScoreView extends AbstractView {
     }
 
     /**
+     * Updates the view.
+     * 
+     */
+    public void update() {
+        scoreCanvasView.gcFill(fieldModel);
+    }
+    
+    /**
      * Shows the scores.
      * 
      */
     public void show() {
-        /*Text[] scores = fieldModel.checkRank();
-        FlowPane fp = new FlowPane();
-        for (int i = 0; i < scores.length; i++) {
-            fp.getChildren().add(scores[i]);
-        } 
-        fp.setMaxWidth(100);*/
-        scoreCanvasView.display(fieldModel);
         root.getChildren().add(scoreCanvasView);
         stage.setScene(scene);
         stage.setY(0);

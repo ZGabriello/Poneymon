@@ -3,8 +3,8 @@ package fr.univ_lyon1.info.m1.poneymon_fx.View;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel;
-import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -13,7 +13,7 @@ import javafx.scene.paint.Color;
 
 public class FieldView extends Canvas {
 
-    ArrayList<String> input = new ArrayList<String>();
+    ArrayList<String> inputs = new ArrayList<String>();
     ArrayList<AbstractObjectView> objectsView = new ArrayList<AbstractObjectView>();
     HashMap<String, String> keyMap = new HashMap<String, String>();
     String[] colorMap = new String[] { "blue", "green", "orange", "purple", "yellow" };
@@ -37,13 +37,13 @@ public class FieldView extends Canvas {
 
         this.setOnKeyPressed(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent e) {
-                input.add(e.getCode().toString());
+                inputs.add(e.getCode().toString());
             }
         });
 
         this.setOnKeyReleased(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent e) {
-                input.remove(e.getCode().toString());
+                inputs.remove(e.getCode().toString());
             }
         });
 
@@ -52,48 +52,17 @@ public class FieldView extends Canvas {
         keyMap.put("E", "orange");
         keyMap.put("R", "purple");
         keyMap.put("T", "yellow");
-    }
-
-    /**
-     * Display().
-     * 
-     * @param model.
-     */
-    public void display(final FieldModel model) {
-        if (model != null) {
-            PoneyView[] poneysView = new PoneyView[model.getPoneysNb()];
-            CoinView[] coinsView = new CoinView[model.getPoneysNb()];
-            for (int i = 0; i < model.getPoneysNb(); i++) {
-                poneysView[i] = new PoneyView(colorMap[i]);
-                coinsView[i] = new CoinView(i);
-            }
-            addObjectView(poneysView);
-            addObjectView(coinsView);
-
-            objectsDisplay();
+        
+        PoneyView[] poneysView = new PoneyView[App.NB_PONEYS];
+        CoinView[] coinsView = new CoinView[App.NB_PONEYS];
+        for (int i = 0; i < App.NB_PONEYS; i++) {
+            poneysView[i] = new PoneyView(colorMap[i]);
+            coinsView[i] = new CoinView(i);
         }
-        new AnimationTimer() {
-            public void handle(long currentNanoTime) {
-                model.checkPoneyCoin();
-                gc.setFill(Color.LIGHTGRAY);
-                gc.fillRect(0, 0, width, height);
-
-                if (model != null) {
-                    if (!model.getPaused()) {
-                        model.step();
-                    }                    
-                    notifyModel(model);
-                    getValuesFromModel(model);
-                    objectsDisplay();
-                    if (model.checkWinner()) {
-                        this.stop();
-                    }                    
-                }
-
-            }
-        }.start(); // On lance la boucle de rafraichissement
+        addObjectView(poneysView);
+        addObjectView(coinsView);
     }
-
+    
     /**
      * Checks if a key is pressed, returns the color of the poney corresponding to
      * the key.
@@ -101,12 +70,9 @@ public class FieldView extends Canvas {
      * @param m.
      */
     public void notifyModel(FieldModel m) {
-        if (!input.isEmpty()) {
-            for (int i = 0; i < input.size(); i++) {
-                m.setIsNianManually(true, keyMap.get(input.get(i)));
-            }
-            if (input.contains("SPACE")) {
-                m.checkRank();
+        if (!inputs.isEmpty()) {
+            for (String input : inputs) {
+                m.setIsNianManually(true, keyMap.get(input));
             }
         }
     }
@@ -118,8 +84,8 @@ public class FieldView extends Canvas {
      */
     public void getValuesFromModel(FieldModel model) {
         if (model != null) {
-            for (int j = 0; j < objectsView.size(); j++) {
-                objectsView.get(j).getValuesFromModel(model);
+            for (AbstractObjectView objectView : objectsView) {
+                objectView.getValuesFromModel(model);
             }
         }
     }    
@@ -130,8 +96,8 @@ public class FieldView extends Canvas {
      * @param v.
      */
     public void addObjectView(AbstractObjectView[] v) {
-        for (int i = 0; i < v.length; i++) {
-            objectsView.add(v[i]);
+        for (AbstractObjectView view : v) {
+            objectsView.add(view);
         }
     }
 
@@ -140,9 +106,21 @@ public class FieldView extends Canvas {
      * 
      */
     public void objectsDisplay() {
-        for (int i = 0; i < objectsView.size(); i++) {
-            objectsView.get(i).display(gc);
+        for (AbstractObjectView objectView : objectsView) {
+            objectView.display(gc);
         }
+    }    
+    
+    /**
+     * Updates the view.
+     * 
+     */
+    public void update(FieldModel m) {
+        gc.setFill(Color.LIGHTGRAY);
+        gc.fillRect(0, 0, width, height);
+        notifyModel(m);
+        getValuesFromModel(m);
+        objectsDisplay();
     }
 
 }

@@ -20,10 +20,16 @@ public class JfxView extends AbstractView {
     }
 
     /**
-     * Shows what needs to be shown.
+     * Updates the view.
+     */
+    public void update() {
+        fieldView.update(fieldModel);
+    }
+    
+    /**
+     * Shows the stage.
      */
     public void show() {
-        fieldView.display(fieldModel);
         root.getChildren().add(fieldView);
         stage.setY(150);
         stage.setX(200);

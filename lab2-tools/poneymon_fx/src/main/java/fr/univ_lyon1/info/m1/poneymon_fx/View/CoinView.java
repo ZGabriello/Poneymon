@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 public class CoinView extends AbstractObjectView {
 
     boolean visible;
+    int row;
 
     /**
      * Creates CoinView.
@@ -17,6 +18,7 @@ public class CoinView extends AbstractObjectView {
     public CoinView(int i) {
         image = new Image("assets/gold-coin.gif");
         y = i;
+        row = i;
     }
 
     /**
@@ -38,6 +40,15 @@ public class CoinView extends AbstractObjectView {
     public void setVisible(boolean b) {
         visible = b;
     }
+    
+    /**
+     * Sets row.
+     * 
+     * @param a.
+     */
+    public void setRow(int a) {
+        row = a;
+    }
 
     /**
      * Gets values from the model.
@@ -46,10 +57,11 @@ public class CoinView extends AbstractObjectView {
      */
     public void getValuesFromModel(FieldModel m) {
         for (int j = 0; j < m.getPoneysNb(); j++) {
-            if (m.getCoinsModel()[j].getY() == y) {
-                setX(m.getCoinsModel()[j].getX() * App.WIDTH); // TODO récup valeur width
+            if (m.getCoinsModel()[j].getRow() == row) {
+                setX(m.getCoinsModel()[j].getX() * App.WIDTH);
                 setY(m.getCoinsModel()[j].getY() * App.HEIGHT / App.NB_PONEYS);
-                setVisible(m.getCoinsModel()[j].getVisible());                
+                setVisible(m.getCoinsModel()[j].getVisible());  
+                setRow(m.getCoinsModel()[j].getRow());
             }
         }
     }

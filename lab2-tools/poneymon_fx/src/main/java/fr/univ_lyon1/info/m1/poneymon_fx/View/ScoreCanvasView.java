@@ -1,7 +1,6 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.View;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel;
-import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -16,24 +15,16 @@ public class ScoreCanvasView extends Canvas {
     }
     
     /**
-     * Display().
+     * Updates data.
      * 
-     * @param model.
      */
-    public void display(final FieldModel model) {
-        new AnimationTimer() {
-            public void handle(long currentNanoTime) {
-                if (model != null) {  
-                    gc.setFill(Color.LIGHTGRAY);
-                    gc.fillRect(0, 0, 300, 300);
-                    gc.setFill(Color.BLACK);
-                    String[] scores = model.checkRank();
-                    for (int i = 0; i < scores.length; i++) {
-                        gc.fillText(scores[i], 0, i * 20 + 20);
-                    } 
-                }
-
-            }
-        }.start(); // On lance la boucle de rafraichissement
+    public void gcFill(FieldModel m) {
+        gc.setFill(Color.LIGHTGRAY);
+        gc.fillRect(0, 0, 300, 300);
+        gc.setFill(Color.BLACK);
+        String[] scores = m.checkRank();
+        for (int i = 0; i < scores.length; i++) {
+            gc.fillText(scores[i], 0, i * 20 + 20);
+        } 
     }
 }

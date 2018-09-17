@@ -9,6 +9,7 @@ public class CoinModel extends AbstractObjectsModel {
     double low = 0.3;
     double high = 0.8;
     boolean visible;
+    int row;
 
     /**
      * Creates the CoinModel.
@@ -18,6 +19,7 @@ public class CoinModel extends AbstractObjectsModel {
     public CoinModel(int i) {
         y = i;
         x = randomGenerator.nextFloat() * (high - low) + low;
+        row = i;
         setVisible();
     }
 
@@ -38,6 +40,15 @@ public class CoinModel extends AbstractObjectsModel {
     public double getY() {
         return y;
     }
+    
+    /**
+     * Returns row.
+     * 
+     * @return row.
+     */
+    public int getRow() {
+        return row;
+    }
 
     /**
      * Sets the boolean visible with a chance of 1/5.
@@ -45,7 +56,7 @@ public class CoinModel extends AbstractObjectsModel {
      */
     public void setVisible() {
         int a = randomGenerator.nextInt(4);
-        if (a == 0 || a == 1 || a == 2 || a == 3 || a == 4) {
+        if (a == 0 /*|| a == 1 || a == 2 || a == 3 || a == 4*/) {
             visible = true;
         }
     }

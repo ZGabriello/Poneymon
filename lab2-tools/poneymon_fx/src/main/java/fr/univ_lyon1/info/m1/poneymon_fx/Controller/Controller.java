@@ -36,12 +36,12 @@ public class Controller {
     /**
      * Starts the timer.
      */
-    public void startTimer() {
+    public void start() {
         if (fieldModel != null) {
-            fieldModel.step();
+            fieldModel.startTimer(views);
         }
-        for (int i = 0; i < views.size(); i++) {
-            views.get(i).show();
+        for (AbstractView view : views) {
+            view.show();
         }
     }
 }
