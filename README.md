@@ -1,5 +1,20 @@
 # Gestion de Projet et Génie Logiciel, M1, département informatique, Lyon 1
 
+## Dates importantes
+
+* Rendu du TP noté : dimanche 30 septembre 2018 à 23h59. Voir
+  [lab3-patterns/README.md](lab3-patterns/README.md) pour les
+  consignes.
+
+* Examen : Jeudi 11 octobre 2018, Amphi Thémis 11, 14h - 15h30.
+  L'examen dure 1h30 sauf pour les tiers-temps qui auront 2h.
+  Consignes : Seules 5 feuilles A4 sont autorisées à l’examen. Leur
+  contenu est libre. Elle peuvent être une sélection de transparents,
+  ou manuscrites, recto-verso, avec une taille de caractère de votre
+  choix.
+
+Barème : 50% examen / 50% TP.
+
 ## Course 1: Introduction
 
 * [01-introduction-slides.pdf](01-introduction-slides.pdf)
@@ -31,6 +46,9 @@
   (corrected version : [tuto1-uc-style/TD_UseCaseFffound_et_style_correction.pdf](tuto1-uc-style/TD_UseCaseFffound_et_style_correction.pdf))
 
 ## Course 4: Agile
+
+* [05-agilite-slides.pdf](05-agilite-slides.pdf)
+  (printable version: [05-agilite-handout.pdf](05-agilite-handout.pdf))
 
 ## Tutorial 2: Paper4Scrum
 
@@ -69,5 +87,5 @@ This downloads and applies changes made by the teachers. You can keep
 working as usual with your private repository. In summary:
 
     git pull            # get changes from your private fork (i.e. your co-worker)
-	git push            # send changes to your private fork
-	git pull moy master # get updates from teachers
+    git push            # send changes to your private fork
+    git pull moy master # get updates from teachers

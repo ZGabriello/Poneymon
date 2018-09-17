@@ -196,7 +196,10 @@ Le dépot ne sera relevé qu’après la date de rendu.
 
 Votre dépôt sur la Forge devra contenir :
 
--   un fichier `README.md` (ou `.txt`) à la racine du projet
+-   un fichier `README.md` (ou `.txt`) à la racine du projet. Ne
+    conservez pas celui du dépôt qui vous est fourni. Le `README.md`
+    doit mentionner l'emplacement de la dernière version du projet et
+    du rapport.
 -   un fichier maven (`pom.xml`) pour le build du projet
 -   les sources (fichiers Java)
 -   la documentation javadoc de vos classes
@@ -207,22 +210,31 @@ Votre dépôt sur la Forge devra contenir :
 Le rapport doit comprendre une présentation globale du projet, une motivation des choix d’architecture (et des patterns choisis), et leur explication en s’aidant de diagrammes appropriés et adaptés au degré de précision et au type d’explication. 
 Donc des diagrammes de classe, mais pas que cela, et pas de plats de spaghettis générés automatiquement représentant tout le code.
 
-### Barême indicatif (sur 27, remis sur 20)
+### Barême indicatif (sur 30, remis sur 20)
 
--   Réalisation et exécution : 18 points
+-   Réalisation et exécution : 21 points
     -   Clone git qui fonctionne (les bonnes personnes sont rapporteurs,
         la bonne branche est indiquée dans TOMUSS) (0,5 pts)
     -   Compilation Maven (1 pts)
     -   Code qui tourne directement sur l’ordinateur de l’évaluateur (1
         pts)
-    -   Qualité du code (2 pts)
+    -   Qualité du code (checkstyle, commentaires pertinents, ...) (2 pts)
     -   Structure globale du code, utilisation de Packages (0,5 pts)
-    -   README et respect des consignes (1 pts)
+    -   Fichier .gitignore correct (aucun fichier "untracked" après un
+        "mvn test") (1 pts)
     -   Interface (UI) propre (1 pts)
-    -   Stratégies **simples** implémentées (2 pts)
-    -   Gestion des tirs / touchés (1 pts)
+    -   Stratégies d'intelligence artificielle **simples** implémentées (2 pts)
+    -   Gestion des poneys améliorés (NianPoney avec arc-en-ciel) (1 pt)
+    -   Autres extensions (différents types de poneys, de stratégies) (1 pt)
     -   Tests (3 pts)
-    -   Patterns mis en oeuvre (3 pts)
+    -   Intégration continue opérationnelle (gitlab affiche "Commit:
+        passed" sur le dernier commit) (1 pt)
+    -   Patterns mis en oeuvre (6 pts)
+    -   En cas de non-respect des consignes, malus pouvant aller
+        jusqu'à -4 points :
+        -   Présence de README.md avec le bon contenu
+        -   Non-respect des consignes de rendu via TOMUSS
+        -   Absence de fichier pom.xml ou .gitlab-ci.yml
 -   Rapport et modélisation : 9 points
     -   Qualité de la réalisation Patterns utilisés (MVC est
         obligatoire + 3 autres minimums) (3pts)
