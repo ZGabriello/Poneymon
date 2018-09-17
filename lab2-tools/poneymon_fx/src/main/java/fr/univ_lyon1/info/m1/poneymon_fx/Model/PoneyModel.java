@@ -6,10 +6,10 @@ import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
 
 public class PoneyModel extends AbstractObjectsModel {
     Random randomGenerator = new Random();
-    double low = 0.001;
-    double high = 0.002;
     String[] colorMap = new String[] { "blue", "green", "orange", "purple", "yellow" };
     String poneyColor;
+    final double low = 0.001; //Arbitrary values for random speed.
+    final double high = 0.002;
     final double row;
     double progression;
     int lap;
@@ -17,7 +17,6 @@ public class PoneyModel extends AbstractObjectsModel {
     boolean isWinner;
     boolean isNian;
     boolean hasUsedNian;
-    CoinModel coin;
     double traveledDistance;
     boolean canChange;
 
@@ -47,7 +46,7 @@ public class PoneyModel extends AbstractObjectsModel {
             canChange = false;
         }
         progression += speed;
-        traveledDistance -= speed; // For the treemap
+        traveledDistance -= speed; // For the treemap (ascending order)
         if (progression > 1) {
             progression = 0;
             lap++;
@@ -124,7 +123,7 @@ public class PoneyModel extends AbstractObjectsModel {
     }
 
     /**
-     * Sets the boolean isNian.
+     * Sets the boolean isNian when a key is pressed.
      * 
      * @param b.
      */
@@ -136,7 +135,7 @@ public class PoneyModel extends AbstractObjectsModel {
     }
 
     /**
-     * Sets the boolean isNian.
+     * Sets the boolean isNian (for the coin).
      * 
      * @param b.
      */

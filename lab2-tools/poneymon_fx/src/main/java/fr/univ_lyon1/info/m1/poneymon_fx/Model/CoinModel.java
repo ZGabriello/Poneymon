@@ -3,13 +3,14 @@ package fr.univ_lyon1.info.m1.poneymon_fx.Model;
 import java.util.Random;
 
 public class CoinModel extends AbstractObjectsModel {
-    double x;
-    double y;
     Random randomGenerator = new Random();
-    double low = 0.3;
-    double high = 0.8;
+    final int row;
+    final double y;
+    final double low = 0.3;
+    final double high = 0.8;
+    double x;
     boolean visible;
-    int row;
+
 
     /**
      * Creates the CoinModel.

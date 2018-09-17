@@ -81,11 +81,13 @@ public class FieldView extends Canvas {
      * Associates the data for the view.
      * 
      * @param model.
+     * @param width.
+     * @param height.
      */
-    public void getValuesFromModel(FieldModel model) {
+    public void getValuesFromModel(FieldModel model, int width, int height) {
         if (model != null) {
             for (AbstractObjectView objectView : objectsView) {
-                objectView.getValuesFromModel(model);
+                objectView.getValuesFromModel(model, width, height);
             }
         }
     }    
@@ -121,8 +123,7 @@ public class FieldView extends Canvas {
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRect(0, 0, width, height);
         notifyModel(m);
-        getValuesFromModel(m);
+        getValuesFromModel(m, width, height);
         objectsDisplay();
     }
-
 }

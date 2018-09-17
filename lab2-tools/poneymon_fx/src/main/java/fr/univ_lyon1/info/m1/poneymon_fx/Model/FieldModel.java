@@ -31,16 +31,6 @@ public class FieldModel {
         addObject(poneysModel);
         addObject(coinsModel);
     }
-
-    /**
-     * Calls step() for each poneys and check the rules for the coins.
-     */
-    public void step() {
-        checkPoneyCoin();
-        for (AbstractObjectsModel objectModel : objectsModel) {
-            objectModel.step();
-        }
-    }
     
     /**
      * Starts the timer.
@@ -61,6 +51,32 @@ public class FieldModel {
                 }
             }
         }.start(); // On lance la boucle de rafraichissement
+    }
+
+    /**
+     * Calls step() for each poneys and check the rules for the coins.
+     */
+    public void step() {
+        checkPoneyCoin();
+        for (AbstractObjectsModel objectModel : objectsModel) {
+            objectModel.step();
+        }
+    }
+    
+    /**
+     * Checks if a poney has taken a coin.
+     */
+    public void checkPoneyCoin() {
+        for (int i = 0; i < poneysModel.length; i++) {
+            // New chance of coin appearing if the poney starts a new lap
+            if (poneysModel[i].progression == 0) {
+                coinsModel[i] = new CoinModel(i);
+            }
+            if (poneysModel[i].progression > coinsModel[i].getX() && coinsModel[i].getVisible()) {
+                coinsModel[i].setVisible(false);
+                poneysModel[i].setNian(true);
+            }
+        }
     }
 
     /**
@@ -123,15 +139,6 @@ public class FieldModel {
     }
 
     /**
-     * Checks all objects' informations for the model.
-     */
-    public void check() {
-        for (int i = 0; i < objectsModel.size(); i++) {
-            objectsModel.get(i).check();
-        }
-    }
-
-    /**
      * Checks if there's a winner.
      * 
      * @return true or false.
@@ -158,27 +165,11 @@ public class FieldModel {
     }
 
     /**
-     * Checks if a poney has taken a coin.
-     */
-    public void checkPoneyCoin() {
-        for (int i = 0; i < poneysModel.length; i++) {
-            // New chance of coin appearing if the poney starts a new lap
-            if (poneysModel[i].progression == 0) {
-                coinsModel[i] = new CoinModel(i);
-            }
-            if (poneysModel[i].progression > coinsModel[i].getX() && coinsModel[i].getVisible()) {
-                coinsModel[i].setVisible(false);
-                poneysModel[i].setNian(true);
-            }
-        }
-    }
-
-    /**
      * Checks the poneys' rank. Returns a String array.
      * 
      * @return scores.
      */
-    public String[] checkRank() {
+    public String[] getRank() {
         TreeMap<Double, String> tmap = new TreeMap<Double, String>();
 
         for (int i = 0; i < poneysModel.length; i++) {
@@ -198,5 +189,14 @@ public class FieldModel {
             j++;
         }
         return scores;
+    }
+    
+    /**
+     * Checks all objects' informations for the model.
+     */
+    public void checkInformations() {
+        for (int i = 0; i < objectsModel.size(); i++) {
+            objectsModel.get(i).check();
+        }
     }
 }

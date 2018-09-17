@@ -36,8 +36,10 @@ public abstract class AbstractObjectView {
      * Gets values from the model.
      * 
      * @param m.
+     * @param width.
+     * @param height.
      */
-    public void getValuesFromModel(FieldModel m) {
+    public void getValuesFromModel(FieldModel m, int width, int height) {
 
     }
 }

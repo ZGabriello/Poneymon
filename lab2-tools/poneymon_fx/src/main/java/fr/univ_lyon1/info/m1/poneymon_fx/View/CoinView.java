@@ -55,11 +55,11 @@ public class CoinView extends AbstractObjectView {
      * 
      * @param m.
      */
-    public void getValuesFromModel(FieldModel m) {
+    public void getValuesFromModel(FieldModel m, int width, int height) {
         for (int j = 0; j < m.getPoneysNb(); j++) {
             if (m.getCoinsModel()[j].getRow() == row) {
-                setX(m.getCoinsModel()[j].getX() * App.WIDTH);
-                setY(m.getCoinsModel()[j].getY() * App.HEIGHT / App.NB_PONEYS);
+                setX(m.getCoinsModel()[j].getX() * width);
+                setY(m.getCoinsModel()[j].getY() * height / App.NB_PONEYS);
                 setVisible(m.getCoinsModel()[j].getVisible());  
                 setRow(m.getCoinsModel()[j].getRow());
             }

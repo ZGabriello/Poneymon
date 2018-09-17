@@ -24,7 +24,7 @@ public class ScoreCanvasView extends Canvas {
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRect(0, 0, 300, 300);
         gc.setFill(Color.BLACK);
-        String[] scores = m.checkRank();
+        String[] scores = m.getRank();
         for (int i = 0; i < scores.length; i++) {
             gc.fillText(scores[i], 0, i * 20 + 20);
         } 

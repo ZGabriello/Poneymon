@@ -34,7 +34,7 @@ public class Controller {
     }
 
     /**
-     * Starts the timer.
+     * Starts the controller.
      */
     public void start() {
         if (fieldModel != null) {

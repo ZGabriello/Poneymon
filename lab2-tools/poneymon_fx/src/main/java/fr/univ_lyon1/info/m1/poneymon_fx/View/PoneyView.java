@@ -7,9 +7,9 @@ import javafx.scene.image.Image;
 
 public class PoneyView extends AbstractObjectView {
 
-    Image poneyRunning;
-    Image poneyRainbow;
-    String color;
+    final Image poneyRunning;
+    final Image poneyRainbow;
+    final String color;
     boolean isNian = false;
 
     /**
@@ -55,11 +55,11 @@ public class PoneyView extends AbstractObjectView {
      * 
      * @param m.
      */
-    public void getValuesFromModel(FieldModel m) {
+    public void getValuesFromModel(FieldModel m, int width, int height) {
         for (int j = 0; j < m.getPoneysNb(); j++) {
             if (m.getPoneysModel()[j].getColor() == color) {
-                setX(m.getPoneysModel()[j].getProgression() * App.WIDTH - 150);
-                setY(m.getPoneysModel()[j].getRow() * App.HEIGHT / App.NB_PONEYS);
+                setX(m.getPoneysModel()[j].getProgression() * width - 150);
+                setY(m.getPoneysModel()[j].getRow() * height / App.NB_PONEYS);
                 setIsNian(m.getPoneysModel()[j].getIsNian());
             }
         }
