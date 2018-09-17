@@ -17,6 +17,8 @@ public class ScoreCanvasView extends Canvas {
     /**
      * Updates data.
      * 
+     * @param m.
+     * 
      */
     public void gcFill(FieldModel m) {
         gc.setFill(Color.LIGHTGRAY);

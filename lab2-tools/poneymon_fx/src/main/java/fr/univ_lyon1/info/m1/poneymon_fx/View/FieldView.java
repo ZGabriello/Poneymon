@@ -114,6 +114,8 @@ public class FieldView extends Canvas {
     /**
      * Updates the view.
      * 
+     * @param m.
+     * 
      */
     public void update(FieldModel m) {
         gc.setFill(Color.LIGHTGRAY);

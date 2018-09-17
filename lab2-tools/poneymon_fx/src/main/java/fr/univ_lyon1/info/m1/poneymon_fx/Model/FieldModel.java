@@ -20,7 +20,6 @@ public class FieldModel {
     /**
      * Creates the FieldModel.
      * 
-     * @param nbPoneys number of poneys.
      */
     public FieldModel() {
         poneysModel = new PoneyModel[App.NB_PONEYS];
@@ -45,6 +44,8 @@ public class FieldModel {
     
     /**
      * Starts the timer.
+     * 
+     * @param views.
      */
     public void startTimer(final ArrayList<AbstractView> views) {
         new AnimationTimer() {
