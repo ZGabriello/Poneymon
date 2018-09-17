@@ -25,6 +25,8 @@ public class JfxView extends AbstractView {
     public void show() {
         fieldView.display(fieldModel);
         root.getChildren().add(fieldView);
+        stage.setY(150);
+        stage.setX(200);
         stage.setScene(scene);
         stage.show();
     }

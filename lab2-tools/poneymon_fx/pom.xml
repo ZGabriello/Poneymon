@@ -22,14 +22,14 @@
       <version>4.8.1</version>
       <scope>test</scope>
     </dependency>
-		<dependency>
+		<!--<dependency>
        <groupId>javafx</groupId>
        <artifactId>jfxrt</artifactId>
        <version>2.0</version>
        <type>jar</type>
        <scope>system</scope>
        <systemPath>${project.basedir}/../../lib/jfxrt.jar</systemPath>
-     </dependency>
+     </dependency-->
   </dependencies>
 
   <build>
@@ -48,7 +48,7 @@
 	<configuration>
 	  <source>1.8</source>
 	  <target>1.8</target>
-	  <mainClass>fr.univ_lyon1.info.m1.poneymon_fx.App</mainClass>
+	  <mainClass>fr.univ_lyon1.info.m1.poneymon_fx.App.App</mainClass>
 	</configuration>
       </plugin>
       <!--plugin>
@@ -89,7 +89,10 @@
 	  </execution>
 	</executions>
       </plugin>
-
+			<plugin>
+			  <artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+			</plugin>
      <plugin> <!-- https://maven.apache.org/plugins/maven-checkstyle-plugin/usage.html -->
        <groupId>org.apache.maven.plugins</groupId>
        <artifactId>maven-checkstyle-plugin</artifactId>
@@ -116,6 +119,7 @@
 		 <plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-javadoc-plugin</artifactId>
+			<version>3.0.1</version>
 			<executions>
 				<execution>
 					<id>attach-javadocs</id>

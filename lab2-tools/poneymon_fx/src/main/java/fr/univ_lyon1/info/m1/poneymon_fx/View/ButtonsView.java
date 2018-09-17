@@ -54,7 +54,7 @@ public class ButtonsView extends AbstractView {
         root.getChildren().add(hb);
         stage.setScene(scene);
         stage.setY(0);
-        stage.setX(500);
+        stage.setX(600);
         stage.show();
     }
 }

@@ -2,7 +2,7 @@ package fr.univ_lyon1.info.m1.poneymon_fx.Model;
 
 import java.util.Random;
 
-import fr.univ_lyon1.info.m1.poneymon_fx.Main.Main;
+import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
 
 public class PoneyModel extends AbstractObjectsModel {
     Random randomGenerator = new Random();
@@ -18,6 +18,7 @@ public class PoneyModel extends AbstractObjectsModel {
     boolean isNian;
     boolean hasUsedNian;
     CoinModel coin;
+    double traveledDistance;
 
     /**
      * Create poney's model.
@@ -32,6 +33,7 @@ public class PoneyModel extends AbstractObjectsModel {
         lap = 0;
         isNian = false;
         hasUsedNian = false;
+        traveledDistance = 0;
     }
 
     /**
@@ -45,6 +47,7 @@ public class PoneyModel extends AbstractObjectsModel {
             }
         }
         progression += speed;
+        traveledDistance -=speed; //For the treemap
         /*if (progression > coin.x && coin.visible) {
             coin.visible = false;
             isNian = true;
@@ -54,7 +57,7 @@ public class PoneyModel extends AbstractObjectsModel {
             lap++;
             speed = randomGenerator.nextFloat() * (high - low) + low;
             isNian = false;
-            if (lap == Main.NB_TOURS) {
+            if (lap == App.NB_TOURS) {
                 isWinner = true;
             }
             //coin.x += 10;
@@ -105,6 +108,15 @@ public class PoneyModel extends AbstractObjectsModel {
     public boolean getIsNian() {
         return isNian;
     }
+    
+    /**
+     * Gets the poney's boolean isNian.
+     * 
+     * @return isNian.
+     */
+    public double getTraveledDistance() {
+        return traveledDistance;
+    }
 
     /**
      * Checks if the poney has won.
@@ -112,7 +124,7 @@ public class PoneyModel extends AbstractObjectsModel {
      * @return true or false.
      */
     boolean win() {
-        return (lap == Main.NB_TOURS);
+        return (lap == App.NB_TOURS);
     }
 
     /**

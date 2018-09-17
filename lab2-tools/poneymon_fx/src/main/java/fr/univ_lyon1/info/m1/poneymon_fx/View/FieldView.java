@@ -31,7 +31,6 @@ public class FieldView extends Canvas {
         super(w, h);
         width = w;
         height = h;
-
         this.setFocusTraversable(true);
 
         gc = this.getGraphicsContext2D();
@@ -75,6 +74,7 @@ public class FieldView extends Canvas {
         }
         new AnimationTimer() {
             public void handle(long currentNanoTime) {
+                model.checkPoneyCoin();
                 gc.setFill(Color.LIGHTGRAY);
                 gc.fillRect(0, 0, width, height);
 
@@ -87,7 +87,7 @@ public class FieldView extends Canvas {
                     objectsDisplay();
                     if (model.checkWinner()) {
                         this.stop();
-                    }
+                    }                    
                 }
 
             }
@@ -106,7 +106,7 @@ public class FieldView extends Canvas {
                 m.setIsNianManually(true, keyMap.get(input.get(i)));
             }
             if (input.contains("SPACE")) {
-                m.checkRank("blue");
+                m.checkRank();
             }
         }
     }

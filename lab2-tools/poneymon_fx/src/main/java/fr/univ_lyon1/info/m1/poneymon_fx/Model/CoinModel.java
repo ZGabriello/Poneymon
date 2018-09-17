@@ -16,9 +16,8 @@ public class CoinModel extends AbstractObjectsModel {
      * @param i.
      */
     public CoinModel(int i) {
-        double a = randomGenerator.nextFloat() * (high - low) + low;
         y = i;
-        x = a;
+        x = randomGenerator.nextFloat() * (high - low) + low;
         setVisible();
     }
 
