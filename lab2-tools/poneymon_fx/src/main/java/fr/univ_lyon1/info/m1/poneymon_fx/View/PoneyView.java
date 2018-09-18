@@ -1,5 +1,6 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.View;
 
+import fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
@@ -43,13 +44,8 @@ public class PoneyView extends AbstractObjectView {
      * 
      * @param m.
      */
-    /*public void getValuesFromModel(FieldModel m, int width, int height) {
-        for (int j = 0; j < App.NB_PONEYS; j++) {
-            if (m.getPoneysModel()[j].getColor() == color) {
-                setX(m.getPoneysModel()[j].getX() * width - 150);
-                setY(m.getPoneysModel()[j].getY() * height / App.NB_PONEYS);
-                setIsNian(m.getPoneysModel()[j].getIsNian());
-            }
-        }
-    }*/
+    public void getValuesFromModel(AbstractObjectsModel o, int width, int height) {
+        super.getValuesFromModel(o, width, height);
+        setIsNian(o.getIsNian());
+    }
 }

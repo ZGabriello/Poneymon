@@ -154,6 +154,13 @@ Dans le navigateur, naviguez dans le dépôt: vous pouvez voir les
 révisions déjà présentes et même regarder le code source en ligne, ainsi
 que les différences entre les révisions.
 
+Il est probable que vous voyez une erreur comme celle-ci :
+
+![commit: running](../fig/commit-error.png)
+
+Ne paniquez pas : le commit est bien là, c'est l'intégration continue
+qui a échouée, vous verrez pourquoi à la fin du TP.
+
 ## .gitignore et gestion d’un ticket
 
 Les utilitaires comme Maven génèrent un grand nombre de fichiers qu'ils ne
@@ -317,7 +324,7 @@ générer un jar exécutable incluant les bibliothèques utilisées (voir
 Tester en lancer java via
 
 ```
-java -jar target/poneymon_fx-0.0.1-jar-with-dependencies.jar
+java -jar target/poneymon_fx-0.0.1-SNAPSHOT-jar-with-dependencies.jar
 ```
 
 ## Gérer les conflits
@@ -384,7 +391,7 @@ Avant tout, vérifiez que les pipelines sont activés sur votre projet :
 Il faut maintenant dire à GitLab quelle commande il doit lancer à
 chaque push, et dans quel environnent. Cela se fait dans le fichier
 `.gitlab-ci.yml` à la racine de votre projet Git. Un `.gitlab-ci.yml`
-typique pour un petit projet ressemble à ceci :
+typique pour un petit projet (pas pour le notre) ressemble à ceci :
 
 ```yaml
 tests:
@@ -402,15 +409,16 @@ termine par `exit 1`), on considère que les tests échouent.
 ### Mise en place
 
 Pour notre projet, nous vous fournissons un `.gitlab-ci.yml` qui fait
-un peu plus que cela :
+un peu plus que cela. Ouvrez le fichier
+[../gitlab-ci.yml](../gitlab-ci.yml). Ce fichier permet de :
 
-* Utilisation d'une image docker sur laquelle Maven et JavaFX sont
+* Utiliser une image docker sur laquelle Maven et JavaFX sont
   disponibles.
   
-* Mise en cache du répertoire `.m2/repository`, pour éviter de
+* Mettre en cache le répertoire `.m2/repository`, pour éviter de
   re-télécharger toutes les dépendances à chaque pipeline.
   
-* Configuration du proxy HTTP, qui est nécessaire sur la forge Lyon 1.
+* Configurer le proxy HTTP, qui est nécessaire sur la forge Lyon 1.
 
 Ouvrez ce fichier dans votre éditeur de texte. La dernière ligne
 (derrière `script:`) ne fait pour l'instant rien d'intelligent.
@@ -504,14 +512,14 @@ Les tests utilisent l'API JUnit :
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.8.1</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
 ```
 
 Ce morceau de code est copié-collé depuis l'URL donnée en commentaire.
-Nous utilisons ici JUnit 4.8 même si la version 5 est sortie, car la
+Nous utilisons ici JUnit 4.12 même si la version 5 est sortie, car la
 combinaison Maven + JUnit 5 + Eclipse semble poser problème pour
 l'instant.
 
@@ -589,7 +597,7 @@ merge-requests](https://docs.gitlab.com/ce/user/project/merge_requests/).
 
 Les IDE comme Eclipse ou Netbeans ont besoin d'un certain nombre
 d'information sur le projet pour fonctionner correctement :
-dépendances, options de compilation, classe principale, ... Ce sont
+dépendances, options de compilation, classe principale... Ce sont
 justement les informations fournies par le `pom.xml` ! Plutôt que de
 configurer le projet à la main dans votre IDE, vous pouvez donc
 laisser votre IDE charger le `pom.xml` :
@@ -600,6 +608,8 @@ laisser votre IDE charger le `pom.xml` :
 * Eclipse : installer le plugin [m2e](http://www.eclipse.org/m2e/),
   puis importer le projet en temps que projet Maven (File → Import...
   → Maven → Existing Maven Projects).
+
+* IntelliJ : comme pour NetBeans, Maven est intégré. Il suffit d'ouvrir un nouveau projet (menu File -> Open...) dans un répertoire contenant un projet Maven. Vous pouvez également créer un nouveau projet Maven avec le menu File -> New...
 
 Au niveau de la gestion de version (Git), on versionne (`git add`) le
 fichier `pom.xml`, mais pas les fichiers générés par les IDE (comme
@@ -615,7 +625,7 @@ les distributions Linux fournissent souvent Java sans JavaFX. Lorsque
 c'est possible, le mieux est d'installer JavaFX en utilisant le
 gestionnaire de paquets de sa distribution. Sur les machines de la fac
 où vous n'êtes pas root, voici un contournement (malheureusement peu
-satisfaisant) :
+satisfaisant), à lire jusqu'au bout :
 
 ### Ajout de la dépendance dans pom.xml
 
@@ -637,7 +647,7 @@ la section `<dependencies>` le code suivant :
 Un fichier `pom.xml` complet incluant cette section est disponible
 dans [../lib/pom-jfxrt-hack.xml](../lib/pom-jfxrt-hack.xml).
 
-### Compilation et exécution
+### Compilation et exécution avec Maven
 
 Vous pouvez maintenant compiler votre projet normalement :
 
@@ -652,3 +662,10 @@ avoir le même `CLASSPATH` à l'exécution qu'à la compilation :
 Notez que cette section présente un hack peu élégant, ce qui est assez
 ironique en cours de GL. La solution propre est bien sûr d'installer
 proprement JavaFX sur la machine.
+
+### Exécution en Java "de base"
+
+La commande `java` a besoin aussi d'avoir le bon classpath. Si vous
+préférez `java` à `mvn`, vous pouvez lancer l'application avec :
+
+    java -cp $PWD/../../lib/jfxrt.jar:target/poneymon_fx-0.0.1-SNAPSHOT-jar-with-dependencies.jar  fr.univ_lyon1.info.m1.poneymon_fx.App

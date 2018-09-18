@@ -66,7 +66,6 @@ public abstract class AbstractObjectView {
         if (o.getType() == type && o.getColor() == color) {
             setX(o.getX() * width - 100); //TODO why 150 ?
             setY(o.getY() * height / App.NB_PONEYS);
-            setIsNian(o.getIsNian());
             setVisible(o.getVisible());
             /*System.out.println("Type : " + type
                     + " color : " + color

@@ -1,5 +1,39 @@
 # Mettre en place le pattern MVC
 
+Il existe beaucoup de variantes du pattern MVC. 
+Certains mettent la logique métier dans le contrôleur, d'autres dans le modèle. 
+Parfois les entrées de l'utilisateur arrivent via le contrôleur (c'est le cas quand on passe par un serveur Web par exemple p
+arfois c'est la vue qui en est chargée.                                                                                     
+
+Vous êtes libres d'appliquer la variante que vous souhaitez (et donc d'ignorer les suggestions de ce document).
+
+## Les questions à se poser pour mettre en oeuvre le pattern MVC
+
+En revanche, vous ne pouvez  pas vous contenter de dire (ni d'écrire dans votre rapport) « nous faisons du MVC » ! 
+Il y a bien plus de questions à vous poser, comme par exemple :
+
+* Comment faire communiquer Modèle, Vue et Contrôleur ? Des appels de
+  méthodes directement sur les classes ? Un patron
+  « [Observateur](https://en.wikipedia.org/wiki/Observer_pattern) » ?
+  Un appel de méthode en passant par une classe abstraite ou une
+  interface pour faire une inversion de dépendance (le « D » de
+  [SOLID](https://en.wikipedia.org/wiki/SOLID)) ?
+  
+* Comment découper Modèle, Vue et Contrôleur ? Par exemple, mettre
+  tout le modèle dans une classe violerait le
+  [SRP](https://en.wikipedia.org/wiki/Single_responsibility_principle),
+  mais comment le découper correctement ? Comment faire circuler
+  l'information d'une classe à l'autre
+  ([delegation](https://en.wikipedia.org/wiki/Delegation_pattern) ?
+  Observateur ? ...) ? L'API exposée au reste du programme doit-elle
+  refléter la structure de nos classes, ou bien est-ce pertinent
+  d'utiliser une
+  [facade](https://en.wikipedia.org/wiki/Facade_pattern) pour en
+  exposer une plus simple via des
+  [indirections](https://en.wikipedia.org/wiki/GRASP_(object-oriented_design)#Indirection) ?
+  
+* ...
+
 ## Découpage et responsabilités du M, V, C.
 
 Il existe beaucoup de variantes du pattern MVC. Certains mettent la
@@ -39,14 +73,17 @@ transparents, donc appliquer le découpage suivant :
 * Le contrôleur s'occupe de transmettre l'information. Il est attaché
   à un modèle, et à un nombre quelconque de vues (0, 1, plusieurs).
   Quand le modèle envoie de l'information, il passe par le contrôleur
-  qui route l'information aux vues. Le contrôleur s'occupera aussi de
-  mettre en place le timer qui fait avancer le jeu avec le temps.
+  qui route l'information aux vues. Le contrôleur peut s'occuper aussi
+  de mettre en place le timer qui fait avancer le jeu avec le temps
+  (c'est discutable, le modèle peut aussi s'en occuper mais surtout
+  pas la vue : on ne veut pas d'un jeu qui va deux fois plus vite si
+  on instancie deux vues !)
 
 ## Mise en place
 
-Nous allons implémenter `Model`, `View` et `Controler` avec 3 packages
+Nous allons implémenter `Model`, `View` et `Controller` avec 3 packages
 java (`fr.univ-lyon1.info.m1.poneymon_fx.Model`, et idem pour `View`
-et `Controler`), contenant chacun une ou plusieurs classes.
+et `Controller`), contenant chacun une ou plusieurs classes.
 
 Commencez par créer un package `Model`, contenant une classe
 `FieldModel`, contenant elle-même un tableau de `PoneyModel` (qui sera
@@ -68,8 +105,8 @@ pour décider que c'est à la classe `PoneyModel` d'appliquer la règle
 « chaque poney avance à chaque pas ».
 
 Créez maintenant le contrôleur : un package
-`fr.univ-lyon1.info.m1.poneymon_fx.Controler` contenant une classe
-`Controler`. Cette classe contient une référence vers le modèle, et
+`fr.univ-lyon1.info.m1.poneymon_fx.Controller` contenant une classe
+`Controller`. Cette classe contient une référence vers le modèle, et
 une liste de vues (`ArrayList<AbstractView>`), avec les méthodes
 associées (`addView`, `setModel`, ...). Elle pourra contenir
 par exemple une méthode `notifyViews` qui appelle la méthode `update`
@@ -102,12 +139,12 @@ simple que :
     public void start(Stage stage) throws Exception {
         FieldModel m = new FieldModel(5); // 5 poneys
         JfxView v = new JfxView(stage, 600, 600); // 600x600 pixels
-        Controler c = new Controler();
+        Controller c = new Controller();
 
         c.addView(v);
         c.setModel(m);
         v.setModel(m);
-        v.setControler(c);
+        v.setController(c);
 
         c.startTimer();
     }
