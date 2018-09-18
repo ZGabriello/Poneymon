@@ -14,8 +14,6 @@ import java.util.TreeMap;
 
 public class FieldModel {
     ArrayList<AbstractObjectsModel> objectsModel = new ArrayList<AbstractObjectsModel>();
-    PoneyModel[] poneysModel;
-    CoinModel[] coinsModel;
     Controller controller;
     boolean paused;
 
@@ -24,8 +22,8 @@ public class FieldModel {
      * 
      */
     public FieldModel() {
-        poneysModel = new PoneyModel[App.NB_PONEYS];
-        coinsModel = new CoinModel[App.NB_PONEYS];
+        PoneyModel[] poneysModel = new PoneyModel[App.NB_PONEYS];
+        CoinModel[] coinsModel = new CoinModel[App.NB_PONEYS];
         for (int i = 0; i < App.NB_PONEYS; i++) {
             coinsModel[i] = new CoinModel(i);
             poneysModel[i] = new PoneyModel(i);
@@ -67,15 +65,21 @@ public class FieldModel {
      * Checks if a poney has taken a coin.
      */
     public void checkPoneyCoin() {
-        for (int i = 0; i < poneysModel.length; i++) {
-            // New chance of coin appearing if the poney starts a new lap
-            if (poneysModel[i].progression == 0) {
-                coinsModel[i] = new CoinModel(i);
-            }
-            if (poneysModel[i].progression > coinsModel[i].getX() + 0.05 
-                    && coinsModel[i].getVisible()) {
-                coinsModel[i].setVisible(false);
-                poneysModel[i].setNian(true);
+        for (AbstractObjectsModel object : objectsModel) {
+            if (object.getType() == "poney") {
+                for (AbstractObjectsModel objectBis : objectsModel) { 
+                    if (objectBis.getType() == "coin" 
+                            && objectBis.getColor() == object.getColor()) {
+                        if (object.getX() == 0) { 
+                            objectBis = new CoinModel(objectBis.getY());
+                        }
+                        if (object.getX() > objectBis.getX() - 0.1 
+                                && objectBis.getVisible()) {
+                            object.setNian(true);
+                            objectBis.setVisible(false);
+                        }
+                    }       
+                }
             }
         }
     }
@@ -87,9 +91,9 @@ public class FieldModel {
      * @param color.
      */
     public void setIsNianManually(boolean b, String color) {
-        for (int i = 0; i < poneysModel.length; i++) {
-            if (poneysModel[i].getColor() == color) {
-                poneysModel[i].setNianManually(b);
+        for (AbstractObjectsModel object : objectsModel) { 
+            if (object.getType() == "poney" && object.getColor() == color) {
+                object.setNianManually(b);
             }
         }
     }
@@ -120,23 +124,14 @@ public class FieldModel {
     public boolean getPaused() {
         return paused;
     }
-
+    
     /**
-     * Gets the poneys' array.
+     * Gets the objects' array.
      * 
-     * @return poneysModel.
+     * @return objectsModel.
      */
-    public PoneyModel[] getPoneysModel() {
-        return poneysModel;
-    }
-
-    /**
-     * Gets the coins' array.
-     * 
-     * @return coinsModel.
-     */
-    public CoinModel[] getCoinsModel() {
-        return coinsModel;
+    public ArrayList<AbstractObjectsModel> getObjectsModel() {
+        return objectsModel;
     }
 
     /**
@@ -145,9 +140,10 @@ public class FieldModel {
      * @return true or false.
      */
     public boolean checkWinner() {
-        for (int i = 0; i < poneysModel.length; i++) {
-            if (poneysModel[i].getIsWinner()) {
-                System.out.println(poneysModel[i].getColor() + " poney won. ");
+        for (AbstractObjectsModel object : objectsModel) { 
+            if (object.getIsWinner()) { 
+                //TODO parcourir tous les objets ou seuelemnt les getColor == poney ?
+                System.out.println(object.getColor() + " poney won. ");
                 return true;
             }
         }
@@ -173,19 +169,19 @@ public class FieldModel {
     public String[] getRank() {
         TreeMap<Double, String> tmap = new TreeMap<Double, String>();
 
-        for (int i = 0; i < poneysModel.length; i++) {
-            tmap.put(poneysModel[i].getTraveledDistance(), poneysModel[i].getColor());
+        for (AbstractObjectsModel object : objectsModel) { 
+            if (object.getType() == "poney") {
+                tmap.put(object.getTraveledDistance(), object.getColor());
+            }
         }
-
         int i = 1; // For rank displaying, must be from one to five so it's readable.
         int j = 0; // For scores incrementing, must be from zero to 4.
         Set<Entry<Double, String>> set = tmap.entrySet();
         Iterator<Entry<Double, String>> iterator = set.iterator();
-        String[] scores = new String[poneysModel.length];
+        String[] scores = new String[App.NB_PONEYS];
         while (iterator.hasNext()) {
             Entry<Double, String> mentry = iterator.next();
             scores[j] = new String("The " + mentry.getValue() + " poney's rank is " + i);
-            // System.out.println("The " + mentry.getValue() + " poney's rank is " + i);
             i++;
             j++;
         }

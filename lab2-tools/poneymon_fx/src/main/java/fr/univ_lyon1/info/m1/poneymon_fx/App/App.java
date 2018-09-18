@@ -15,6 +15,9 @@ public class App extends Application {
     public static final int WIDTH = 1000;
     public static final int HEIGHT = 600;
     
+    FieldModel m;
+    Controller c;
+    
     /**
      * Starts the application.
      * 
@@ -23,8 +26,8 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {        
         
-        FieldModel m = new FieldModel();
-        Controller c = new Controller();
+        m = new FieldModel();
+        c = new Controller();
         
         m.setController(c);
         

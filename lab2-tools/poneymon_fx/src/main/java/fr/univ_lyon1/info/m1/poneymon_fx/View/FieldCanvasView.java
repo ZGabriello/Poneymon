@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
+import fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
@@ -11,7 +12,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
-public class FieldView extends Canvas {
+public class FieldCanvasView extends Canvas {
 
     ArrayList<String> inputs = new ArrayList<String>();
     ArrayList<AbstractObjectView> objectsView = new ArrayList<AbstractObjectView>();
@@ -27,7 +28,7 @@ public class FieldView extends Canvas {
      * @param w.
      * @param h.
      */
-    public FieldView(int w, int h) {
+    public FieldCanvasView(int w, int h) {
         super(w, h);
         width = w;
         height = h;
@@ -57,7 +58,7 @@ public class FieldView extends Canvas {
         CoinView[] coinsView = new CoinView[App.NB_PONEYS];
         for (int i = 0; i < App.NB_PONEYS; i++) {
             poneysView[i] = new PoneyView(colorMap[i]);
-            coinsView[i] = new CoinView(i);
+            coinsView[i] = new CoinView(colorMap[i]);
         }
         addObjectView(poneysView);
         addObjectView(coinsView);
@@ -80,17 +81,18 @@ public class FieldView extends Canvas {
     /**
      * Associates the data for the view.
      * 
-     * @param model.
+     * @param objectsModel.
      * @param width.
      * @param height.
      */
-    public void getValuesFromModel(FieldModel model, int width, int height) {
-        if (model != null) {
-            for (AbstractObjectView objectView : objectsView) {
-                objectView.getValuesFromModel(model, width, height);
+    public void getValuesFromModel(ArrayList<AbstractObjectsModel> objectsModel,
+            int width, int height) {
+        for (AbstractObjectsModel objectModel : objectsModel) {
+            for (AbstractObjectView objectView : objectsView) { 
+                objectView.getValuesFromModel(objectModel, width, height);
             }
         }
-    }    
+    }
 
     /**
      * Adds an objectView to the array list of objectsViews.
@@ -123,7 +125,7 @@ public class FieldView extends Canvas {
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRect(0, 0, width, height);
         notifyModel(m);
-        getValuesFromModel(m, width, height);
+        getValuesFromModel(m.getObjectsModel(), width, height);
         objectsDisplay();
     }
 }

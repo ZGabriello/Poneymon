@@ -1,16 +1,9 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.Model;
 
-import java.util.Random;
 
 public class CoinModel extends AbstractObjectsModel {
-    Random randomGenerator = new Random();
-    final int row;
-    final double y;
     final double low = 0.3;
     final double high = 0.8;
-    double x;
-    boolean visible;
-
 
     /**
      * Creates the CoinModel.
@@ -18,9 +11,9 @@ public class CoinModel extends AbstractObjectsModel {
      * @param i.
      */
     public CoinModel(int i) {
-        y = i;
+        super(i);
+        type = "coin";
         x = randomGenerator.nextFloat() * (high - low) + low;
-        row = i;
         setVisible();
     }
 
@@ -38,17 +31,8 @@ public class CoinModel extends AbstractObjectsModel {
      * 
      * @return y.
      */
-    public double getY() {
+    public int getY() {
         return y;
-    }
-    
-    /**
-     * Returns row.
-     * 
-     * @return row.
-     */
-    public int getRow() {
-        return row;
     }
 
     /**
@@ -60,24 +44,6 @@ public class CoinModel extends AbstractObjectsModel {
         if (a == 0 /*|| a == 1 || a == 2 || a == 3 || a == 4*/) {
             visible = true;
         }
-    }
-    
-    /**
-     * Sets the boolean visible.
-     * 
-     * @param b.
-     */
-    public void setVisible(boolean b) {
-        visible = b;
-    }
-
-    /**
-     * Returns the boolean visible.
-     * 
-     * @return visible.
-     */
-    public boolean getVisible() {
-        return visible;
     }
 
     /**

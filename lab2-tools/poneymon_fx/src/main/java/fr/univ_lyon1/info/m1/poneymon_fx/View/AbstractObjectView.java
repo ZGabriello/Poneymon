@@ -1,14 +1,19 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.View;
 
-import fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel;
+import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
+import fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public abstract class AbstractObjectView {
 
     Image image;
+    String type;
+    String color;
     double x;
     double y;
+    boolean visible = false;
+    boolean isNian = false;
     
     public void display(GraphicsContext gc) {
 
@@ -31,15 +36,44 @@ public abstract class AbstractObjectView {
     public void setY(double d) {
         y = d;
     }
-
+    
+    /**
+     * Sets isNian.
+     * 
+     * @param b.
+     */
+    public void setIsNian(boolean b) {
+        isNian = b;
+    }
+    
+    /**
+     * Sets the boolean variable visible.
+     * 
+     * @param b.
+     */
+    public void setVisible(boolean b) {
+        visible = b;
+    }
+    
     /**
      * Gets values from the model.
      * 
-     * @param m.
+     * @param o.
      * @param width.
      * @param height.
      */
-    public void getValuesFromModel(FieldModel m, int width, int height) {
-
+    public void getValuesFromModel(AbstractObjectsModel o, int width, int height) {
+        if (o.getType() == type && o.getColor() == color) {
+            setX(o.getX() * width - 100); //TODO why 150 ?
+            setY(o.getY() * height / App.NB_PONEYS);
+            setIsNian(o.getIsNian());
+            setVisible(o.getVisible());
+            /*System.out.println("Type : " + type
+                    + " color : " + color
+                    + " X : " + x
+                    + " Y : " + y
+                    + " isNian : " + isNian
+                    + " visible : " + visible);*/
+        }
     }
 }
