@@ -2,8 +2,7 @@
 
 Il existe beaucoup de variantes du pattern MVC. 
 Certains mettent la logique métier dans le contrôleur, d'autres dans le modèle. 
-Parfois les entrées de l'utilisateur arrivent via le contrôleur (c'est le cas quand on passe par un serveur Web par exemple p
-arfois c'est la vue qui en est chargée.                                                                                     
+Parfois les entrées de l'utilisateur arrivent via le contrôleur (c'est le cas quand on passe par un serveur Web par exemple parfois c'est la vue qui en est chargée.
 
 Vous êtes libres d'appliquer la variante que vous souhaitez (et donc d'ignorer les suggestions de ce document).
 
@@ -82,10 +81,10 @@ transparents, donc appliquer le découpage suivant :
 ## Mise en place
 
 Nous allons implémenter `Model`, `View` et `Controller` avec 3 packages
-java (`fr.univ-lyon1.info.m1.poneymon_fx.Model`, et idem pour `View`
-et `Controller`), contenant chacun une ou plusieurs classes.
+java (`fr.univ-lyon1.info.m1.poneymon_fx.model`, et idem pour `view`
+et `controller`), contenant chacun une ou plusieurs classes.
 
-Commencez par créer un package `Model`, contenant une classe
+Commencez par créer un package `model`, contenant une classe
 `FieldModel`, contenant elle-même un tableau de `PoneyModel` (qui sera
 définie dans le même package). Chaque `PoneyModel` contient ses
 coordonnées logiques (attention, pas de position en pixel ...).
@@ -105,17 +104,18 @@ pour décider que c'est à la classe `PoneyModel` d'appliquer la règle
 « chaque poney avance à chaque pas ».
 
 Créez maintenant le contrôleur : un package
-`fr.univ-lyon1.info.m1.poneymon_fx.Controller` contenant une classe
+`fr.univ-lyon1.info.m1.poneymon_fx.controller` contenant une classe
 `Controller`. Cette classe contient une référence vers le modèle, et
-une liste de vues (`ArrayList<AbstractView>`), avec les méthodes
-associées (`addView`, `setModel`, ...). Elle pourra contenir
-par exemple une méthode `notifyViews` qui appelle la méthode `update`
-sur chaque vue enregistrée (pattern
+une liste de vues (par exemple une `List<View>` implémentée par une
+`ArrayList<View>`, où `View` est une interface), avec les méthodes
+associées (`addView`, `setModel`, ...). Elle pourra contenir par
+exemple une méthode `notifyViews` qui appelle la méthode `update` sur
+chaque vue enregistrée (pattern
 [Observer](https://en.wikipedia.org/wiki/Observer_pattern)).
 
 Créez maintenant la vue : un package
-`fr.univ-lyon1.info.m1.poneymon_fx.View` contenant les classes
-`AbstractView` (qui définit l'interface d'une vue, sans donner son
+`fr.univ-lyon1.info.m1.poneymon_fx.view` contenant les classes
+`View` (qui définit l'interface d'une vue, sans donner son
 implémentation), `JfxView` (qui s'occupe de l'affichage de la fenêtre
 via JavaFX), `FieldView` (qui dérive de `Canvas` et s'occupe
 d'afficher le rectangle de jeu), et `PoneyView`.
