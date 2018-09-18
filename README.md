@@ -16,6 +16,12 @@
 
 Barème : 50% examen / 50% TP.
 
+## Nouvelles du cours
+
+Les informations de dernière minute sont disponibles ici :
+[NEWS.md](NEWS.md). Les informations importantes seront envoyées par
+email, ce fichier en contient une copie.
+
 ## Course 1: Introduction
 
 * [01-introduction-slides.pdf](01-introduction-slides.pdf)
