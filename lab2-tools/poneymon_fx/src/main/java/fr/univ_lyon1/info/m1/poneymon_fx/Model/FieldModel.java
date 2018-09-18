@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.Map.Entry;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
+import fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller;
 import fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView;
 import javafx.animation.AnimationTimer;
 
@@ -15,6 +16,7 @@ public class FieldModel {
     ArrayList<AbstractObjectsModel> objectsModel = new ArrayList<AbstractObjectsModel>();
     PoneyModel[] poneysModel;
     CoinModel[] coinsModel;
+    Controller controller;
     boolean paused;
 
     /**
@@ -43,18 +45,16 @@ public class FieldModel {
                 if (!getPaused()) {
                     step();
                 }
-                for (AbstractView view : views) {
-                    view.update();
-                }
+                controller.updateViews();
                 if (checkWinner()) {
                     this.stop();
                 }
             }
-        }.start(); // On lance la boucle de rafraichissement
+        }.start();
     }
 
     /**
-     * Calls step() for each poneys and check the rules for the coins.
+     * Calls step() for each objects and check the rules for the coins.
      */
     public void step() {
         checkPoneyCoin();
@@ -72,7 +72,8 @@ public class FieldModel {
             if (poneysModel[i].progression == 0) {
                 coinsModel[i] = new CoinModel(i);
             }
-            if (poneysModel[i].progression > coinsModel[i].getX() && coinsModel[i].getVisible()) {
+            if (poneysModel[i].progression > coinsModel[i].getX() + 0.05 
+                    && coinsModel[i].getVisible()) {
                 coinsModel[i].setVisible(false);
                 poneysModel[i].setNian(true);
             }
@@ -80,7 +81,7 @@ public class FieldModel {
     }
 
     /**
-     * Sets the poney isNian field to true or false.
+     * Sets the poney isNian field to true or false for a user action.
      * 
      * @param b.
      * @param color.
@@ -101,14 +102,14 @@ public class FieldModel {
     public void setPaused(boolean b) {
         paused = b;
     }
-
+    
     /**
-     * Gets the number of poneys.
+     * Sets the controller.
      * 
-     * @return poneysModel.length.
+     * @param c.
      */
-    public int getPoneysNb() {
-        return poneysModel.length;
+    public void setController(Controller c) {
+        controller = c;
     }
     
     /**

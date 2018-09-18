@@ -56,7 +56,7 @@ public class PoneyView extends AbstractObjectView {
      * @param m.
      */
     public void getValuesFromModel(FieldModel m, int width, int height) {
-        for (int j = 0; j < m.getPoneysNb(); j++) {
+        for (int j = 0; j < App.NB_PONEYS; j++) {
             if (m.getPoneysModel()[j].getColor() == color) {
                 setX(m.getPoneysModel()[j].getProgression() * width - 150);
                 setY(m.getPoneysModel()[j].getRow() * height / App.NB_PONEYS);

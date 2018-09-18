@@ -123,7 +123,7 @@ public class PoneyModel extends AbstractObjectsModel {
     }
 
     /**
-     * Sets the boolean isNian when a key is pressed.
+     * Sets the boolean isNian (for a user action).
      * 
      * @param b.
      */

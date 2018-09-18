@@ -23,6 +23,16 @@ public class Controller {
     public void addView(AbstractView v) {
         views.add(v);
     }
+    
+    /**
+     * Updates views.
+     * 
+     */
+    public void updateViews() {
+        for (AbstractView view : views) {
+            view.update();
+        }
+    }
 
     /**
      * Sets the model.

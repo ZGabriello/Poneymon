@@ -26,6 +26,8 @@ public class App extends Application {
         FieldModel m = new FieldModel();
         Controller c = new Controller();
         
+        m.setController(c);
+        
         /*Stage stage1 = new Stage();
         JfxView jfxView1 = new JfxView(stage1, 400, 400);
         jfxView1.setModel(m);
