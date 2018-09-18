@@ -597,7 +597,7 @@ merge-requests](https://docs.gitlab.com/ce/user/project/merge_requests/).
 
 Les IDE comme Eclipse ou Netbeans ont besoin d'un certain nombre
 d'information sur le projet pour fonctionner correctement :
-dépendances, options de compilation, classe principale, ... Ce sont
+dépendances, options de compilation, classe principale... Ce sont
 justement les informations fournies par le `pom.xml` ! Plutôt que de
 configurer le projet à la main dans votre IDE, vous pouvez donc
 laisser votre IDE charger le `pom.xml` :
@@ -608,6 +608,8 @@ laisser votre IDE charger le `pom.xml` :
 * Eclipse : installer le plugin [m2e](http://www.eclipse.org/m2e/),
   puis importer le projet en temps que projet Maven (File → Import...
   → Maven → Existing Maven Projects).
+
+* IntelliJ : comme pour NetBeans, Maven est intégré. Il suffit d'ouvrir un nouveau projet (menu File -> Open...) dans un répertoire contenant un projet Maven. Vous pouvez également créer un nouveau projet Maven avec le menu File -> New...
 
 Au niveau de la gestion de version (Git), on versionne (`git add`) le
 fichier `pom.xml`, mais pas les fichiers générés par les IDE (comme
