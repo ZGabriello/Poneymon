@@ -1,3 +1,30 @@
+# 18 septembre 2018 (bis) : Petits bugs dans le sujet de TP
+
+Comme personne n'est parfait, le sujet du TP3 et mes slides de ce
+matin contiennent quelques violations des principes vus en cours.
+
+- Il y a trop de mentions directes sur la classe ArrayList. ArrayList
+  est une implémentation (tableau redimensionnable à la `std::vector` de
+  C++), mais il n'y a pas de raison d'y faire référence quand on est
+  utilisateur de l'objet : on le manipule via son interface `List`.
+  Sinon on dépend d'un détail d'implémentation et on viole au moins le
+  le D de SOLID.
+
+- La partie MVC décrit une « interface » dont le nom est
+  « AbstractView ». C'était une erreur de nommage : le préfixe
+  « Abstract » implique qu'il s'agit d'une classe abstraite (qui
+  aurait pu contenir autre choses que des méthodes abstaites), alors
+  qu'il s'agit bien d'une interface. « View » aurait été un bien
+  meilleur nom.
+
+- Les noms de packages suggérés utilisent des majuscules (« Model »,
+  « View », « Controler »), c'est contraire aux coding style Java. Il
+  faudrait utiliser des minuscules.
+  
+Le sujet a été mis à jour. Nous vous recommandons de mettre à jour
+votre code (avec les outils de refactoring de votre IDE, c'est
+faisable en quelques minutes).
+
 # 18 septembre 2018 : Observateur et Java
 
 Suite à une discussion en TP, Lionel Medini a ajouté un slide (n°127)
