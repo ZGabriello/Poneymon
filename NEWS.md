@@ -32,6 +32,10 @@ Quelques conseils pour la suite :
   de son contexte. J'ai été pris sur le fait dans mes slides Agilité
   où je parle du « 9 pregnant women's problem » qui a été interprêté
   comme « les femmes qui tombent enceinte, c'est un problème » !
+  
+* Une nouvelle petite mise à jour des slides sur les design patterns à
+  propos de la classe Observable, slide 127 :
+  https://perso.liris.cnrs.fr/lionel.medini/enseignement/M1IF01/CM-patterns.pdf
 
 # 18 septembre 2018 (bis) : Petits bugs dans le sujet de TP
 
