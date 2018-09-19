@@ -142,4 +142,11 @@ public abstract class AbstractObjectsModel {
     public double getTraveledDistance() {
         return traveledDistance;
     }
+    
+    /**
+     * Resets parameters.
+     * 
+     */
+    public void reset() {
+    }
 }

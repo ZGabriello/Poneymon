@@ -90,6 +90,7 @@ public class FieldCanvasView extends Canvas {
         for (AbstractObjectsModel objectModel : objectsModel) {
             for (AbstractObjectView objectView : objectsView) { 
                 objectView.getValuesFromModel(objectModel, width, height);
+                
             }
         }
     }

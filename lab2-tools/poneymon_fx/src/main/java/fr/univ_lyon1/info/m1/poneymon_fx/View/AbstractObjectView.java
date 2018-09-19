@@ -12,8 +12,7 @@ public abstract class AbstractObjectView {
     String color;
     double x;
     double y;
-    boolean visible = false;
-    boolean isNian = false;
+    
     
     public void display(GraphicsContext gc) {
 
@@ -38,24 +37,6 @@ public abstract class AbstractObjectView {
     }
     
     /**
-     * Sets isNian.
-     * 
-     * @param b.
-     */
-    public void setIsNian(boolean b) {
-        isNian = b;
-    }
-    
-    /**
-     * Sets the boolean variable visible.
-     * 
-     * @param b.
-     */
-    public void setVisible(boolean b) {
-        visible = b;
-    }
-    
-    /**
      * Gets values from the model.
      * 
      * @param o.
@@ -66,13 +47,6 @@ public abstract class AbstractObjectView {
         if (o.getType() == type && o.getColor() == color) {
             setX(o.getX() * width - 100); //TODO why 150 ?
             setY(o.getY() * height / App.NB_PONEYS);
-            setVisible(o.getVisible());
-            /*System.out.println("Type : " + type
-                    + " color : " + color
-                    + " X : " + x
-                    + " Y : " + y
-                    + " isNian : " + isNian
-                    + " visible : " + visible);*/
         }
     }
 }

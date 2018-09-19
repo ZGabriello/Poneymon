@@ -28,8 +28,8 @@ public class FieldModel {
             coinsModel[i] = new CoinModel(i);
             poneysModel[i] = new PoneyModel(i);
         }
-        addObject(poneysModel);
-        addObject(coinsModel);
+        addObjects(poneysModel);
+        addObjects(coinsModel);
     }
     
     /**
@@ -71,7 +71,7 @@ public class FieldModel {
                     if (objectBis.getType() == "coin" 
                             && objectBis.getColor() == object.getColor()) {
                         if (object.getX() == 0) { 
-                            objectBis = new CoinModel(objectBis.getY());
+                            objectBis.reset();
                         }
                         if (object.getX() > objectBis.getX() - 0.1 
                                 && objectBis.getVisible()) {
@@ -149,13 +149,13 @@ public class FieldModel {
         }
         return false;
     }
-
+    
     /**
-     * Adds an objectModel to the objectsModel list.
+     * Adds an objectModel array  to the objectsModel list.
      * 
      * @param o.
      */
-    public void addObject(AbstractObjectsModel[] o) {
+    public void addObjects(AbstractObjectsModel[] o) {
         for (int i = 0; i < o.length; i++) {
             objectsModel.add(o[i]);
         }

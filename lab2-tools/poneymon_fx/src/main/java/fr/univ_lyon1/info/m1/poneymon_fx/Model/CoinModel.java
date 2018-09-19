@@ -16,6 +16,15 @@ public class CoinModel extends AbstractObjectsModel {
         x = randomGenerator.nextFloat() * (high - low) + low;
         setVisible();
     }
+    
+    /**
+     * Resets parameters.
+     * 
+     */
+    public void reset() {
+        x = randomGenerator.nextFloat() * (high - low) + low;
+        setVisible();
+    }
 
     /**
      * Returns X.
@@ -41,7 +50,7 @@ public class CoinModel extends AbstractObjectsModel {
      */
     public void setVisible() {
         int a = randomGenerator.nextInt(4);
-        if (a == 0 /*|| a == 1 || a == 2 || a == 3 || a == 4*/) {
+        if (a == 0 || a == 1 || a == 2 || a == 3 || a == 4) {
             visible = true;
         }
     }

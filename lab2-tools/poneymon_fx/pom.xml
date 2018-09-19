@@ -55,13 +55,9 @@
 	  </execution>
 	</executions>
 	<configuration>
-<<<<<<< HEAD
 	  <source>1.8</source>
 	  <target>1.8</target>
 	  <mainClass>fr.univ_lyon1.info.m1.poneymon_fx.App.App</mainClass>
-=======
- 	  <mainClass>fr.univ_lyon1.info.m1.poneymon_fx.App</mainClass>
->>>>>>> a48a500a33c8cb6d9eadd604e30fc9e5a8f0b71b
 	</configuration>
       </plugin>
       <!--plugin>

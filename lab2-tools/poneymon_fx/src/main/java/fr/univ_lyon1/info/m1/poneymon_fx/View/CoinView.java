@@ -1,11 +1,13 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.View;
 
+import fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public class CoinView extends AbstractObjectView {
 
-
+    boolean visible = false;
+    
     /**
      * Creates CoinView.
      * 
@@ -29,18 +31,25 @@ public class CoinView extends AbstractObjectView {
     }
 
     /**
+     * Sets the boolean variable visible.
+     * 
+     * @param b.
+     */
+    public void setVisible(boolean b) {
+        visible = b;
+    }
+    
+    /**
      * Gets values from the model.
      * 
-     * @param m.
+     * @param o.
+     * @param width.
+     * @param height.
      */
-    /*public void getValuesFromModel(FieldModel m, int width, int height) {
-        for (int j = 0; j < App.NB_PONEYS; j++) {
-            if (m.getCoinsModel()[j].getColor() == color) {
-                setX(m.getCoinsModel()[j].getX() * width);
-                setY(m.getCoinsModel()[j].getY() * height / App.NB_PONEYS);
-                setVisible(m.getCoinsModel()[j].getVisible());  
-                //setRow(m.getCoinsModel()[j].getRow());
-            }
+    public void getValuesFromModel(AbstractObjectsModel o, int width, int height) {
+        super.getValuesFromModel(o, width, height);
+        if (o.getType() == type && o.getColor() == color) { 
+            setVisible(o.getVisible());
         }
-    }*/
+    }
 }

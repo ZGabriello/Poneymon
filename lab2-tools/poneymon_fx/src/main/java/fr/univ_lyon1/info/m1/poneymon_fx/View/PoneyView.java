@@ -8,6 +8,7 @@ public class PoneyView extends AbstractObjectView {
 
     final Image poneyRunning;
     final Image poneyRainbow;
+    boolean isNian = false;
 
     /**
      * Creates PoneyView.
@@ -38,14 +39,27 @@ public class PoneyView extends AbstractObjectView {
         System.out.println("Poney color : " + color + " row : " + y + " is nian : " + isNian
                 + " progression : " + x);
     }
-
+    
+    /**
+     * Sets isNian.
+     * 
+     * @param b.
+     */
+    public void setIsNian(boolean b) {
+        isNian = b;
+    }
+    
     /**
      * Gets values from the model.
      * 
-     * @param m.
+     * @param o.
+     * @param width.
+     * @param height.
      */
     public void getValuesFromModel(AbstractObjectsModel o, int width, int height) {
         super.getValuesFromModel(o, width, height);
-        setIsNian(o.getIsNian());
+        if (o.getType() == type && o.getColor() == color) { 
+            setIsNian(o.getIsNian());
+        }
     }
 }
