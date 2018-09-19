@@ -42,6 +42,24 @@ public abstract class AbstractObjectsModel {
     }
     
     /**
+     * Sets the double x.
+     * 
+     * @param d.
+     */
+    public void setX(double d) {
+        x = d;
+    }
+    
+    /**
+     * Sets the int y.
+     * 
+     * @param d.
+     */
+    public void setY(int d) {
+        y = d;
+    }
+    
+    /**
      * Sets the boolean visible.
      * 
      * @param b.

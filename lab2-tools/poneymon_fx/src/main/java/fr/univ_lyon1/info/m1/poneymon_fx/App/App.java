@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 public class App extends Application {
     
     public static final int NB_PONEYS = 5;
-    public static final int NB_TOURS = 10;
+    public static final int NB_TOURS = 5;
     public static final int WIDTH = 1000;
     public static final int HEIGHT = 600;
     

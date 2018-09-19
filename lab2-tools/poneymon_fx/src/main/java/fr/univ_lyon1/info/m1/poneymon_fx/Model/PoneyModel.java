@@ -60,6 +60,24 @@ public class PoneyModel extends AbstractObjectsModel {
         System.out.println("Poney color : " + color + " row : " + y + " progression : "
                 + x + " lap : " + lap + " isNian : " + isNian + " speed : " + speed);
     }
+    
+    /**
+     * Sets the int lap.
+     * 
+     * @param a.
+     */
+    public void setLap(int a) {
+        lap = a;
+    }
+    
+    /**
+     * Gets speed.
+     * 
+     * @return speed.
+     */
+    public double getSpeed() {
+        return speed;
+    }
 
     /**
      * Returns the poney's distance with another poney.

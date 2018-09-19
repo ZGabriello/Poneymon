@@ -48,7 +48,7 @@
             accessors-accepted="false" constructors-accepted="false"/>
         <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"/>
     </Class>
-    <Class name="fr.univ_lyon1.info.m1.poneymon_fx.View.JfxView" x="232" y="136">
+    <Class name="fr.univ_lyon1.info.m1.poneymon_fx.View.JfxView" x="244" y="167">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -91,7 +91,7 @@
         <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"/>
     </Class>
     <Class name="fr.univ_lyon1.info.m1.poneymon_fx.View.ScoreCanvasView"
-        x="178" y="402">
+        x="194" y="439">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -102,7 +102,7 @@
         <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel"/>
     </Class>
     <Class name="fr.univ_lyon1.info.m1.poneymon_fx.View.ScoreView"
-        x="190" y="268">
+        x="188" y="321">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -154,6 +154,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
         <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractObjectView"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"/>
     </Class>
     <Class name="fr.univ_lyon1.info.m1.poneymon_fx.App.App" x="15" y="10">
         <AttributesDisplayFilter public-accepted="true"
@@ -183,6 +184,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
         <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractObjectView"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"/>
     </Class>
     <Class
         name="fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller"
