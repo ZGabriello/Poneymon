@@ -1,9 +1,14 @@
-# Exercices
+# TP5 - tests
 
-Pour cette séance, il est recommandé d'utiliser un IDE. Ce document
-donne quelques pistes en utilisant Eclipse, mais n'hésitez pas à
-proposer des conseils pour votre IDE préféré en faisant des
-pull-requests sur le dépôt enseignant.
+## Préambule
+
+Pour cette séance, il est recommandé d'utiliser un IDE. Ce document donne quelques pistes en utilisant Eclipse, et vous trouverez ci-dessous des liens vers des pages expliquant les manipulations demandées avec IntelliJ :
+
+- [Création d'un test unitaire](https://www.jetbrains.com/help/idea/create-tests.html)
+- Pour lancer les tests, il faut d'abord [créer une configuration](https://www.jetbrains.com/help/idea/creating-run-debug-configuration-for-tests.html) avant de [les exécuter](https://www.jetbrains.com/help/idea/performing-tests.html)
+- Un tutoriel pour le [Test Driven Development](https://www.jetbrains.com/help/idea/tdd-with-intellij-idea.html)
+
+N'hésitez pas à proposer des conseils pour votre IDE préféré en faisant des pull-requests sur le dépôt enseignant.
 
 Un corrigé incomplet est disponible dans le répertoire
 [tp_test_corrige](tp_test_corrige/).
