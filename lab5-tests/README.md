@@ -6,7 +6,7 @@ proposer des conseils pour votre IDE préféré en faisant des
 pull-requests sur le dépôt enseignant.
 
 Un corrigé incomplet est disponible dans le répertoire
-[tp_test](tp_test/).
+[tp_test_corrige](tp_test_corrige/).
 
 ## Création d’un projet de test
 
