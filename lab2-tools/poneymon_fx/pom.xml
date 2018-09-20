@@ -9,7 +9,7 @@
 
   <name>poneymon_fx</name>
   <url>https://forge.univ-lyon1.fr/p1103680/m1if01</url>
-
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -17,25 +17,11 @@
   <dependencies>
     <!-- https://mvnrepository.com/artifact/junit/junit -->
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
 	    <groupId>org.junit.jupiter</groupId>
 	    <artifactId>junit-jupiter-api</artifactId>
-	    <version>5.0.0-M5</version>
-	    <scope>test</scope>
+	    <version>5.1.0</version>
+	    <scope>compile</scope>
 	</dependency>
-		<!--<dependency>
-       <groupId>javafx</groupId>
-       <artifactId>jfxrt</artifactId>
-       <version>2.0</version>
-       <type>jar</type>
-       <scope>system</scope>
-       <systemPath>${project.basedir}/../../lib/jfxrt.jar</systemPath>
-     </dependency-->
   </dependencies>
 
   <build>
@@ -50,6 +36,23 @@
         </configuration>
       </plugin>
       <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>2.19.1</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-surefire-provider</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.1.0</version>
+        </dependency>
+    </dependencies>
+</plugin>
+      <plugin>
 	<groupId>org.codehaus.mojo</groupId>
 	<artifactId>exec-maven-plugin</artifactId>
 	<version>1.5.0</version>
@@ -61,9 +64,7 @@
 	  </execution>
 	</executions>
 	<configuration>
-	  <source>1.8</source>
-	  <target>1.8</target>
-	  <mainClass>fr.univ_lyon1.info.m1.poneymon_fx.App.App</mainClass>
+ 	  <mainClass>fr.univ_lyon1.info.m1.poneymon_fx.App</mainClass>
 	</configuration>
       </plugin>
       <!--plugin>
@@ -104,10 +105,7 @@
 	  </execution>
 	</executions>
       </plugin>
-			<plugin>
-			  <artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-			</plugin>
+
      <plugin> <!-- https://maven.apache.org/plugins/maven-checkstyle-plugin/usage.html -->
        <groupId>org.apache.maven.plugins</groupId>
        <artifactId>maven-checkstyle-plugin</artifactId>
@@ -131,27 +129,6 @@
          </execution>
        </executions>
      </plugin>
-		 <plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-javadoc-plugin</artifactId>
-			<version>3.0.1</version>
-			<executions>
-				<execution>
-					<id>attach-javadocs</id>
-					<goals>
-						<goal>jar</goal>
-					</goals>
-				</execution>
-			</executions>
-		</plugin>
-		<plugin>
-		    <groupId>org.apache.maven.plugins</groupId>
-		    	<artifactId>maven-surefire-plugin</artifactId>
-		    <version>2.19.1</version>
-		    <configuration>
-          		<useSystemClassLoader>false</useSystemClassLoader>
-       		</configuration>
-		  </plugin>
 
     </plugins>
   </build>

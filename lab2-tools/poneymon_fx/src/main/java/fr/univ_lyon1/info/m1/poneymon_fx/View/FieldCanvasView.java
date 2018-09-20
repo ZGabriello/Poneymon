@@ -2,6 +2,7 @@ package fr.univ_lyon1.info.m1.poneymon_fx.View;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel;
@@ -14,10 +15,9 @@ import javafx.scene.paint.Color;
 
 public class FieldCanvasView extends Canvas {
 
-    ArrayList<String> inputs = new ArrayList<String>();
-    ArrayList<AbstractObjectView> objectsView = new ArrayList<AbstractObjectView>();
+    List<String> inputs = new ArrayList<String>();
+    List<AbstractObjectView> objectsView = new ArrayList<AbstractObjectView>();
     HashMap<String, String> keyMap = new HashMap<String, String>();
-    String[] colorMap = new String[] { "blue", "green", "orange", "purple", "yellow" };
     final GraphicsContext gc;
     final int width;
     final int height;
@@ -57,8 +57,8 @@ public class FieldCanvasView extends Canvas {
         PoneyView[] poneysView = new PoneyView[App.NB_PONEYS];
         CoinView[] coinsView = new CoinView[App.NB_PONEYS];
         for (int i = 0; i < App.NB_PONEYS; i++) {
-            poneysView[i] = new PoneyView(colorMap[i]);
-            coinsView[i] = new CoinView(colorMap[i]);
+            poneysView[i] = new PoneyView(App.colorMap[i]);
+            coinsView[i] = new CoinView(App.colorMap[i]);
         }
         addObjectView(poneysView);
         addObjectView(coinsView);
@@ -85,9 +85,9 @@ public class FieldCanvasView extends Canvas {
      * @param width.
      * @param height.
      */
-    public void getValuesFromModel(ArrayList<AbstractObjectsModel> objectsModel,
+    public void getValuesFromModel(List<AbstractObjectsModel> list,
             int width, int height) {
-        for (AbstractObjectsModel objectModel : objectsModel) {
+        for (AbstractObjectsModel objectModel : list) {
             for (AbstractObjectView objectView : objectsView) { 
                 objectView.getValuesFromModel(objectModel, width, height);
                 

@@ -2,6 +2,7 @@ package fr.univ_lyon1.info.m1.poneymon_fx.Model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map.Entry;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
@@ -13,7 +14,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 public class FieldModel {
-    ArrayList<AbstractObjectsModel> objectsModel = new ArrayList<AbstractObjectsModel>();
+    List<AbstractObjectsModel> objectsModel = new ArrayList<AbstractObjectsModel>();
     Controller controller;
     boolean paused;
 
@@ -37,7 +38,7 @@ public class FieldModel {
      * 
      * @param views.
      */
-    public void startTimer(final ArrayList<AbstractView> views) {
+    public void startTimer(final List<AbstractView> views) {
         new AnimationTimer() {
             public void handle(long currentNanoTime) {
                 if (!getPaused()) {
@@ -130,7 +131,7 @@ public class FieldModel {
      * 
      * @return objectsModel.
      */
-    public ArrayList<AbstractObjectsModel> getObjectsModel() {
+    public List<AbstractObjectsModel> getObjectsModel() {
         return objectsModel;
     }
 

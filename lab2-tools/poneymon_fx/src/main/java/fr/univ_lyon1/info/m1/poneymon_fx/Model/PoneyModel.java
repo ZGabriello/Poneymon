@@ -8,6 +8,7 @@ public class PoneyModel extends AbstractObjectsModel {
     int lap;
     double speed;
     boolean canChange;
+    boolean isNian;
 
     /**
      * Create poney's model.
@@ -20,6 +21,7 @@ public class PoneyModel extends AbstractObjectsModel {
         speed = randomGenerator.nextFloat() * (high - low) + low;
         lap = 0;
         canChange = true;
+        isNian = false;
     }
 
     /**
@@ -87,5 +89,35 @@ public class PoneyModel extends AbstractObjectsModel {
      */
     public double distance(PoneyModel poney) {
         return x - poney.x;
+    }
+    
+    /**
+     * Sets the boolean isNian (for a user action).
+     * 
+     * @param b.
+     */
+    public void setNianManually(boolean b) {
+        if (!hasUsedNian) {
+            isNian = b;
+            hasUsedNian = true;
+        }
+    }
+    
+    /**
+     * Sets the boolean isNian (for the coin).
+     * 
+     * @param b.
+     */
+    public void setNian(boolean b) {
+        isNian = b;
+    }
+    
+    /**
+     * Gets the poney's boolean isNian.
+     * 
+     * @return isNian.
+     */
+    public boolean getIsNian() {
+        return isNian;
     }
 }

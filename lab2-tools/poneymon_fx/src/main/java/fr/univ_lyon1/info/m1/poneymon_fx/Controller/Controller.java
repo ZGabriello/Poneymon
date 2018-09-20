@@ -1,13 +1,14 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.Controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel;
 import fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView;
 
 public class Controller {
     FieldModel fieldModel;
-    ArrayList<AbstractView> views = new ArrayList<AbstractView>();
+    List<AbstractView> views = new ArrayList<AbstractView>();
 
     /**
      * Creates the controler.

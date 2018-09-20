@@ -1,5 +1,6 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.View;
 
+import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -8,7 +9,6 @@ import javafx.stage.Stage;
 
 public class ButtonsView extends AbstractView {
 
-    String[] colorMap = new String[] { "blue", "green", "orange", "purple", "yellow" };
     Button[] buttons;
     HBox hb;
 
@@ -33,9 +33,9 @@ public class ButtonsView extends AbstractView {
 
         hb.getChildren().add(pause);
 
-        buttons = new Button[colorMap.length];
-        for (int i = 0; i < colorMap.length; i++) {
-            final String color = colorMap[i];
+        buttons = new Button[App.colorMap.length];
+        for (int i = 0; i < App.colorMap.length; i++) {
+            final String color = App.colorMap[i];
             buttons[i] = new Button(color);
             buttons[i].setOnMouseClicked(new EventHandler<MouseEvent>() {
                 public void handle(MouseEvent arg0) {

@@ -2,14 +2,14 @@ package fr.univ_lyon1.info.m1.poneymon_fx.Model;
 
 import java.util.Random;
 
+import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
+
 public abstract class AbstractObjectsModel {
     String color;
     double x;
     int y;
-    String[] colorMap = new String[] { "blue", "green", "orange", "purple", "yellow" };
     Random randomGenerator = new Random();
     String type;
-    boolean isNian;
     boolean hasUsedNian;
     boolean isWinner;
     double traveledDistance;
@@ -27,8 +27,7 @@ public abstract class AbstractObjectsModel {
     public AbstractObjectsModel(int i) {
         x = 0;
         y = i;
-        color = colorMap[i];
-        isNian = false;
+        color = App.colorMap[i];
         hasUsedNian = false;
         traveledDistance = 0;
     }
@@ -74,10 +73,7 @@ public abstract class AbstractObjectsModel {
      * @param b.
      */
     public void setNianManually(boolean b) {
-        if (!hasUsedNian) {
-            isNian = b;
-            hasUsedNian = true;
-        }
+
     }
     
     /**
@@ -86,7 +82,7 @@ public abstract class AbstractObjectsModel {
      * @param b.
      */
     public void setNian(boolean b) {
-        isNian = b;
+
     }
     
     /**
@@ -140,7 +136,7 @@ public abstract class AbstractObjectsModel {
      * @return isNian.
      */
     public boolean getIsNian() {
-        return isNian;
+        return true;
     }
     
     /**
