@@ -13,7 +13,6 @@ public abstract class AbstractObjectView {
     double x;
     double y;
     
-    
     public void display(GraphicsContext gc) {
 
     }
@@ -45,7 +44,7 @@ public abstract class AbstractObjectView {
      */
     public void getValuesFromModel(AbstractObjectsModel o, int width, int height) {
         if (o.getType() == type && o.getColor() == color) {
-            setX(o.getX() * width - 100); //TODO why 150 ?
+            setX(o.getX() * width - 100); //TODO why 100 ?
             setY(o.getY() * height / App.NB_PONEYS);
         }
     }

@@ -9,11 +9,11 @@ public abstract class AbstractObjectsModel {
     String[] colorMap = new String[] { "blue", "green", "orange", "purple", "yellow" };
     Random randomGenerator = new Random();
     String type;
-    boolean visible;
     boolean isNian;
     boolean hasUsedNian;
     boolean isWinner;
     double traveledDistance;
+    boolean visible;
     
     public AbstractObjectsModel() {
         
@@ -65,7 +65,7 @@ public abstract class AbstractObjectsModel {
      * @param b.
      */
     public void setVisible(boolean b) {
-        visible = b;
+        
     }
     
     /**
