@@ -1,3 +1,42 @@
+# 19 septembre 2018 : dernière ligne droite ...
+
+Les TP encadrés sont terminés, il vous reste une séance non-encadrée
+(salles réservées mais pas d'encadrants a priori) vendredi matin. Le
+dernier amphi sera une présentation de
+https://www.linkedin.com/in/hguemar/, employé RedHat qui vous parlera
+de son expérience à grande échelle des outils que nous avons vu dans
+ce cours (CI, TDD, ...).
+
+Quelques conseils pour la suite :
+
+* Notre dépôt a été mis à jour régulièrement, vous avez les
+  instructions pour récupérer nos modifications dans votre dépôt ici :
+  https://forge.univ-lyon1.fr/matthieu.moy/m1if01/blob/master/README.md#how-to-use-this-repository
+
+* N'oubliez pas la date de rendu du TP noté ni celle de l'examen :
+  https://forge.univ-lyon1.fr/matthieu.moy/m1if01/blob/master/README.md#dates-importantes
+  
+* N'oubliez pas de relire les consignes de rendu (qui ont évolué, cf.
+  message du 17 septembre). En particulier, votre README.md doit
+  impérativement indiquer l'emplacement de la dernière version de
+  votre projet et du rapport :
+  https://forge.univ-lyon1.fr/matthieu.moy/m1if01/blob/master/lab3-patterns/README.md#rendu-du-tp-projet
+  
+* Certain d'entre vous ont bien avancé sur le code de leur application
+  Poneymon, mais ont oublié de suivre le sujet de TP sur les tests. Si
+  vous n'avez pas suivi le lab5, il est encore temps :
+  https://forge.univ-lyon1.fr/matthieu.moy/m1if01/blob/master/lab5-tests/README.md
+  
+* Pour la petite histoire : je vous parlais de l'importance de choisir
+  son vocabulaire surtout pour un texte qui risque d'être lu en dehors
+  de son contexte. J'ai été pris sur le fait dans mes slides Agilité
+  où je parle du « 9 pregnant women's problem » qui a été interprêté
+  comme « les femmes qui tombent enceinte, c'est un problème » !
+  
+* Une nouvelle petite mise à jour des slides sur les design patterns à
+  propos de la classe Observable, slide 127 :
+  https://perso.liris.cnrs.fr/lionel.medini/enseignement/M1IF01/CM-patterns.pdf
+
 # 18 septembre 2018 (bis) : Petits bugs dans le sujet de TP
 
 Comme personne n'est parfait, le sujet du TP3 et mes slides de ce
