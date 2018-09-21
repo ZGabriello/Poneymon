@@ -144,4 +144,6 @@ public final class PoneyModel extends AbstractObjectsModel {
     public double getTraveledDistance() {
         return traveledDistance;
     }
+    
+    
 }

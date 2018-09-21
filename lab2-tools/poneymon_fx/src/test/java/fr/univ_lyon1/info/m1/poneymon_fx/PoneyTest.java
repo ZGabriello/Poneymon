@@ -55,7 +55,7 @@ class PoneyTest {
     }
     
     /**
-     * Test if the speed has changed since the poney has ended the lap.
+     * Test if the speed has changed if the poney has ended a lap.
      */
     @Test
     public void testLapSpeedChange() {
@@ -87,7 +87,7 @@ class PoneyTest {
     }
     
     /**
-     * Test if the nian mode activated when the poney gets a coin.
+     * Test if the nian mode is activated when the poney gets a coin.
      */
     @Test
     public void testNianCoin() {
@@ -107,4 +107,6 @@ class PoneyTest {
         assertEquals(p.getIsNian(), true);
     }
 
+    
+    
 }

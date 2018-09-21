@@ -178,7 +178,7 @@ public final class FieldModel {
      */
     public void checkInformations() {
         for (int i = 0; i < objectsModel.size(); i++) {
-            objectsModel.get(i).check();
+            objectsModel.get(i).checkInfo();
         }
     }
 }

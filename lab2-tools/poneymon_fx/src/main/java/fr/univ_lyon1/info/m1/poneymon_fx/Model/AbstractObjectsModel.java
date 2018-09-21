@@ -30,7 +30,7 @@ public abstract class AbstractObjectsModel {
 
     }
 
-    public void check() {
+    public void checkInfo() {
 
     }
     
