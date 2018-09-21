@@ -20,8 +20,10 @@ public final class FieldModel {
     /**
      * Creates the FieldModel.
      * 
+     * @param c.
      */
-    public FieldModel() {
+    public FieldModel(Controller c) {
+        controller = c;
         PoneyModel[] poneysModel = new PoneyModel[App.NB_PONEYS];
         CoinModel[] coinsModel = new CoinModel[App.NB_PONEYS];
         for (int i = 0; i < App.NB_PONEYS; i++) {
@@ -39,7 +41,6 @@ public final class FieldModel {
     /**
      * Starts the timer.
      * 
-     * @param views.
      */
     public void startTimer() {
         new AnimationTimer() {
@@ -50,13 +51,13 @@ public final class FieldModel {
                 if (checkWinner()) {
                     this.stop();
                 }
-                controller.updateViews();
+                controller.runViews();
             }
         }.start();
     }
     
     /**
-     * Calls step for each objects and check if a poney has taken a coin.
+     * Calls step for each objects and checks if a poney has taken a coin.
      */
     public void step() {
         checkPoneyCoin();
@@ -66,7 +67,7 @@ public final class FieldModel {
     }
     
     /**
-     * Checks if a poney has taken a coin.
+     * Checks if a poney has taken a coin or if a coin needs to be reset.
      */
     public void checkPoneyCoin() {
         for (AbstractObjectsModel object : objectsModel) {
@@ -112,15 +113,6 @@ public final class FieldModel {
     }
     
     /**
-     * Sets the controller.
-     * 
-     * @param c.
-     */
-    public void setController(Controller c) {
-        controller = c;
-    }
-    
-    /**
      * Gets the boolean paused.
      * 
      * @return paused.
@@ -130,7 +122,7 @@ public final class FieldModel {
     }
     
     /**
-     * Gets the objects' array.
+     * Gets the model objects' list.
      * 
      * @return objectsModel.
      */

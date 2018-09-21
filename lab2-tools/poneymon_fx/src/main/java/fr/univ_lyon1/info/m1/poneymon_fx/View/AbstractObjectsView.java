@@ -5,7 +5,7 @@ import fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-public abstract class AbstractObjectView {
+public abstract class AbstractObjectsView {
 
     Image image;
     String type;

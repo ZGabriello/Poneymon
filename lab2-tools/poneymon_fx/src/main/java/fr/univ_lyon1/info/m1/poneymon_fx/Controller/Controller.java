@@ -17,7 +17,7 @@ public final class Controller {
     }
 
     /**
-     * Adds the view to the controller.
+     * Adds a view to the controller.
      * 
      * @param v.
      */
@@ -35,19 +35,20 @@ public final class Controller {
     }
     
     /**
-     * Updates views.
+     * Launch all views' functions "runCanvas".
      * 
      */
-    public void updateViews() {
+    public void runViews() {
         for (AbstractView view : views) {
-            view.update();
+            view.runCanvas();
         }
     }
 
     /**
-     * Starts the model's timer, and then shows all the views.
+     * Starts the model's timer (which includes all the game logic), 
+     * and then shows all the views.
      */
-    public void start() {
+    public void run() {
         if (fieldModel != null) {
             fieldModel.startTimer();
         }

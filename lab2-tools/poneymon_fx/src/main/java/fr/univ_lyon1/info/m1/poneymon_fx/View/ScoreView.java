@@ -1,5 +1,7 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.View;
 
+import fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller;
+import fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -12,19 +14,23 @@ public final class ScoreView extends AbstractView {
      * Creates ScoreView.
      * 
      * @param s.
+     * @param c.
+     * @param m.
      */
-    public ScoreView(Stage s) {
+    public ScoreView(Stage s, Controller c, FieldModel m) {
         stage = s;
+        controller = c;
+        fieldModel = m;
         stage.setTitle("Poneymon");
         scoreCanvasView = new ScoreCanvasView();
     }
 
     /**
-     * Updates the view.
+     * Runs the view's canvas function "run".
      * 
      */
-    public void update() {
-        scoreCanvasView.gcFill(fieldModel);
+    public void runCanvas() {
+        scoreCanvasView.run(fieldModel);
     }
     
     /**
@@ -33,9 +39,8 @@ public final class ScoreView extends AbstractView {
      */
     public void show() {
         root.getChildren().add(scoreCanvasView);
-        stage.setScene(scene);
         stage.setY(0);
         stage.setX(100);
-        stage.show();
+        super.show();
     }
 }

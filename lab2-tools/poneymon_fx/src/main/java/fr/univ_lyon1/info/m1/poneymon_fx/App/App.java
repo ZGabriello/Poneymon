@@ -27,10 +27,9 @@ public final class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {        
         
-        m = new FieldModel();
         c = new Controller();
-        
-        m.setController(c);
+        m = new FieldModel(c);
+        c.setModel(m);
         
         /*Stage stage1 = new Stage();
         JfxView jfxView1 = new JfxView(stage1, 400, 400);
@@ -39,25 +38,18 @@ public final class App extends Application {
         c.addView(jfxView1);*/
 
         Stage stageJfx = new Stage();
-        JfxView jfxView = new JfxView(stageJfx, WIDTH, HEIGHT);
-        jfxView.setModel(m);
-        jfxView.setControler(c);
+        JfxView jfxView = new JfxView(stageJfx, WIDTH, HEIGHT, c, m);
 
         Stage stageButtons = new Stage();
-        ButtonsView buttonsView = new ButtonsView(stageButtons);
-        buttonsView.setModel(m);
-        buttonsView.setControler(c);
+        ButtonsView buttonsView = new ButtonsView(stageButtons, c, m);
         
         Stage stageScore = new Stage();
-        ScoreView scoreView = new ScoreView(stageScore);
-        scoreView.setModel(m);
-        scoreView.setControler(c);
+        ScoreView scoreView = new ScoreView(stageScore, c, m);
         
-        c.setModel(m);
         c.addView(buttonsView);
         c.addView(scoreView);
         c.addView(jfxView);
-        c.start();
+        c.run();
     }
 
     public static void main(String[] args) {

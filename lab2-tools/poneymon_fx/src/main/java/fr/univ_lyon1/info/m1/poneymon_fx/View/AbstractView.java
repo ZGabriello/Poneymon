@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public abstract class AbstractView {
 
     FieldModel fieldModel;
-    Controller controler;
+    Controller controller;
     Group root;
     Scene scene;
     Stage stage;
@@ -23,32 +23,15 @@ public abstract class AbstractView {
     }
 
     /**
-     * Sets the model for the view.
-     * 
-     * @param m.
-     */
-    public void setModel(FieldModel m) {
-        fieldModel = m;
-    }
-
-    /**
-     * Sets the controler for the view.
-     * 
-     * @param c.
-     */
-    public void setControler(Controller c) {
-        controler = c;
-    }
-
-    /**
-     * Updates the view.
+     * Runs the view's canvas function "run".
      * 
      */
-    public void update() {
+    public void runCanvas() {
         
     }
 
     public void show() {
-
+        stage.setScene(scene);
+        stage.show();
     }
 }

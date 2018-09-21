@@ -16,7 +16,7 @@ public abstract class AbstractObjectsModel {
     }
     
     /**
-     * Abstract constructor.
+     * Abstract constructor. Param i is for the color and the row.
      * 
      * @param i.
      */
@@ -62,7 +62,7 @@ public abstract class AbstractObjectsModel {
     }
     
     /**
-     * Sets the boolean isNian (for a user action).
+     * Sets the boolean isNian (with a user action).
      * 
      * @param b.
      */
@@ -71,7 +71,7 @@ public abstract class AbstractObjectsModel {
     }
     
     /**
-     * Sets the boolean isNian (for the coin).
+     * Sets the boolean isNian (with a coin).
      * 
      * @param b.
      */
@@ -98,7 +98,7 @@ public abstract class AbstractObjectsModel {
     }
     
     /**
-     * Gets the object's type.
+     * Gets the object's type (poney or coin for the moment).
      * 
      * @return row.
      */
@@ -121,7 +121,7 @@ public abstract class AbstractObjectsModel {
      * @return visible.
      */
     public boolean getVisible() {
-        return true;
+        return true; //TODO return true ?
     }
     
     /**
@@ -130,7 +130,7 @@ public abstract class AbstractObjectsModel {
      * @return isNian.
      */
     public boolean getIsNian() {
-        return true;
+        return true; //TODO return true ?
     }
     
     /**
@@ -148,7 +148,7 @@ public abstract class AbstractObjectsModel {
      * @return isNian.
      */
     public double getTraveledDistance() {
-        return 0;
+        return 0; //TODO ???
     }
     
     /**

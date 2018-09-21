@@ -1,6 +1,8 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.View;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
+import fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller;
+import fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -16,9 +18,13 @@ public final class ButtonsView extends AbstractView {
      * Creates ButtonsView.
      * 
      * @param s.
+     * @param c.
+     * @param m.
      */
-    public ButtonsView(Stage s) {
+    public ButtonsView(Stage s, Controller c, FieldModel m) {
         stage = s;
+        controller = c;
+        fieldModel = m;
         stage.setTitle("Poneymon");
 
         hb = new HBox(); // Boite où ranger les éléments horizontalement
@@ -52,9 +58,8 @@ public final class ButtonsView extends AbstractView {
      */
     public void show() {
         root.getChildren().add(hb);
-        stage.setScene(scene);
         stage.setY(0);
         stage.setX(600);
-        stage.show();
+        super.show();
     }
 }

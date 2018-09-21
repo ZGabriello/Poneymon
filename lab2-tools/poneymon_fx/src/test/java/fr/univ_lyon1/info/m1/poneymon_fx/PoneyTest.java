@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.CoinModel;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.PoneyModel;
@@ -91,7 +92,8 @@ class PoneyTest {
     @Test
     public void testNianCoin() {
         // Given
-        FieldModel m = new FieldModel();
+        Controller controller = new Controller();
+        FieldModel m = new FieldModel(controller);
         // When
         PoneyModel p = new PoneyModel(0);
         CoinModel c = new CoinModel(0);

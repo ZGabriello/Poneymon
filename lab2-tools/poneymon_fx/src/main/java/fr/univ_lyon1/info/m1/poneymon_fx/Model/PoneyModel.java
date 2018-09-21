@@ -30,7 +30,7 @@ public final class PoneyModel extends AbstractObjectsModel {
     }
 
     /**
-     * Calls step() for this poney.
+     * Does the every frame game logic for the poney.
      */
     public void step() {
         if (isNian && canChange) {
@@ -67,24 +67,6 @@ public final class PoneyModel extends AbstractObjectsModel {
         System.out.println("Poney color : " + color + " row : " + y + " progression : "
                 + x + " lap : " + lap + " isNian : " + isNian + " speed : " + speed);
     }
-    
-    /**
-     * Sets the int lap.
-     * 
-     * @param a.
-     */
-    public void setLap(int a) {
-        lap = a;
-    }
-    
-    /**
-     * Gets speed.
-     * 
-     * @return speed.
-     */
-    public double getSpeed() {
-        return speed;
-    }
 
     /**
      * Returns the poney's distance with another poney.
@@ -94,6 +76,16 @@ public final class PoneyModel extends AbstractObjectsModel {
      */
     public double distance(PoneyModel poney) {
         return x - poney.x;
+    }
+    
+    
+    /**
+     * Sets the int lap.
+     * 
+     * @param a.
+     */
+    public void setLap(int a) {
+        lap = a;
     }
     
     /**
@@ -115,6 +107,15 @@ public final class PoneyModel extends AbstractObjectsModel {
      */
     public void setNian(boolean b) {
         isNian = b;
+    }
+    
+    /**
+     * Gets speed.
+     * 
+     * @return speed.
+     */
+    public double getSpeed() {
+        return speed;
     }
     
     /**

@@ -16,7 +16,7 @@ import javafx.scene.paint.Color;
 public final class FieldCanvasView extends Canvas {
 
     List<String> inputs = new ArrayList<String>();
-    List<AbstractObjectView> objectsView = new ArrayList<AbstractObjectView>();
+    List<AbstractObjectsView> objectsView = new ArrayList<AbstractObjectsView>();
     HashMap<String, String> keyMap = new HashMap<String, String>();
     final GraphicsContext gc;
     final int width;
@@ -43,13 +43,14 @@ public final class FieldCanvasView extends Canvas {
             coinsView[i] = new CoinView(App.colorMap[i]);
         }
         //Add all objects view to the list objectsView.
-        for (AbstractObjectView view : poneysView) {
+        for (AbstractObjectsView view : poneysView) {
             objectsView.add(view);
         }
-        for (AbstractObjectView view : coinsView) {
+        for (AbstractObjectsView view : coinsView) {
             objectsView.add(view);
         }
 
+        //Add a string to input if a key is presssed.
         this.setOnKeyPressed(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent e) {
                 inputs.add(e.getCode().toString());
@@ -70,12 +71,14 @@ public final class FieldCanvasView extends Canvas {
     }
     
     /**
-     * Updates the view.
+     * Fills canvas, notifies the model, gets values from model, and displays
+     * objects.
      * 
      * @param m.
      * 
      */
-    public void update(FieldModel m) {
+    public void run(FieldModel m) {
+        //Fill the canvas.
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRect(0, 0, width, height);
         
@@ -88,14 +91,14 @@ public final class FieldCanvasView extends Canvas {
         
         //Get values from model.
         for (AbstractObjectsModel objectModel : m.getObjectsModel()) {
-            for (AbstractObjectView objectView : objectsView) { 
+            for (AbstractObjectsView objectView : objectsView) { 
                 objectView.getValuesFromModel(objectModel, width, height);
                 
             }
         }
         
         //Display all objects.
-        for (AbstractObjectView objectView : objectsView) {
+        for (AbstractObjectsView objectView : objectsView) {
             objectView.display(gc);
         }
     }

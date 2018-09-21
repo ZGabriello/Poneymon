@@ -19,7 +19,7 @@ public final class CoinModel extends AbstractObjectsModel {
     }
     
     /**
-     * Resets parameters.
+     * Resets x position.
      * 
      */
     public void reset() {
@@ -28,7 +28,7 @@ public final class CoinModel extends AbstractObjectsModel {
     }
 
     /**
-     * Returns X.
+     * Returns x.
      * 
      * @return x.
      */
@@ -37,7 +37,7 @@ public final class CoinModel extends AbstractObjectsModel {
     }
 
     /**
-     * Returns Y.
+     * Returns y.
      * 
      * @return y.
      */
@@ -66,7 +66,7 @@ public final class CoinModel extends AbstractObjectsModel {
     }
     
     /**
-     * Sets the boolean visible.
+     * Sets the boolean visible with a parameter.
      * 
      * @param b.
      */

@@ -15,15 +15,20 @@ public final class ScoreCanvasView extends Canvas {
     }
     
     /**
-     * Updates data.
+     * Fills the canvas, displays the score.
      * 
      * @param m.
      * 
      */
-    public void gcFill(FieldModel m) {
+    public void run(FieldModel m) {
+        //Fill the canvas.
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRect(0, 0, 300, 300);
+        
+        //Set the color for the font.
         gc.setFill(Color.BLACK);
+        
+        //Get the array string for scores.
         String[] scores = m.getRank();
         for (int i = 0; i < scores.length; i++) {
             gc.fillText(scores[i], 0, i * 20 + 20);
