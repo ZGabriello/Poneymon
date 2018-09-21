@@ -3,7 +3,7 @@ package fr.univ_lyon1.info.m1.poneymon_fx.View;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-public class ScoreView extends AbstractView {
+public final class ScoreView extends AbstractView {
     
     HBox hb;
     ScoreCanvasView scoreCanvasView;

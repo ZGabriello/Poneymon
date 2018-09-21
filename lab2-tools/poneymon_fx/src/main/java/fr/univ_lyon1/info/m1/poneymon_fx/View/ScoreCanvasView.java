@@ -5,7 +5,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public class ScoreCanvasView extends Canvas {
+public final class ScoreCanvasView extends Canvas {
     
     final GraphicsContext gc;
     

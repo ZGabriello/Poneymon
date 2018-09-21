@@ -4,7 +4,7 @@ import fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-public class CoinView extends AbstractObjectView {
+public final class CoinView extends AbstractObjectView {
 
     boolean visible = false;
     

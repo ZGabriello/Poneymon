@@ -10,10 +10,6 @@ public abstract class AbstractObjectsModel {
     int y;
     Random randomGenerator = new Random();
     String type;
-    boolean hasUsedNian;
-    boolean isWinner;
-    double traveledDistance;
-    boolean visible;
     
     public AbstractObjectsModel() {
         
@@ -28,8 +24,6 @@ public abstract class AbstractObjectsModel {
         x = 0;
         y = i;
         color = App.colorMap[i];
-        hasUsedNian = false;
-        traveledDistance = 0;
     }
     
     public void step() {
@@ -127,7 +121,7 @@ public abstract class AbstractObjectsModel {
      * @return visible.
      */
     public boolean getVisible() {
-        return visible;
+        return true;
     }
     
     /**
@@ -145,7 +139,7 @@ public abstract class AbstractObjectsModel {
      * @return isWinner.
      */
     public boolean getIsWinner() {
-        return isWinner;
+        return false; //TODO faire ça ?
     }
     
     /**
@@ -154,7 +148,7 @@ public abstract class AbstractObjectsModel {
      * @return isNian.
      */
     public double getTraveledDistance() {
-        return traveledDistance;
+        return 0;
     }
     
     /**

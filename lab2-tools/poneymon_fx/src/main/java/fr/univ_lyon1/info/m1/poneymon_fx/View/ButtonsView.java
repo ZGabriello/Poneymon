@@ -7,7 +7,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-public class ButtonsView extends AbstractView {
+public final class ButtonsView extends AbstractView {
 
     Button[] buttons;
     HBox hb;

@@ -13,7 +13,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
-public class FieldCanvasView extends Canvas {
+public final class FieldCanvasView extends Canvas {
 
     List<String> inputs = new ArrayList<String>();
     List<AbstractObjectView> objectsView = new ArrayList<AbstractObjectView>();
@@ -35,6 +35,20 @@ public class FieldCanvasView extends Canvas {
         this.setFocusTraversable(true);
 
         gc = this.getGraphicsContext2D();
+        
+        PoneyView[] poneysView = new PoneyView[App.NB_PONEYS];
+        CoinView[] coinsView = new CoinView[App.NB_PONEYS];
+        for (int i = 0; i < App.NB_PONEYS; i++) {
+            poneysView[i] = new PoneyView(App.colorMap[i]);
+            coinsView[i] = new CoinView(App.colorMap[i]);
+        }
+        //Add all objects view to the list objectsView.
+        for (AbstractObjectView view : poneysView) {
+            objectsView.add(view);
+        }
+        for (AbstractObjectView view : coinsView) {
+            objectsView.add(view);
+        }
 
         this.setOnKeyPressed(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent e) {
@@ -53,68 +67,7 @@ public class FieldCanvasView extends Canvas {
         keyMap.put("E", "orange");
         keyMap.put("R", "purple");
         keyMap.put("T", "yellow");
-        
-        PoneyView[] poneysView = new PoneyView[App.NB_PONEYS];
-        CoinView[] coinsView = new CoinView[App.NB_PONEYS];
-        for (int i = 0; i < App.NB_PONEYS; i++) {
-            poneysView[i] = new PoneyView(App.colorMap[i]);
-            coinsView[i] = new CoinView(App.colorMap[i]);
-        }
-        addObjectView(poneysView);
-        addObjectView(coinsView);
     }
-    
-    /**
-     * Checks if a key is pressed, returns the color of the poney corresponding to
-     * the key.
-     * 
-     * @param m.
-     */
-    public void notifyModel(FieldModel m) {
-        if (!inputs.isEmpty()) {
-            for (String input : inputs) {
-                m.setIsNianManually(true, keyMap.get(input));
-            }
-        }
-    }
-
-    /**
-     * Associates the data for the view.
-     * 
-     * @param objectsModel.
-     * @param width.
-     * @param height.
-     */
-    public void getValuesFromModel(List<AbstractObjectsModel> list,
-            int width, int height) {
-        for (AbstractObjectsModel objectModel : list) {
-            for (AbstractObjectView objectView : objectsView) { 
-                objectView.getValuesFromModel(objectModel, width, height);
-                
-            }
-        }
-    }
-
-    /**
-     * Adds an objectView to the array list of objectsViews.
-     * 
-     * @param v.
-     */
-    public void addObjectView(AbstractObjectView[] v) {
-        for (AbstractObjectView view : v) {
-            objectsView.add(view);
-        }
-    }
-
-    /**
-     * Calls display() for each objectView.
-     * 
-     */
-    public void objectsDisplay() {
-        for (AbstractObjectView objectView : objectsView) {
-            objectView.display(gc);
-        }
-    }    
     
     /**
      * Updates the view.
@@ -125,8 +78,25 @@ public class FieldCanvasView extends Canvas {
     public void update(FieldModel m) {
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRect(0, 0, width, height);
-        notifyModel(m);
-        getValuesFromModel(m.getObjectsModel(), width, height);
-        objectsDisplay();
+        
+        //Notify model if a key is pressed.
+        if (!inputs.isEmpty()) {
+            for (String input : inputs) {
+                m.setIsNianManually(true, keyMap.get(input));
+            }
+        }
+        
+        //Get values from model.
+        for (AbstractObjectsModel objectModel : m.getObjectsModel()) {
+            for (AbstractObjectView objectView : objectsView) { 
+                objectView.getValuesFromModel(objectModel, width, height);
+                
+            }
+        }
+        
+        //Display all objects.
+        for (AbstractObjectView objectView : objectsView) {
+            objectView.display(gc);
+        }
     }
 }

@@ -2,13 +2,16 @@ package fr.univ_lyon1.info.m1.poneymon_fx.Model;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
 
-public class PoneyModel extends AbstractObjectsModel {
+public final class PoneyModel extends AbstractObjectsModel {
     final double low = 0.001; //Arbitrary values for random speed.
     final double high = 0.002;
     int lap;
     double speed;
     boolean canChange;
     boolean isNian;
+    boolean hasUsedNian;
+    boolean isWinner;
+    double traveledDistance;
 
     /**
      * Create poney's model.
@@ -22,6 +25,8 @@ public class PoneyModel extends AbstractObjectsModel {
         lap = 0;
         canChange = true;
         isNian = false;
+        hasUsedNian = false;
+        traveledDistance = 0;
     }
 
     /**
@@ -119,5 +124,23 @@ public class PoneyModel extends AbstractObjectsModel {
      */
     public boolean getIsNian() {
         return isNian;
+    }
+    
+    /**
+     * Gets the poney's boolean isWinner.
+     * 
+     * @return isWinner.
+     */
+    public boolean getIsWinner() {
+        return isWinner;
+    }
+    
+    /**
+     * Gets the poney's boolean isNian.
+     * 
+     * @return isNian.
+     */
+    public double getTraveledDistance() {
+        return traveledDistance;
     }
 }

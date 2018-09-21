@@ -2,9 +2,9 @@ package fr.univ_lyon1.info.m1.poneymon_fx.View;
 
 import javafx.stage.Stage;
 
-public class JfxView extends AbstractView {
+public final class JfxView extends AbstractView {
 
-    FieldCanvasView fieldView;
+    FieldCanvasView fieldCanvasView;
 
     /**
      * Creates JfxView.
@@ -16,21 +16,21 @@ public class JfxView extends AbstractView {
     public JfxView(Stage s, int w, int h) {
         stage = s;
         stage.setTitle("Poneymon");
-        fieldView = new FieldCanvasView(w, h);
+        fieldCanvasView = new FieldCanvasView(w, h);
     }
 
     /**
      * Updates the view.
      */
     public void update() {
-        fieldView.update(fieldModel);
+        fieldCanvasView.update(fieldModel);
     }
     
     /**
      * Shows the stage.
      */
     public void show() {
-        root.getChildren().add(fieldView);
+        root.getChildren().add(fieldCanvasView);
         stage.setY(150);
         stage.setX(200);
         stage.setScene(scene);

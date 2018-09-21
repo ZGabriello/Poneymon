@@ -6,7 +6,7 @@ import java.util.List;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel;
 import fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView;
 
-public class Controller {
+public final class Controller {
     FieldModel fieldModel;
     List<AbstractView> views = new ArrayList<AbstractView>();
 
@@ -24,6 +24,15 @@ public class Controller {
     public void addView(AbstractView v) {
         views.add(v);
     }
+
+    /**
+     * Sets the model.
+     * 
+     * @param m.
+     */
+    public void setModel(FieldModel m) {
+        fieldModel = m;
+    }
     
     /**
      * Updates views.
@@ -36,20 +45,11 @@ public class Controller {
     }
 
     /**
-     * Sets the model.
-     * 
-     * @param m.
-     */
-    public void setModel(FieldModel m) {
-        fieldModel = m;
-    }
-
-    /**
-     * Starts the controller.
+     * Starts the model's timer, and then shows all the views.
      */
     public void start() {
         if (fieldModel != null) {
-            fieldModel.startTimer(views);
+            fieldModel.startTimer();
         }
         for (AbstractView view : views) {
             view.show();

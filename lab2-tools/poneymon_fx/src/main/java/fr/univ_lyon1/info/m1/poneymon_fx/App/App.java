@@ -8,7 +8,7 @@ import fr.univ_lyon1.info.m1.poneymon_fx.View.ScoreView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class App extends Application {
+public final class App extends Application {
     
     public static final int NB_PONEYS = 5;
     public static final int NB_TOURS = 5;

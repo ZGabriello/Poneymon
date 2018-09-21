@@ -7,13 +7,12 @@ import java.util.Map.Entry;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
 import fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller;
-import fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView;
 import javafx.animation.AnimationTimer;
 
 import java.util.Set;
 import java.util.TreeMap;
 
-public class FieldModel {
+public final class FieldModel {
     List<AbstractObjectsModel> objectsModel = new ArrayList<AbstractObjectsModel>();
     Controller controller;
     boolean paused;
@@ -29,8 +28,12 @@ public class FieldModel {
             coinsModel[i] = new CoinModel(i);
             poneysModel[i] = new PoneyModel(i);
         }
-        addObjects(poneysModel);
-        addObjects(coinsModel);
+        for (AbstractObjectsModel object : poneysModel) {
+            objectsModel.add(object);
+        }
+        for (AbstractObjectsModel object : coinsModel) {
+            objectsModel.add(object);
+        }
     }
     
     /**
@@ -38,22 +41,22 @@ public class FieldModel {
      * 
      * @param views.
      */
-    public void startTimer(final List<AbstractView> views) {
+    public void startTimer() {
         new AnimationTimer() {
             public void handle(long currentNanoTime) {
                 if (!getPaused()) {
                     step();
                 }
-                controller.updateViews();
                 if (checkWinner()) {
                     this.stop();
                 }
+                controller.updateViews();
             }
         }.start();
     }
-
+    
     /**
-     * Calls step() for each objects and check the rules for the coins.
+     * Calls step for each objects and check if a poney has taken a coin.
      */
     public void step() {
         checkPoneyCoin();
@@ -86,7 +89,7 @@ public class FieldModel {
     }
 
     /**
-     * Sets the poney isNian field to true or false for a user action.
+     * Sets the poney isNian field to true or false (for a user action).
      * 
      * @param b.
      * @param color.
@@ -149,17 +152,6 @@ public class FieldModel {
             }
         }
         return false;
-    }
-    
-    /**
-     * Adds an objectModel array  to the objectsModel list.
-     * 
-     * @param o.
-     */
-    public void addObjects(AbstractObjectsModel[] o) {
-        for (int i = 0; i < o.length; i++) {
-            objectsModel.add(o[i]);
-        }
     }
 
     /**
