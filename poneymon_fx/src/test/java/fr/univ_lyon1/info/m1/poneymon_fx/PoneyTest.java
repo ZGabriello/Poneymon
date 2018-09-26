@@ -88,8 +88,8 @@ class PoneyTest {
     /**
      * Test if the nian mode is activated when the poney gets a coin.
      */
-    @Test
-    public void testNianCoin() {
+    //@Test
+    /*public void testNianCoin() {
         // Given
         Controller controller = Controller.getInstance();
         FieldModel m = new FieldModel(controller);
@@ -104,7 +104,7 @@ class PoneyTest {
         m.step();
         // Then
         assertEquals(p.getIsNian(), true);
-    }
+    }*/
 
     
     
