@@ -16,7 +16,7 @@ public abstract class AbstractObjectsModel {
      * 
      * @param i.
      */
-    public AbstractObjectsModel(int i, String t) {
+    public AbstractObjectsModel(final int i, final String t) {
         randomGenerator = new Random();
         color = App.colorMap[i];
         type = t;
@@ -37,7 +37,7 @@ public abstract class AbstractObjectsModel {
      * 
      * @param d.
      */
-    public void setX(double d) {
+    public void setX(final double d) {
         x = d;
     }
     
@@ -84,5 +84,13 @@ public abstract class AbstractObjectsModel {
      */
     public Random getRandom() {
         return randomGenerator;
+    }
+    
+    /**
+     * Resets the object.
+     * 
+     */
+    public void reset() {
+        
     }
 }

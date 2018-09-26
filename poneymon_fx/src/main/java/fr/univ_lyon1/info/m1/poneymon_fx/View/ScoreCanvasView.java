@@ -10,7 +10,7 @@ public final class ScoreCanvasView extends Canvas {
     final GraphicsContext gc;
     
     public ScoreCanvasView() {
-        super(300,110);
+        super(300,200);
         gc = this.getGraphicsContext2D();
     }
     
@@ -20,7 +20,7 @@ public final class ScoreCanvasView extends Canvas {
      * @param m.
      * 
      */
-    public void run(FieldModel m) {
+    public void run(final FieldModel m) {
         //Fill the canvas.
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRect(0, 0, 300, 300);
@@ -33,5 +33,11 @@ public final class ScoreCanvasView extends Canvas {
         for (int i = 0; i < scores.length; i++) {
             gc.fillText(scores[i], 0, i * 20 + 20);
         } 
+        
+        if (m.checkWinner()) {
+            String winner = m.colorWinner();
+            gc.fillText(winner, 0, 6 * 20 + 20);
+        }
+        
     }
 }

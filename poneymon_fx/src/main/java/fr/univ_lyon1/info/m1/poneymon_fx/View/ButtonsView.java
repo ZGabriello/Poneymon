@@ -21,7 +21,7 @@ public final class ButtonsView extends AbstractView {
      * @param c.
      * @param m.
      */
-    public ButtonsView(Stage s, Controller c, FieldModel m) {
+    public ButtonsView(final Stage s, final Controller c, final FieldModel m) {
         super(s, c, m);
         
         getStage().setTitle("Nian activation");
@@ -31,12 +31,22 @@ public final class ButtonsView extends AbstractView {
         Button pause = new Button("Pause");
         pause.setOnMousePressed(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent arg0) {
-                boolean b = getFieldModel().getPaused() ? false : true;
-                getFieldModel().setPaused(b);
+                if (!getFieldModel().checkWinner()) {
+                    boolean b = getFieldModel().getPaused() ? false : true;
+                    getFieldModel().setPaused(b);
+                }
+            }
+        });
+        
+        Button restart = new Button("Restart");
+        restart.setOnMousePressed(new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent arg0) {
+                getFieldModel().restart();
             }
         });
 
         hb.getChildren().add(pause);
+        hb.getChildren().add(restart);
 
         buttons = new Button[App.NB_PONEYS];
         for (int i = 0; i < 2; i++) {

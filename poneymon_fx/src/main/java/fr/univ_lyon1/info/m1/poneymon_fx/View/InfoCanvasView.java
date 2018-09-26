@@ -20,7 +20,7 @@ public final class InfoCanvasView extends Canvas {
      * @param m.
      * 
      */
-    public void run(FieldModel m, String color) {
+    public void run(final FieldModel m, final String color) {
         //Fill the canvas.
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRect(0, 0, 300, 300);

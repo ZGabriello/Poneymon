@@ -15,7 +15,7 @@ public final class CoinView extends AbstractObjectsView {
      * 
      * @param c.
      */
-    public CoinView(String c) {
+    public CoinView(final String c) {
         setImage(new Image("assets/gold-coin.gif"));
         setColor(c);
         setType("coin");
@@ -26,7 +26,8 @@ public final class CoinView extends AbstractObjectsView {
      * 
      * @param graphicsContext.
      */
-    public void display(GraphicsContext graphicsContext, int w, int h) {
+    public void display(final GraphicsContext graphicsContext, final int w, 
+            final int h) {
         if (visible) {
             graphicsContext.drawImage(getImage(), getX(), 
                     getY(), w / App.NB_PONEYS, h / App.NB_PONEYS);
@@ -38,7 +39,7 @@ public final class CoinView extends AbstractObjectsView {
      * 
      * @param b.
      */
-    public void setVisible(boolean b) {
+    public void setVisible(final boolean b) {
         visible = b;
     }
     
@@ -49,7 +50,8 @@ public final class CoinView extends AbstractObjectsView {
      * @param width.
      * @param height.
      */
-    public void getValuesFromModel(AbstractObjectsModel o, int width, int height) {
+    public void getValuesFromModel(final AbstractObjectsModel o, final int width, 
+            final int height) {
         super.getValuesFromModel(o, width, height);
         if (o instanceof CoinModel && o.getColor() == getColor()) { 
             setVisible(((CoinModel) o).getVisible());

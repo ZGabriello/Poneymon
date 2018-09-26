@@ -17,7 +17,7 @@ public final class PoneyView extends AbstractObjectsView {
      * 
      * @param c.
      */
-    public PoneyView(String c) {
+    public PoneyView(final String c) {
         setColor(c);
         setType("poney");
         poneyRunning = new Image("assets/pony-" + getColor() + "-running.gif");
@@ -29,7 +29,8 @@ public final class PoneyView extends AbstractObjectsView {
      * 
      * @param graphicsContext.
      */
-    public void display(GraphicsContext graphicsContext, int w, int h) {
+    public void display(final GraphicsContext graphicsContext, 
+            final int w, final int h) {
         setImage(isNian ? poneyRainbow : poneyRunning);
         graphicsContext.drawImage(getImage(), getX(), getY(), w / App.NB_PONEYS, h / App.NB_PONEYS);
     }
@@ -48,7 +49,7 @@ public final class PoneyView extends AbstractObjectsView {
      * 
      * @param b.
      */
-    public void setIsNian(boolean b) {
+    public void setIsNian(final boolean b) {
         isNian = b;
     }
     
@@ -59,7 +60,8 @@ public final class PoneyView extends AbstractObjectsView {
      * @param width.
      * @param height.
      */
-    public void getValuesFromModel(AbstractObjectsModel o, int width, int height) {
+    public void getValuesFromModel(final AbstractObjectsModel o, 
+            final int width, final int height) {
         super.getValuesFromModel(o, width, height);
         if (o instanceof PoneyModel && o.getColor() == getColor()) { 
             setIsNian(((PoneyModel) o).getIsNian());

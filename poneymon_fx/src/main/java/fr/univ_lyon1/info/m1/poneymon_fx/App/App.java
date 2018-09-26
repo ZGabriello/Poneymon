@@ -29,7 +29,8 @@ public final class App extends Application {
     public void start(Stage stage) throws Exception {        
         
         c = Controller.getInstance();
-        m = new FieldModel(c);
+        m = FieldModel.getInstance();
+        m.setController(c);
         c.setModel(m);
         
         /*Stage stage1 = new Stage();
@@ -50,8 +51,8 @@ public final class App extends Application {
         
         c.addView(buttonsView);
         c.addView(scoreView);
-        c.addView(jfxView);
         c.addView(infoView);
+        c.addView(jfxView);
         c.run();
     }
 

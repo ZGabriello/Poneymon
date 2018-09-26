@@ -23,7 +23,7 @@ public final class InfoView extends AbstractView {
      * @param c.
      * @param m.
      */
-    public InfoView(Stage s, Controller c, FieldModel m) {
+    public InfoView(final Stage s, final Controller c, final FieldModel m) {
         super(s, c, m);
         
         getStage().setTitle("Informations");

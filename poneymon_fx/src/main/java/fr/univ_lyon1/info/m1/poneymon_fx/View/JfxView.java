@@ -17,7 +17,8 @@ public final class JfxView extends AbstractView {
      * @param c.
      * @param m.
      */
-    public JfxView(Stage s, int w, int h, Controller c, FieldModel m) {
+    public JfxView(final Stage s, final int w, final int h, 
+            final Controller c, final FieldModel m) {
         super(s, c, m);
         
         getStage().setTitle("Poneymon");

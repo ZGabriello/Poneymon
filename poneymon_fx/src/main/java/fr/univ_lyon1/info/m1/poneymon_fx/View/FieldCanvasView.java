@@ -28,7 +28,7 @@ public final class FieldCanvasView extends Canvas {
      * @param w.
      * @param h.
      */
-    public FieldCanvasView(int w, int h) {
+    public FieldCanvasView(final int w, final int h) {
         super(w, h);
         width = w;
         height = h;
@@ -77,7 +77,7 @@ public final class FieldCanvasView extends Canvas {
      * @param m.
      * 
      */
-    public void run(FieldModel m) {
+    public void run(final FieldModel m) {
         //Fill the canvas.
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRect(0, 0, width, height);

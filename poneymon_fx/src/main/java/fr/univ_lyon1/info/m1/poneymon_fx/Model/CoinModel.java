@@ -11,17 +11,8 @@ public final class CoinModel extends AbstractObjectsModel {
      * 
      * @param i.
      */
-    public CoinModel(int i) {
+    public CoinModel(final int i) {
         super(i, "coin");
-        setX(getRandom().nextFloat() * (high - low) + low);
-        setVisible();
-    }
-    
-    /**
-     * Resets x position.
-     * 
-     */
-    public void reset() {
         setX(getRandom().nextFloat() * (high - low) + low);
         setVisible();
     }
@@ -51,7 +42,17 @@ public final class CoinModel extends AbstractObjectsModel {
      * 
      * @param b.
      */
-    public void setVisible(boolean b) {
+    public void setVisible(final boolean b) {
         visible = b;
+    }
+    
+    /**
+     * Gets number of done lap.
+     * 
+     * @return lap.
+     */
+    public void reset() {
+        setX(getRandom().nextFloat() * (high - low) + low);
+        setVisible();
     }
 }

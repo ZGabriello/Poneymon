@@ -16,7 +16,7 @@ public abstract class AbstractView {
     /**
      * Creates abstractView.
      */
-    public AbstractView(Stage s, Controller c, FieldModel m) {
+    public AbstractView(final Stage s, final Controller c, final FieldModel m) {
         root = new Group();
         scene = new Scene(root);
         stage = s;

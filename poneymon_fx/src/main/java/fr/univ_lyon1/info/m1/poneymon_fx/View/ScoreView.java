@@ -15,7 +15,7 @@ public final class ScoreView extends AbstractView {
      * @param c.
      * @param m.
      */
-    public ScoreView(Stage s, Controller c, FieldModel m) {
+    public ScoreView(final Stage s, final Controller c, final FieldModel m) {
         super(s, c, m);
         
         getStage().setTitle("Rank");

@@ -12,13 +12,15 @@ public final class PoneyModel extends AbstractObjectsModel {
     private boolean hasUsedNian;
     private boolean isWinner;
     private double traveledDistance;
+    private int victories = 0;
+    private boolean victoryCanChange;
 
     /**
      * Create poney's model.
      * 
      * @param i.
      */
-    public PoneyModel(int i) {
+    public PoneyModel(final int i) {
         super(i, "poney");
         speed = getRandom().nextFloat() * (high - low) + low;
         lap = 0;
@@ -41,6 +43,9 @@ public final class PoneyModel extends AbstractObjectsModel {
         if (getX() > 1) {
             setX(0);
             lap++;
+            if (lap == App.NB_TOURS) {
+                victories++;
+            }
             speed = getRandom().nextFloat() * (high - low) + low;
             isNian = false;
             canChange = true;
@@ -63,7 +68,7 @@ public final class PoneyModel extends AbstractObjectsModel {
      * Checks the poney's information.
      */
     public String[] check() {
-        String[] info = new String[9];
+        String[] info = new String[10];
         info[0] = "Poney's color : " + getColor();
         info[1] = "speed : " + speed;
         info[2] = "is nian : " + isNian;
@@ -73,6 +78,7 @@ public final class PoneyModel extends AbstractObjectsModel {
         info[6] = "laps : " + lap;
         info[7] = "x position : " + getX();
         info[8] = "y position : " + getY();
+        info[9] = "victories : " + victories;
         return info;
     }
 
@@ -82,7 +88,7 @@ public final class PoneyModel extends AbstractObjectsModel {
      * @param poney.
      * @return progression.
      */
-    public double distance(PoneyModel poney) {
+    public double distance(final PoneyModel poney) {
         return getX() - poney.getX();
     }
     
@@ -101,7 +107,7 @@ public final class PoneyModel extends AbstractObjectsModel {
      * 
      * @param b.
      */
-    public void setNianManually(boolean b) {
+    public void setNianManually(final boolean b) {
         if (!hasUsedNian) {
             isNian = b;
             hasUsedNian = true;
@@ -113,7 +119,7 @@ public final class PoneyModel extends AbstractObjectsModel {
      * 
      * @param b.
      */
-    public void setNian(boolean b) {
+    public void setNian(final boolean b) {
         isNian = b;
     }
     
@@ -151,6 +157,31 @@ public final class PoneyModel extends AbstractObjectsModel {
      */
     public double getTraveledDistance() {
         return traveledDistance;
+    }
+    
+    /**
+     * Gets number of done lap.
+     * 
+     * @return lap.
+     */
+    public int getLap() {
+        return lap;
+    }
+    
+    /**
+     * Gets number of done lap.
+     * 
+     * @return lap.
+     */
+    public void reset() {
+        setX(0);
+        speed = getRandom().nextFloat() * (high - low) + low;
+        lap = 0;
+        isWinner = false;
+        canChange = true;
+        isNian = false;
+        hasUsedNian = false;
+        traveledDistance = 0;
     }
     
     

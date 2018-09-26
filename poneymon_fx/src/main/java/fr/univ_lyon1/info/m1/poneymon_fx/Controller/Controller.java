@@ -34,7 +34,7 @@ public final class Controller {
      * 
      * @param v.
      */
-    public void addView(AbstractView v) {
+    public void addView(final AbstractView v) {
         views.add(v);
     }
 
@@ -43,7 +43,7 @@ public final class Controller {
      * 
      * @param m.
      */
-    public void setModel(FieldModel m) {
+    public void setModel(final FieldModel m) {
         fieldModel = m;
     }
     

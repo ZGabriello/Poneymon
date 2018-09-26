@@ -16,14 +16,15 @@ public final class FieldModel {
     private List<AbstractObjectsModel> objectsModel = new ArrayList<AbstractObjectsModel>();
     private Controller controller;
     private boolean paused;
+    private static FieldModel INSTANCE;
+    final StateContext sc = new StateContext();
 
     /**
      * Creates the FieldModel.
      * 
      * @param c.
      */
-    public FieldModel(Controller c) {
-        controller = c;
+    private FieldModel() {
         AbstractObjectsModel[] poneysModel = new PoneyModel[App.NB_PONEYS];
         AbstractObjectsModel[] coinsModel = new CoinModel[App.NB_PONEYS];
         for (int i = 0; i < App.NB_PONEYS; i++) {
@@ -39,6 +40,18 @@ public final class FieldModel {
     }
     
     /**
+     * Gets the only FieldModel's instance.
+     * 
+     * @return INSTANCE.
+     */
+    public static FieldModel getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new FieldModel();
+        }
+        return INSTANCE;
+    }
+    
+    /**
      * Starts the timer.
      * 
      */
@@ -49,7 +62,7 @@ public final class FieldModel {
                     step();
                 }
                 if (checkWinner()) {
-                    this.stop();
+                    setPaused(true);
                 }
                 controller.runViews();
             }
@@ -57,12 +70,13 @@ public final class FieldModel {
     }
     
     /**
-     * Calls step for each objects and checks if a poney has taken a coin.
+     * Calls step for each poney objects and checks if a poney has taken a coin.
      */
     public void step() {
         checkPoneyCoin();
         for (AbstractObjectsModel objectModel : objectsModel) {
             if (objectModel instanceof PoneyModel) {
+                sc.goNianIA((PoneyModel) objectModel);
                 ((PoneyModel) objectModel).step();
             }
         }
@@ -97,7 +111,7 @@ public final class FieldModel {
      * @param b.
      * @param color.
      */
-    public void setIsNianManually(boolean b, String color) {
+    public void setIsNianManually(final boolean b, final String color) {
         for (AbstractObjectsModel object : objectsModel) { 
             if (object instanceof PoneyModel && object.getColor() == color) {
                 ((PoneyModel) object).setNianManually(b);
@@ -110,8 +124,17 @@ public final class FieldModel {
      * 
      * @param b.
      */
-    public void setPaused(boolean b) {
+    public void setPaused(final boolean b) {
         paused = b;
+    }
+    
+    /**
+     * Sets the controller.
+     * 
+     * @param c.
+     */
+    public void setController(final Controller c) {
+        controller = c;
     }
     
     /**
@@ -141,12 +164,28 @@ public final class FieldModel {
         for (AbstractObjectsModel object : objectsModel) { 
             if (object instanceof PoneyModel) {
                 if (((PoneyModel) object).getIsWinner()) {
-                    System.out.println(object.getColor() + " poney won. ");
                     return true;
                 }
             }
         }
         return false;
+    }
+    
+    /**
+     * Returns the color of the winner.
+     * 
+     * @return color.
+     */
+    public String colorWinner() {
+        for (AbstractObjectsModel object : objectsModel) { 
+            if (object instanceof PoneyModel) {
+                if (((PoneyModel) object).getIsWinner()) {
+                    String winner = "The " + object.getColor() + " poney won. ";
+                    return winner;
+                }
+            }
+        }
+        return null;
     }
 
     /**
@@ -179,12 +218,22 @@ public final class FieldModel {
     /**
      * Checks all objects' informations for the model.
      */
-    public String[] checkInformations(String color) {
+    public String[] checkInformations(final String color) {
         for (int i = 0; i < objectsModel.size(); i++) {
             if (objectsModel.get(i).getColor() == color) {
                 return objectsModel.get(i).check();
             }
         }
         return null;
+    }
+    
+    /**
+     * Restarts the game.
+     */
+    public void restart() {
+        for (AbstractObjectsModel object : objectsModel) {
+            object.reset();
+        }
+        setPaused(false);
     }
 }

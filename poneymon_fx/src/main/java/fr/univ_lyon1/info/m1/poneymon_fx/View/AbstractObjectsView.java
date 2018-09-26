@@ -13,7 +13,7 @@ public abstract class AbstractObjectsView {
     private double x;
     private double y;
     
-    public void display(GraphicsContext gc, int width, int height) {
+    public void display(final GraphicsContext gc, final int width, final int height) {
 
     }
     
@@ -22,7 +22,7 @@ public abstract class AbstractObjectsView {
      * 
      * @param d.
      */
-    public void setX(double d) {
+    public void setX(final double d) {
         x = d;
     }
     
@@ -39,7 +39,7 @@ public abstract class AbstractObjectsView {
      * 
      * @param d.
      */
-    public void setY(double d) {
+    public void setY(final double d) {
         y = d;
     }
     
@@ -56,7 +56,7 @@ public abstract class AbstractObjectsView {
      * 
      * @param s.
      */
-    public void setType(String s) {
+    public void setType(final String s) {
         type = s;
     }
     
@@ -73,7 +73,7 @@ public abstract class AbstractObjectsView {
      * 
      * @param s.
      */
-    public void setColor(String s) {
+    public void setColor(final String s) {
         color = s;
     }
     
@@ -90,7 +90,7 @@ public abstract class AbstractObjectsView {
      * 
      * @param s.
      */
-    public void setImage(Image i) {
+    public void setImage(final Image i) {
         image = i;
     }
     
@@ -109,7 +109,8 @@ public abstract class AbstractObjectsView {
      * @param width.
      * @param height.
      */
-    public void getValuesFromModel(AbstractObjectsModel o, int width, int height) {
+    public void getValuesFromModel(final AbstractObjectsModel o, final int width, 
+            final int height) {
         if (o.getType() == type && o.getColor() == color) {
             setX(o.getX() * width - (width / 10)); //TODO why /10 ?
             setY(o.getY() * height / App.NB_PONEYS);
