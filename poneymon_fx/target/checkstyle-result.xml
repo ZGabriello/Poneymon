@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.18">
+<file name="/Users/clementlemeunier/Documents/Clém/Info/M1/Génie logiciel et Gestion de projet/Moi/m1if01/poneymon_fx/src/main/java/fr/univ_lyon1/info/m1/poneymon_fx/App/App.java">
+</file>
+<file name="/Users/clementlemeunier/Documents/Clém/Info/M1/Génie logiciel et Gestion de projet/Moi/m1if01/poneymon_fx/src/main/java/fr/univ_lyon1/info/m1/poneymon_fx/Controller/Controller.java">
+</file>
+<file name="/Users/clementlemeunier/Documents/Clém/Info/M1/Génie logiciel et Gestion de projet/Moi/m1if01/poneymon_fx/src/main/java/fr/univ_lyon1/info/m1/poneymon_fx/Model/FieldModel.java">
+</file>
+<file name="/Users/clementlemeunier/Documents/Clém/Info/M1/Génie logiciel et Gestion de projet/Moi/m1if01/poneymon_fx/src/main/java/fr/univ_lyon1/info/m1/poneymon_fx/Model/CoinModel.java">
+</file>
+<file name="/Users/clementlemeunier/Documents/Clém/Info/M1/Génie logiciel et Gestion de projet/Moi/m1if01/poneymon_fx/src/main/java/fr/univ_lyon1/info/m1/poneymon_fx/Model/AbstractObjectsModel.java">
+</file>
+<file name="/Users/clementlemeunier/Documents/Clém/Info/M1/Génie logiciel et Gestion de projet/Moi/m1if01/poneymon_fx/src/main/java/fr/univ_lyon1/info/m1/poneymon_fx/Model/PoneyModel.java">
+</file>
+<file name="/Users/clementlemeunier/Documents/Clém/Info/M1/Génie logiciel et Gestion de projet/Moi/m1if01/poneymon_fx/src/main/java/fr/univ_lyon1/info/m1/poneymon_fx/View/ScoreCanvasView.java">
+</file>
+<file name="/Users/clementlemeunier/Documents/Clém/Info/M1/Génie logiciel et Gestion de projet/Moi/m1if01/poneymon_fx/src/main/java/fr/univ_lyon1/info/m1/poneymon_fx/View/JfxView.java">
+</file>
+<file name="/Users/clementlemeunier/Documents/Clém/Info/M1/Génie logiciel et Gestion de projet/Moi/m1if01/poneymon_fx/src/main/java/fr/univ_lyon1/info/m1/poneymon_fx/View/AbstractObjectsView.java">
+</file>
+<file name="/Users/clementlemeunier/Documents/Clém/Info/M1/Génie logiciel et Gestion de projet/Moi/m1if01/poneymon_fx/src/main/java/fr/univ_lyon1/info/m1/poneymon_fx/View/AbstractView.java">
+</file>
+<file name="/Users/clementlemeunier/Documents/Clém/Info/M1/Génie logiciel et Gestion de projet/Moi/m1if01/poneymon_fx/src/main/java/fr/univ_lyon1/info/m1/poneymon_fx/View/ButtonsView.java">
+</file>
+<file name="/Users/clementlemeunier/Documents/Clém/Info/M1/Génie logiciel et Gestion de projet/Moi/m1if01/poneymon_fx/src/main/java/fr/univ_lyon1/info/m1/poneymon_fx/View/FieldCanvasView.java">
+</file>
+<file name="/Users/clementlemeunier/Documents/Clém/Info/M1/Génie logiciel et Gestion de projet/Moi/m1if01/poneymon_fx/src/main/java/fr/univ_lyon1/info/m1/poneymon_fx/View/InfoView.java">
+</file>
+<file name="/Users/clementlemeunier/Documents/Clém/Info/M1/Génie logiciel et Gestion de projet/Moi/m1if01/poneymon_fx/src/main/java/fr/univ_lyon1/info/m1/poneymon_fx/View/ScoreView.java">
+</file>
+<file name="/Users/clementlemeunier/Documents/Clém/Info/M1/Génie logiciel et Gestion de projet/Moi/m1if01/poneymon_fx/src/main/java/fr/univ_lyon1/info/m1/poneymon_fx/View/InfoCanvasView.java">
+</file>
+<file name="/Users/clementlemeunier/Documents/Clém/Info/M1/Génie logiciel et Gestion de projet/Moi/m1if01/poneymon_fx/src/main/java/fr/univ_lyon1/info/m1/poneymon_fx/View/PoneyView.java">
+</file>
+<file name="/Users/clementlemeunier/Documents/Clém/Info/M1/Génie logiciel et Gestion de projet/Moi/m1if01/poneymon_fx/src/main/java/fr/univ_lyon1/info/m1/poneymon_fx/View/CoinView.java">
+</file>
+</checkstyle>
