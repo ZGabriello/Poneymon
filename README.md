@@ -4,7 +4,7 @@ PoneyMon is a java project of poney's race game.  During the race, a poney can u
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
 ### Installing
 
@@ -13,7 +13,7 @@ A step by step series of examples that tell you how to get a development env run
 First, you need to clone de git project 
 
 ```
-git clone url_project
+git clone https://forge.univ-lyon1.fr/p1103680/m1if01.git
 ```
 
 And then, you open your IDE and run the App.java
@@ -29,6 +29,10 @@ You need to be in your project repository and write those command line
 
 ```
 mvn test 
+```
+
+```
+mvn clean install 
 ```
 
 ## Built With
