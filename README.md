@@ -2,6 +2,21 @@
 
 PoneyMon is a java project of poney's race game.  During the race, a poney can use Nian power to boost his speed or take a bonus coin. The user can also use the Nian power by pressing a specific button. 
 
+## Game Command 
+
+Pause : to take a break 
+
+Nian button : 
+blue : to set the blue poney in Nian mode
+green : to set the green poney in Nian mode
+
+Information button : 
+bue : to see blue poney's information
+green : to see green poney's information
+purple : to see purple poney's information
+orange : to see orange poney's information
+yellow : to see yellow poney's information
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
