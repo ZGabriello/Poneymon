@@ -76,7 +76,9 @@ public final class FieldModel {
         checkPoneyCoin();
         for (AbstractObjectsModel objectModel : objectsModel) {
             if (objectModel instanceof PoneyModel) {
-                sc.goNianIA((PoneyModel) objectModel);
+                if (objectModel.getY() > 1) {
+                    sc.nianIa((PoneyModel) objectModel);
+                }
                 ((PoneyModel) objectModel).step();
             }
         }

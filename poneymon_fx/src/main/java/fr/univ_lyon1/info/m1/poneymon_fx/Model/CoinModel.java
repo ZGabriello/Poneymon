@@ -47,9 +47,8 @@ public final class CoinModel extends AbstractObjectsModel {
     }
     
     /**
-     * Gets number of done lap.
+     * Resets the coin.
      * 
-     * @return lap.
      */
     public void reset() {
         setX(getRandom().nextFloat() * (high - low) + low);

@@ -4,6 +4,6 @@ public class StateActivateNian implements StateLike {
     
     public void goNian(StateContext context, PoneyModel p) {
         p.setNianManually(true);
-        context.setState(new StateDontActivateNian());
+        //context.setState(new StateDontActivateNian());
     }
 }

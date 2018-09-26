@@ -65,9 +65,6 @@ public final class FieldCanvasView extends Canvas {
 
         keyMap.put("Q", "blue");
         keyMap.put("W", "green");
-        keyMap.put("E", "orange");
-        keyMap.put("R", "purple");
-        keyMap.put("T", "yellow");
     }
     
     /**

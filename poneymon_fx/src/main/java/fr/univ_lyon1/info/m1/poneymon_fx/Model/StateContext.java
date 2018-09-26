@@ -2,6 +2,7 @@ package fr.univ_lyon1.info.m1.poneymon_fx.Model;
 
 public class StateContext {
     private StateLike myState;
+    
     StateContext() {
         setState(new StateDontActivateNian());
     }
@@ -15,7 +16,7 @@ public class StateContext {
         myState = newState;
     }
 
-    public void goNianIA(PoneyModel p) {
+    public void nianIa(PoneyModel p) {
         myState.goNian(this, p);
     }
 }

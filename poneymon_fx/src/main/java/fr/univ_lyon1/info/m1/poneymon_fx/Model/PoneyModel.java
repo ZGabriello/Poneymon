@@ -13,7 +13,6 @@ public final class PoneyModel extends AbstractObjectsModel {
     private boolean isWinner;
     private double traveledDistance;
     private int victories = 0;
-    private boolean victoryCanChange;
 
     /**
      * Create poney's model.
@@ -169,9 +168,8 @@ public final class PoneyModel extends AbstractObjectsModel {
     }
     
     /**
-     * Gets number of done lap.
+     * Resets the poney.
      * 
-     * @return lap.
      */
     public void reset() {
         setX(0);
