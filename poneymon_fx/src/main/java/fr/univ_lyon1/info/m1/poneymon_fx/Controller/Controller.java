@@ -7,7 +7,7 @@ import fr.univ_lyon1.info.m1.poneymon_fx.Model.Model;
 import fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView;
 
 public final class Controller {
-    private Model fieldModel;
+    private Model model;
     private List<AbstractView> views = new ArrayList<AbstractView>();
     private static Controller INSTANCE;
 
@@ -44,7 +44,7 @@ public final class Controller {
      * @param m.
      */
     public void setModel(final Model m) {
-        fieldModel = m;
+        model = m;
     }
     
     /**
@@ -62,8 +62,8 @@ public final class Controller {
      * and then shows all the views.
      */
     public void run() {
-        if (fieldModel != null) {
-            fieldModel.startTimer();
+        if (model != null) {
+            model.startTimer();
         }
         for (AbstractView view : views) {
             view.show();

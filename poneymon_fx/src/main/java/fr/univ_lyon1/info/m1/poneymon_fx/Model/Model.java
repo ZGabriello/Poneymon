@@ -17,7 +17,7 @@ public final class Model {
     private List<AbstractObjectsModel> objectsModel = new ArrayList<AbstractObjectsModel>();
     private Controller controller;
     private boolean paused;
-    private StateContext sc = new StateContext();
+    private StateContext[] sc;
 
     /**
      * Creates the FieldModel.
@@ -25,17 +25,17 @@ public final class Model {
      * @param c.
      */
     private Model() {
-        AbstractObjectsModel[] poneysModel = new PoneyModel[App.NB_PONEYS];
-        AbstractObjectsModel[] coinsModel = new CoinModel[App.NB_PONEYS];
-        for (int i = 0; i < App.NB_PONEYS; i++) {
-            coinsModel[i] = new CoinModel(i);
-            poneysModel[i] = new PoneyModel(i);
+        sc = new StateContext[App.NB_PONEYS];
+        for (int i = 0; i < sc.length; i++) {
+            sc[i] = new StateContext();
         }
-        for (AbstractObjectsModel object : poneysModel) {
-            objectsModel.add(object);
+       
+        for (AbstractObjectsModel poney : (new FactoryPoneyModel()).createObjects()) {
+            objectsModel.add(poney);
         }
-        for (AbstractObjectsModel object : coinsModel) {
-            objectsModel.add(object);
+        
+        for (AbstractObjectsModel coin : (new FactoryCoinModel()).createObjects()) {
+            objectsModel.add(coin);
         }
     }
     
@@ -51,6 +51,10 @@ public final class Model {
         return INSTANCE;
     }
     
+    
+    /*The steps execute sequentially.This is a business requirement. 
+     * that manages 
+     * this should be part of the business object model (Model). */
     /**
      * Starts the timer.
      * 
@@ -70,14 +74,15 @@ public final class Model {
     }
     
     /**
-     * Calls step for each poney objects and checks if a poney has taken a coin.
+     * Calls step for each poney, including the check for coins and IA.
      */
     public void step() {
         checkPoneyCoin();
         for (AbstractObjectsModel objectModel : objectsModel) {
             if (objectModel instanceof PoneyModel) {
                 if (objectModel.getY() > 1) {
-                    sc.nianIa((PoneyModel) objectModel);
+                    //Let the IA do its job for the three last poneys
+                    sc[objectModel.getY()].nianIa((PoneyModel) objectModel);
                 }
                 ((PoneyModel) objectModel).step();
             }
@@ -88,18 +93,20 @@ public final class Model {
      * Checks if a poney has taken a coin or if a coin needs to be reset.
      */
     public void checkPoneyCoin() {
-        for (AbstractObjectsModel object : objectsModel) {
-            if (object instanceof PoneyModel) {
-                for (AbstractObjectsModel objectBis : objectsModel) { 
-                    if (objectBis instanceof CoinModel
-                            && objectBis.getColor() == object.getColor()) {
-                        if (object.getX() == 0) { 
-                            ((CoinModel) objectBis).reset();
+        for (AbstractObjectsModel poney : objectsModel) {
+            if (poney instanceof PoneyModel) {
+                for (AbstractObjectsModel coin : objectsModel) { 
+                    if (coin instanceof CoinModel
+                            && coin.getColor() == poney.getColor()) {
+                        //Reset the coin if the poney starts a new lap.
+                        if (poney.getX() == 0) { 
+                            ((CoinModel) coin).reset();
                         }
-                        if (object.getX() > objectBis.getX() - 0.07 
-                                && ((CoinModel) objectBis).getVisible()) {
-                            ((PoneyModel) object).setNian(true);
-                            ((CoinModel) objectBis).setVisible(false);
+                        //If the poney is above the coin.
+                        if (poney.getX() > coin.getX() - 0.07 
+                                && ((CoinModel) coin).getVisible()) {
+                            ((PoneyModel) poney).setNian(true);
+                            ((CoinModel) coin).setVisible(false);
                         }
                     }       
                 }
@@ -108,7 +115,7 @@ public final class Model {
     }
 
     /**
-     * Sets the poney isNian field to true or false (for a user action).
+     * Sets the poney of the color given isNian field to true or false (for a user action).
      * 
      * @param b.
      * @param color.
@@ -197,7 +204,6 @@ public final class Model {
      */
     public String[] getRank() {
         TreeMap<Double, String> tmap = new TreeMap<Double, String>();
-
         for (AbstractObjectsModel object : objectsModel) { 
             if (object instanceof PoneyModel) {
                 tmap.put(((PoneyModel) object).getTraveledDistance(), object.getColor());
@@ -233,7 +239,9 @@ public final class Model {
      * Restarts the game.
      */
     public void restart() {
-        sc = new StateContext();
+        for (int i = 0; i < sc.length; i++) {
+            sc[i] = new StateContext();
+        }
         for (AbstractObjectsModel object : objectsModel) {
             object.reset();
         }

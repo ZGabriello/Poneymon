@@ -1,5 +1,8 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.App;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.Model;
 import fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView;
@@ -37,22 +40,16 @@ public final class App extends Application {
         JfxView jfxView1 = new JfxView(stage1, 1000, 400, c, m);
         c.addView(jfxView1);*/
 
-        Stage stageJfx = new Stage();
-        AbstractView jfxView = new JfxView(stageJfx, 1000, 600, c, m);
-
-        Stage stageButtons = new Stage();
-        AbstractView buttonsView = new ButtonsView(stageButtons, c, m);
+        List<AbstractView> views = new ArrayList<AbstractView>();
+        views.add(new ButtonsView(new Stage(), m));
+        views.add(new ScoreView(new Stage(), m));
+        views.add(new InfoView(new Stage(), m));
+        views.add(new JfxView(new Stage(), 1000, 600, m));
         
-        Stage stageScore = new Stage();
-        AbstractView scoreView = new ScoreView(stageScore, c, m);
+        for (AbstractView view : views) {
+            c.addView(view);
+        }
         
-        Stage stageInfo = new Stage();
-        AbstractView infoView = new InfoView(stageInfo, c, m);
-        
-        c.addView(buttonsView);
-        c.addView(scoreView);
-        c.addView(infoView);
-        c.addView(jfxView);
         c.run();
     }
 

@@ -1,6 +1,5 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.View;
 
-import fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.Model;
 import javafx.stage.Stage;
 
@@ -15,8 +14,8 @@ public final class ScoreView extends AbstractView {
      * @param c.
      * @param m.
      */
-    public ScoreView(final Stage s, final Controller c, final Model m) {
-        super(s, c, m);
+    public ScoreView(final Stage s, final Model m) {
+        super(s, m);
         
         getStage().setTitle("Rank");
         scoreCanvasView = new ScoreCanvasView();
