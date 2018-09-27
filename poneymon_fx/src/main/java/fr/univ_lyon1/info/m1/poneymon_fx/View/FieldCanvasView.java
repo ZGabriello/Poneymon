@@ -6,7 +6,7 @@ import java.util.List;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel;
-import fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel;
+import fr.univ_lyon1.info.m1.poneymon_fx.Model.Model;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -74,7 +74,7 @@ public final class FieldCanvasView extends Canvas {
      * @param m.
      * 
      */
-    public void run(final FieldModel m) {
+    public void run(final Model m) {
         //Fill the canvas.
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRect(0, 0, width, height);

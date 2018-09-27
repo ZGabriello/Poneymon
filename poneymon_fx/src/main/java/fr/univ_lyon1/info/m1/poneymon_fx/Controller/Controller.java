@@ -3,11 +3,11 @@ package fr.univ_lyon1.info.m1.poneymon_fx.Controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel;
+import fr.univ_lyon1.info.m1.poneymon_fx.Model.Model;
 import fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView;
 
 public final class Controller {
-    private FieldModel fieldModel;
+    private Model fieldModel;
     private List<AbstractView> views = new ArrayList<AbstractView>();
     private static Controller INSTANCE;
 
@@ -43,7 +43,7 @@ public final class Controller {
      * 
      * @param m.
      */
-    public void setModel(final FieldModel m) {
+    public void setModel(final Model m) {
         fieldModel = m;
     }
     

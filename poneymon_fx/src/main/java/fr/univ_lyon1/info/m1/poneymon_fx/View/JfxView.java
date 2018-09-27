@@ -1,7 +1,7 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.View;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller;
-import fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel;
+import fr.univ_lyon1.info.m1.poneymon_fx.Model.Model;
 import javafx.stage.Stage;
 
 public final class JfxView extends AbstractView {
@@ -18,7 +18,7 @@ public final class JfxView extends AbstractView {
      * @param m.
      */
     public JfxView(final Stage s, final int w, final int h, 
-            final Controller c, final FieldModel m) {
+            final Controller c, final Model m) {
         super(s, c, m);
         
         getStage().setTitle("Poneymon");

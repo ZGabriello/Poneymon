@@ -12,19 +12,19 @@ import javafx.animation.AnimationTimer;
 import java.util.Set;
 import java.util.TreeMap;
 
-public final class FieldModel {
+public final class Model {
+    private static Model INSTANCE;
     private List<AbstractObjectsModel> objectsModel = new ArrayList<AbstractObjectsModel>();
     private Controller controller;
     private boolean paused;
-    private static FieldModel INSTANCE;
-    final StateContext sc = new StateContext();
+    private StateContext sc = new StateContext();
 
     /**
      * Creates the FieldModel.
      * 
      * @param c.
      */
-    private FieldModel() {
+    private Model() {
         AbstractObjectsModel[] poneysModel = new PoneyModel[App.NB_PONEYS];
         AbstractObjectsModel[] coinsModel = new CoinModel[App.NB_PONEYS];
         for (int i = 0; i < App.NB_PONEYS; i++) {
@@ -44,9 +44,9 @@ public final class FieldModel {
      * 
      * @return INSTANCE.
      */
-    public static FieldModel getInstance() {
+    public static Model getInstance() {
         if (INSTANCE == null) {
-            INSTANCE = new FieldModel();
+            INSTANCE = new Model();
         }
         return INSTANCE;
     }
@@ -96,7 +96,7 @@ public final class FieldModel {
                         if (object.getX() == 0) { 
                             ((CoinModel) objectBis).reset();
                         }
-                        if (object.getX() > objectBis.getX() - 0.1 
+                        if (object.getX() > objectBis.getX() - 0.07 
                                 && ((CoinModel) objectBis).getVisible()) {
                             ((PoneyModel) object).setNian(true);
                             ((CoinModel) objectBis).setVisible(false);
@@ -233,6 +233,7 @@ public final class FieldModel {
      * Restarts the game.
      */
     public void restart() {
+        sc = new StateContext();
         for (AbstractObjectsModel object : objectsModel) {
             object.reset();
         }

@@ -69,15 +69,15 @@ public final class PoneyModel extends AbstractObjectsModel {
     public String[] check() {
         String[] info = new String[10];
         info[0] = "Poney's color : " + getColor();
-        info[1] = "speed : " + speed;
-        info[2] = "is nian : " + isNian;
-        info[3] = "has used nian : " + hasUsedNian;
-        info[4] = "is the winner : " + isWinner;
-        info[5] = "traveled distance : " + traveledDistance * (-1);
-        info[6] = "laps : " + lap;
-        info[7] = "x position : " + getX();
-        info[8] = "y position : " + getY();
-        info[9] = "victories : " + victories;
+        info[1] = "Speed : " + speed;
+        info[2] = "Is nian : " + isNian;
+        info[3] = "Has used nian : " + hasUsedNian;
+        info[4] = "Is the winner : " + isWinner;
+        info[5] = "Traveled distance : " + traveledDistance * (-1);
+        info[6] = "Laps : " + lap;
+        info[7] = "X position : " + getX();
+        info[8] = "Y position : " + getY();
+        info[9] = "Victories : " + victories;
         return info;
     }
 

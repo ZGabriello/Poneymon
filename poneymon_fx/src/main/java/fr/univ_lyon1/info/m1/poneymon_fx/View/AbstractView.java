@@ -1,14 +1,14 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.View;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller;
-import fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel;
+import fr.univ_lyon1.info.m1.poneymon_fx.Model.Model;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public abstract class AbstractView {
 
-    private final FieldModel fieldModel;
+    private final Model fieldModel;
     private final Group root;
     private final Scene scene;
     private final Stage stage;
@@ -16,7 +16,7 @@ public abstract class AbstractView {
     /**
      * Creates abstractView.
      */
-    public AbstractView(final Stage s, final Controller c, final FieldModel m) {
+    public AbstractView(final Stage s, final Controller c, final Model m) {
         root = new Group();
         scene = new Scene(root);
         stage = s;
@@ -41,7 +41,7 @@ public abstract class AbstractView {
      * 
      * @return fieldModel.
      */
-    public FieldModel getFieldModel() {
+    public Model getFieldModel() {
         return fieldModel;
     }
     

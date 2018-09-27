@@ -2,7 +2,7 @@ package fr.univ_lyon1.info.m1.poneymon_fx.View;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
 import fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller;
-import fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel;
+import fr.univ_lyon1.info.m1.poneymon_fx.Model.Model;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -21,7 +21,7 @@ public final class ButtonsView extends AbstractView {
      * @param c.
      * @param m.
      */
-    public ButtonsView(final Stage s, final Controller c, final FieldModel m) {
+    public ButtonsView(final Stage s, final Controller c, final Model m) {
         super(s, c, m);
         
         getStage().setTitle("Nian activation");

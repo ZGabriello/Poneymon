@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.CoinModel;
-import fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel;
+import fr.univ_lyon1.info.m1.poneymon_fx.Model.Model;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.PoneyModel;
 
 class PoneyTest {
@@ -92,7 +92,7 @@ class PoneyTest {
     public void testNianCoin() {
         // Given
         Controller c = Controller.getInstance();
-        FieldModel m = FieldModel.getInstance();
+        Model m = Model.getInstance();
         m.setController(c);
         c.setModel(m);
         // When

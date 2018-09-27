@@ -1,7 +1,7 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.App;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller;
-import fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel;
+import fr.univ_lyon1.info.m1.poneymon_fx.Model.Model;
 import fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView;
 import fr.univ_lyon1.info.m1.poneymon_fx.View.ButtonsView;
 import fr.univ_lyon1.info.m1.poneymon_fx.View.InfoView;
@@ -17,7 +17,7 @@ public final class App extends Application {
     public static final String[] colorMap = new String[] 
         { "blue", "green", "orange", "purple", "yellow" }; 
     
-    private static FieldModel m;
+    private static Model m;
     private static Controller c;
     
     /**
@@ -29,7 +29,7 @@ public final class App extends Application {
     public void start(Stage stage) throws Exception {        
         
         c = Controller.getInstance();
-        m = FieldModel.getInstance();
+        m = Model.getInstance();
         m.setController(c);
         c.setModel(m);
         

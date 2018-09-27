@@ -1,6 +1,6 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.View;
 
-import fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel;
+import fr.univ_lyon1.info.m1.poneymon_fx.Model.Model;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -20,7 +20,7 @@ public final class InfoCanvasView extends Canvas {
      * @param m.
      * 
      */
-    public void run(final FieldModel m, final String color) {
+    public void run(final Model m, final String color) {
         //Fill the canvas.
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRect(0, 0, 300, 300);
