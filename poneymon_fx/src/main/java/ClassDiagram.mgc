@@ -2,7 +2,7 @@
 <ClassDiagram>
     <Class
         name="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"
-        x="739" y="124">
+        x="758" y="122">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -12,7 +12,7 @@
             accessors-accepted="false" constructors-accepted="false"/>
     </Class>
     <Class name="fr.univ_lyon1.info.m1.poneymon_fx.Model.CoinModel"
-        x="1185" y="227">
+        x="997" y="18">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -24,7 +24,7 @@
         <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"/>
     </Class>
     <Class name="fr.univ_lyon1.info.m1.poneymon_fx.View.FieldCanvasView"
-        x="460" y="479">
+        x="378" y="342">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -35,11 +35,11 @@
         <Association
             destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractObjectsView"
             endpointName="objectsView" kind="Simple"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.Model"/>
         <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractObjectsView"/>
-        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel"/>
     </Class>
     <Class name="fr.univ_lyon1.info.m1.poneymon_fx.Model.PoneyModel"
-        x="1132" y="15">
+        x="975" y="107">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -51,7 +51,7 @@
         <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"/>
     </Class>
     <Class name="fr.univ_lyon1.info.m1.poneymon_fx.View.InfoCanvasView"
-        x="533" y="281">
+        x="229" y="568">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -59,9 +59,9 @@
             private-accepted="false" protected-accepted="false"
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
-        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.Model"/>
     </Class>
-    <Class name="fr.univ_lyon1.info.m1.poneymon_fx.View.JfxView" x="340" y="361">
+    <Class name="fr.univ_lyon1.info.m1.poneymon_fx.View.JfxView" x="182" y="254">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -76,7 +76,7 @@
         <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.FieldCanvasView"/>
     </Class>
     <Class name="fr.univ_lyon1.info.m1.poneymon_fx.Model.StateContext"
-        x="478" y="15">
+        x="363" y="133">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -91,7 +91,7 @@
     </Class>
     <Class
         name="fr.univ_lyon1.info.m1.poneymon_fx.Model.StateActivateNian"
-        x="758" y="61">
+        x="393" y="250">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -103,7 +103,7 @@
         <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.PoneyModel"/>
     </Class>
     <Class name="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView"
-        x="99" y="274">
+        x="19" y="258">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -112,11 +112,11 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
         <Association
-            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel"
+            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.Model"
             endpointName="fieldModel" kind="Simple"/>
     </Class>
     <Class name="fr.univ_lyon1.info.m1.poneymon_fx.View.ScoreCanvasView"
-        x="72" y="550">
+        x="405" y="468">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -124,61 +124,9 @@
             private-accepted="false" protected-accepted="false"
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
-        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.Model"/>
     </Class>
-    <Class name="fr.univ_lyon1.info.m1.poneymon_fx.View.ScoreView"
-        x="88" y="422">
-        <AttributesDisplayFilter public-accepted="true"
-            private-accepted="true" protected-accepted="true"
-            default-accepted="true" static-accepted="false"/>
-        <MethodDisplayFilter public-accepted="true"
-            private-accepted="false" protected-accepted="false"
-            default-accepted="false" static-accepted="false"
-            accessors-accepted="false" constructors-accepted="false"/>
-        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView"/>
-        <Association
-            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.ScoreCanvasView"
-            endpointName="scoreCanvasView" kind="Simple"/>
-        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.ScoreCanvasView"/>
-    </Class>
-    <Class name="fr.univ_lyon1.info.m1.poneymon_fx.Model.StateLike"
-        x="660" y="7">
-        <AttributesDisplayFilter public-accepted="true"
-            private-accepted="true" protected-accepted="true"
-            default-accepted="true" static-accepted="false"/>
-        <MethodDisplayFilter public-accepted="true"
-            private-accepted="false" protected-accepted="false"
-            default-accepted="false" static-accepted="false"
-            accessors-accepted="false" constructors-accepted="false"/>
-    </Class>
-    <Class name="fr.univ_lyon1.info.m1.poneymon_fx.View.ButtonsView"
-        x="248" y="428">
-        <AttributesDisplayFilter public-accepted="true"
-            private-accepted="true" protected-accepted="true"
-            default-accepted="true" static-accepted="false"/>
-        <MethodDisplayFilter public-accepted="true"
-            private-accepted="false" protected-accepted="false"
-            default-accepted="false" static-accepted="false"
-            accessors-accepted="false" constructors-accepted="false"/>
-        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView"/>
-    </Class>
-    <Class name="fr.univ_lyon1.info.m1.poneymon_fx.View.InfoView"
-        x="369" y="231">
-        <AttributesDisplayFilter public-accepted="true"
-            private-accepted="true" protected-accepted="true"
-            default-accepted="true" static-accepted="false"/>
-        <MethodDisplayFilter public-accepted="true"
-            private-accepted="false" protected-accepted="false"
-            default-accepted="false" static-accepted="false"
-            accessors-accepted="false" constructors-accepted="false"/>
-        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView"/>
-        <Association
-            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.InfoCanvasView"
-            endpointName="infoCanvasView" kind="Simple"/>
-        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.InfoCanvasView"/>
-    </Class>
-    <Class name="fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel"
-        x="220" y="6">
+    <Class name="fr.univ_lyon1.info.m1.poneymon_fx.Model.Model" x="154" y="3">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -195,13 +143,91 @@
         <Association
             destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"
             endpointName="objectsModel" kind="Simple"/>
+        <Association
+            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.FactoryAbstractObjectsModel"
+            endpointName="faom" kind="Simple"/>
         <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"/>
         <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.CoinModel"/>
         <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.PoneyModel"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.FactoryCoinModel"/>
         <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.StateContext"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.FactoryPoneyModel"/>
+    </Class>
+    <Class name="fr.univ_lyon1.info.m1.poneymon_fx.View.ScoreView"
+        x="197" y="447">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView"/>
+        <Association
+            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.ScoreCanvasView"
+            endpointName="scoreCanvasView" kind="Simple"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.ScoreCanvasView"/>
+    </Class>
+    <Class name="fr.univ_lyon1.info.m1.poneymon_fx.Model.StateLike"
+        x="586" y="173">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="fr.univ_lyon1.info.m1.poneymon_fx.View.ButtonsView"
+        x="187" y="343">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView"/>
+    </Class>
+    <Class name="fr.univ_lyon1.info.m1.poneymon_fx.View.InfoView" x="66" y="454">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView"/>
+        <Association
+            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.InfoCanvasView"
+            endpointName="infoCanvasView" kind="Simple"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.InfoCanvasView"/>
+    </Class>
+    <Class
+        name="fr.univ_lyon1.info.m1.poneymon_fx.Model.FactoryCoinModel"
+        x="716" y="59">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.FactoryAbstractObjectsModel"/>
+    </Class>
+    <Class
+        name="fr.univ_lyon1.info.m1.poneymon_fx.Model.FactoryAbstractObjectsModel"
+        x="413" y="7">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
     </Class>
     <Class name="fr.univ_lyon1.info.m1.poneymon_fx.View.PoneyView"
-        x="1092" y="467">
+        x="913" y="317">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -213,7 +239,7 @@
         <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"/>
         <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractObjectsView"/>
     </Class>
-    <Class name="fr.univ_lyon1.info.m1.poneymon_fx.App.App" x="28" y="21">
+    <Class name="fr.univ_lyon1.info.m1.poneymon_fx.App.App" x="5" y="2">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -225,14 +251,14 @@
             destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller"
             endpointName="c" kind="Simple"/>
         <Association
-            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel"
+            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.Model"
             endpointName="m" kind="Simple"/>
-        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.Model"/>
         <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller"/>
     </Class>
     <Class
         name="fr.univ_lyon1.info.m1.poneymon_fx.Model.StateDontActivateNian"
-        x="858" y="-1">
+        x="672" y="271">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -241,10 +267,12 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
         <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.StateLike"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.PoneyModel"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.StateContext"/>
     </Class>
     <Class
         name="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractObjectsView"
-        x="713" y="513">
+        x="599" y="347">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -255,7 +283,7 @@
         <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"/>
     </Class>
     <Class name="fr.univ_lyon1.info.m1.poneymon_fx.View.CoinView"
-        x="1136" y="585">
+        x="948" y="448">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -269,7 +297,7 @@
     </Class>
     <Class
         name="fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller"
-        x="16" y="184">
+        x="29" y="121">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -278,12 +306,24 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
         <Association
-            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel"
-            endpointName="fieldModel" kind="Simple"/>
+            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.Model"
+            endpointName="model" kind="Simple"/>
         <Association
             destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView"
             endpointName="views" kind="Simple"/>
         <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView"/>
-        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.FieldModel"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.Model"/>
+    </Class>
+    <Class
+        name="fr.univ_lyon1.info.m1.poneymon_fx.Model.FactoryPoneyModel"
+        x="711" y="4">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.FactoryAbstractObjectsModel"/>
     </Class>
 </ClassDiagram>

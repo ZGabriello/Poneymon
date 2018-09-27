@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"
+        x="539" y="8"/>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.Model.CoinModel" x="465" y="110">
+        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"/>
+    </CommunicationClass>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.View.FieldCanvasView"
+        x="616" y="278">
+        <Association
+            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractObjectsView"
+            endpointName="objectsView" kind="Simple"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.Model"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractObjectsView"/>
+    </CommunicationClass>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.Model.PoneyModel"
+        x="337" y="27">
+        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"/>
+    </CommunicationClass>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.View.InfoCanvasView"
+        x="421" y="336">
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.Model"/>
+    </CommunicationClass>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.View.JfxView" x="881" y="291">
+        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView"/>
+        <Association
+            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.FieldCanvasView"
+            endpointName="fieldCanvasView" kind="Simple"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.FieldCanvasView"/>
+    </CommunicationClass>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.Model.StateContext"
+        x="192" y="150">
+        <Association
+            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.StateLike"
+            endpointName="myState" kind="Simple"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.StateLike"/>
+    </CommunicationClass>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.Model.StateActivateNian"
+        x="8" y="17">
+        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.StateLike"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.PoneyModel"/>
+    </CommunicationClass>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView"
+        x="45" y="352">
+        <Association
+            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.Model"
+            endpointName="fieldModel" kind="Simple"/>
+    </CommunicationClass>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.View.ScoreCanvasView"
+        x="173" y="223">
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.Model"/>
+    </CommunicationClass>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.Model.Model" x="458" y="224">
+        <Association
+            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.StateContext"
+            endpointName="sc" kind="Simple"/>
+        <Association
+            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller"
+            endpointName="controller" kind="Simple"/>
+        <Association
+            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"
+            endpointName="objectsModel" kind="Simple"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel">
+            <Point x="596" y="185"/>
+        </Communication>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.CoinModel"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.PoneyModel"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.FactoryCoinModel"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.StateContext"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.FactoryPoneyModel"/>
+    </CommunicationClass>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.View.ScoreView" x="49" y="233">
+        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView"/>
+        <Association
+            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.ScoreCanvasView"
+            endpointName="scoreCanvasView" kind="Simple"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.ScoreCanvasView"/>
+    </CommunicationClass>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.Model.StateLike" x="15" y="137"/>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.View.ButtonsView" x="9" y="447">
+        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView"/>
+    </CommunicationClass>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.View.InfoView" x="420" y="406">
+        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView"/>
+        <Association
+            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.InfoCanvasView"
+            endpointName="infoCanvasView" kind="Simple"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.InfoCanvasView"/>
+    </CommunicationClass>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.Model.FactoryCoinModel"
+        x="295" y="124">
+        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.FactoryAbstractObjectsModel"/>
+    </CommunicationClass>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.Model.FactoryAbstractObjectsModel"
+        x="691" y="350"/>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.View.PoneyView" x="816" y="15">
+        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractObjectsView"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractObjectsView"/>
+    </CommunicationClass>
+    <CommunicationClass name="fr.univ_lyon1.info.m1.poneymon_fx.App.App"
+        x="225" y="411">
+        <Association
+            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller"
+            endpointName="c" kind="Simple"/>
+        <Association
+            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.Model"
+            endpointName="m" kind="Simple"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.Model"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller"/>
+    </CommunicationClass>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.Model.StateDontActivateNian"
+        x="138" y="74">
+        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.StateLike"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.PoneyModel"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.StateContext"/>
+    </CommunicationClass>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractObjectsView"
+        x="811" y="195">
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"/>
+    </CommunicationClass>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.View.CoinView" x="660" y="151">
+        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractObjectsView"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractObjectsView"/>
+    </CommunicationClass>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller"
+        x="224" y="297">
+        <Association
+            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.Model"
+            endpointName="model" kind="Simple"/>
+        <Association
+            destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView"
+            endpointName="views" kind="Simple"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.View.AbstractView"/>
+        <Communication destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.Model"/>
+    </CommunicationClass>
+    <CommunicationClass
+        name="fr.univ_lyon1.info.m1.poneymon_fx.Model.FactoryPoneyModel"
+        x="519" y="410">
+        <Extension destinationClassName="fr.univ_lyon1.info.m1.poneymon_fx.Model.FactoryAbstractObjectsModel"/>
+    </CommunicationClass>
+</ClassDiagram>
