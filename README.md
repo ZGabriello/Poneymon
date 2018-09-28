@@ -1,80 +1,48 @@
-# PoneyMon
+# Poneymon
 
-PoneyMon is a java project of poney's race game.  During the race, a poney can use Nian power to boost his speed or take a bonus coin. The user can also use the Nian power by pressing a specific button. 
+Work done for a school subject at University Claude Bernard Lyon 1 (M1if01).
 
-## Game Command 
+Poneymon is game where 5 poneys race. To win, they must complete 5 laps.
 
-Pause : to take a break 
-Restart : When the game end, you can use this button to restart the game 
+The first two poneys are controlled by humans. The last three are controlled by a basic artificial intelligence.
 
-Nian button : 
-blue : to set the blue poney in Nian mode
-green : to set the green poney in Nian mode
-
-Information button : 
-bue : to see blue poney's information
-green : to see green poney's information
-purple : to see purple poney's information
-orange : to see orange poney's information
-yellow : to see yellow poney's information
+The programm follows the MVC pattern, and the build is managed by Maven.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-First, you need to clone de git project 
+In the terminal, go the folder you want to download the project.
+First, clone the git project.
 
 ```
 git clone https://forge.univ-lyon1.fr/p1103680/m1if01.git
 ```
 
-And then, you open your IDE and run the App.java
+Then, run the command
+```
+mvn install
+```
+
+If "BUILD SUCCESS" is displayed, you can run the following command to execute the application
+
+```
+mvn exec:java
+```
+
+If not, we messed up.
+
+## Game Command 
+
+#Buttons
+You can pause and restart the game. The restart button keeps the poneys' number of victories.
+You can activate the first two poneys nian mode with the buttons related to their color.
+
+There also is a window where poneys' information is displayed, plus another window where the rank of each poney is displayed.
 
 
 ## Running the tests
 
-To run tests in command line 
-
-### Maven test 
-
-You need to be in your project repository and write those command line 
-
+When installing the project, tests are automatically run. But you can also manually launch them with the command
 ```
-mvn test 
+mvn test
 ```
-
-```
-mvn clean install 
-```
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
 
