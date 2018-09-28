@@ -2,7 +2,7 @@ package fr.univ_lyon1.info.m1.poneymon_fx.Model;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
 
-public final class PoneyModel extends AbstractObjectsModel {
+public final class PoneyModel extends AbstractObjectModel {
     private final double low = 0.002; //Arbitrary values for random speed.
     private final double high = 0.004;
     private int lap;

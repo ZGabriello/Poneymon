@@ -1,12 +1,12 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.View;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
-import fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel;
+import fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectModel;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.CoinModel;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-public final class CoinView extends AbstractObjectsView {
+public final class CoinView extends AbstractObjectView {
 
     private boolean visible = false;
     
@@ -50,7 +50,7 @@ public final class CoinView extends AbstractObjectsView {
      * @param width.
      * @param height.
      */
-    public void getValuesFromModel(final AbstractObjectsModel o, final int width, 
+    public void getValuesFromModel(final AbstractObjectModel o, final int width, 
             final int height) {
         super.getValuesFromModel(o, width, height);
         if (o instanceof CoinModel && o.getColor() == getColor()) { 

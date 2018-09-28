@@ -14,7 +14,7 @@ import java.util.TreeMap;
 
 public final class Model {
     private static Model INSTANCE;
-    private List<AbstractObjectsModel> objectsModel = new ArrayList<AbstractObjectsModel>();
+    private List<AbstractObjectModel> objectsModel = new ArrayList<AbstractObjectModel>();
     private Controller controller;
     private boolean paused;
     private StateContext[] sc;
@@ -30,17 +30,11 @@ public final class Model {
             sc[i] = new StateContext();
         }
        
-        for (AbstractObjectsModel poney : (new FactoryPoneyModel()).createObjects()) {
-            objectsModel.add(poney);
-        }
-        
-        for (AbstractObjectsModel coin : (new FactoryCoinModel()).createObjects()) {
-            objectsModel.add(coin);
-        }
+        objectsModel = Factory.getInstance().getObjects();
     }
     
     /**
-     * Gets the only FieldModel's instance.
+     * Gets the only Model's instance.
      * 
      * @return INSTANCE.
      */
@@ -78,7 +72,7 @@ public final class Model {
      */
     public void step() {
         checkPoneyCoin();
-        for (AbstractObjectsModel objectModel : objectsModel) {
+        for (AbstractObjectModel objectModel : objectsModel) {
             if (objectModel instanceof PoneyModel) {
                 if (objectModel.getY() > 1) {
                     //Let the IA do its job for the three last poneys
@@ -93,9 +87,9 @@ public final class Model {
      * Checks if a poney has taken a coin or if a coin needs to be reset.
      */
     public void checkPoneyCoin() {
-        for (AbstractObjectsModel poney : objectsModel) {
+        for (AbstractObjectModel poney : objectsModel) {
             if (poney instanceof PoneyModel) {
-                for (AbstractObjectsModel coin : objectsModel) { 
+                for (AbstractObjectModel coin : objectsModel) { 
                     if (coin instanceof CoinModel
                             && coin.getColor() == poney.getColor()) {
                         //Reset the coin if the poney starts a new lap.
@@ -121,7 +115,7 @@ public final class Model {
      * @param color.
      */
     public void setIsNianManually(final boolean b, final String color) {
-        for (AbstractObjectsModel object : objectsModel) { 
+        for (AbstractObjectModel object : objectsModel) { 
             if (object instanceof PoneyModel && object.getColor() == color) {
                 ((PoneyModel) object).setNianManually(b);
             }
@@ -160,7 +154,7 @@ public final class Model {
      * 
      * @return objectsModel.
      */
-    public List<AbstractObjectsModel> getObjectsModel() {
+    public List<AbstractObjectModel> getObjectsModel() {
         return objectsModel;
     }
 
@@ -170,7 +164,7 @@ public final class Model {
      * @return true or false.
      */
     public boolean checkWinner() {
-        for (AbstractObjectsModel object : objectsModel) { 
+        for (AbstractObjectModel object : objectsModel) { 
             if (object instanceof PoneyModel) {
                 if (((PoneyModel) object).getIsWinner()) {
                     return true;
@@ -186,7 +180,7 @@ public final class Model {
      * @return color.
      */
     public String colorWinner() {
-        for (AbstractObjectsModel object : objectsModel) { 
+        for (AbstractObjectModel object : objectsModel) { 
             if (object instanceof PoneyModel) {
                 if (((PoneyModel) object).getIsWinner()) {
                     String winner = "The " + object.getColor() + " poney won. ";
@@ -204,7 +198,7 @@ public final class Model {
      */
     public String[] getRank() {
         TreeMap<Double, String> tmap = new TreeMap<Double, String>();
-        for (AbstractObjectsModel object : objectsModel) { 
+        for (AbstractObjectModel object : objectsModel) { 
             if (object instanceof PoneyModel) {
                 tmap.put(((PoneyModel) object).getTraveledDistance(), object.getColor());
             }
@@ -227,9 +221,9 @@ public final class Model {
      * Checks all objects' informations for the model.
      */
     public String[] checkInformations(final String color) {
-        for (int i = 0; i < objectsModel.size(); i++) {
-            if (objectsModel.get(i).getColor() == color) {
-                return objectsModel.get(i).check();
+        for (AbstractObjectModel object : objectsModel) {
+            if (object.getColor() == color) {
+                return object.check();
             }
         }
         return null;
@@ -242,7 +236,7 @@ public final class Model {
         for (int i = 0; i < sc.length; i++) {
             sc[i] = new StateContext();
         }
-        for (AbstractObjectsModel object : objectsModel) {
+        for (AbstractObjectModel object : objectsModel) {
             object.reset();
         }
         setPaused(false);

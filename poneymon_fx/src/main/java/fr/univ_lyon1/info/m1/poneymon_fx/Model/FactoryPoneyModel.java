@@ -8,8 +8,8 @@ public class FactoryPoneyModel implements FactoryAbstractObjectsModel {
      * Crée une liste d'objets de poneys.
      * 
      */
-    public AbstractObjectsModel[] createObjects() {
-        AbstractObjectsModel[] poneysModel = new PoneyModel[App.NB_PONEYS];
+    public AbstractObjectModel[] createObjects() {
+        AbstractObjectModel[] poneysModel = new PoneyModel[App.NB_PONEYS];
         for (int i = 0; i < App.NB_PONEYS; i++) {
             poneysModel[i] = new PoneyModel(i);
         }

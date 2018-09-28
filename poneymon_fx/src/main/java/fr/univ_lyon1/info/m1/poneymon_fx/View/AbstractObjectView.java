@@ -1,11 +1,11 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.View;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
-import fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel;
+import fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectModel;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-public abstract class AbstractObjectsView {
+public abstract class AbstractObjectView {
 
     private Image image;
     private String type;
@@ -109,7 +109,7 @@ public abstract class AbstractObjectsView {
      * @param width.
      * @param height.
      */
-    public void getValuesFromModel(final AbstractObjectsModel o, final int width, 
+    public void getValuesFromModel(final AbstractObjectModel o, final int width, 
             final int height) {
         if (o.getType() == type && o.getColor() == color) {
             setX(o.getX() * width - (width / 10)); //TODO why /10 ?

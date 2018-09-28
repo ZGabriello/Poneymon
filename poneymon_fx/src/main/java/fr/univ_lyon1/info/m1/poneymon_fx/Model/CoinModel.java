@@ -1,7 +1,7 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.Model;
 
 
-public final class CoinModel extends AbstractObjectsModel {
+public final class CoinModel extends AbstractObjectModel {
     private final double low = 0.3;
     private final double high = 0.8;
     private boolean visible;

@@ -5,7 +5,7 @@ import javafx.stage.Stage;
 
 public final class JfxView extends AbstractView {
 
-    private final FieldCanvasView fieldCanvasView;
+    private final JfxCanvasView fieldCanvasView;
 
     /**
      * Creates JfxView.
@@ -20,7 +20,7 @@ public final class JfxView extends AbstractView {
         super(s, m);
         
         getStage().setTitle("Poneymon");
-        fieldCanvasView = new FieldCanvasView(w, h);
+        fieldCanvasView = new JfxCanvasView(w, h);
     }
 
     /**

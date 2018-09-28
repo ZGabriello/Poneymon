@@ -4,7 +4,7 @@ import java.util.Random;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
 
-public abstract class AbstractObjectsModel {
+public abstract class AbstractObjectModel {
     private final Random randomGenerator;
     private final String color;
     private final String type;
@@ -16,7 +16,7 @@ public abstract class AbstractObjectsModel {
      * 
      * @param i.
      */
-    public AbstractObjectsModel(final int i, final String t) {
+    public AbstractObjectModel(/*final*/ int i, final String t) {
         randomGenerator = new Random();
         color = App.colorMap[i];
         type = t;

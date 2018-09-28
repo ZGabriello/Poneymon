@@ -10,7 +10,7 @@ public class StateContext {
     /**
      * Setter method for the state.
      * Normally only called by classes implementing the State interface.
-     * @param newState the new state of this context
+     * @param newState the new state of this context.
      */
     void setState(final StateLike newState) {
         myState = newState;

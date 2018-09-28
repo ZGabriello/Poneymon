@@ -1,12 +1,12 @@
 package fr.univ_lyon1.info.m1.poneymon_fx.View;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
-import fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectsModel;
+import fr.univ_lyon1.info.m1.poneymon_fx.Model.AbstractObjectModel;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.PoneyModel;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-public final class PoneyView extends AbstractObjectsView {
+public final class PoneyView extends AbstractObjectView {
 
     private final Image poneyRunning;
     private final Image poneyRainbow;
@@ -34,15 +34,6 @@ public final class PoneyView extends AbstractObjectsView {
         setImage(isNian ? poneyRainbow : poneyRunning);
         graphicsContext.drawImage(getImage(), getX(), getY(), w / App.NB_PONEYS, h / App.NB_PONEYS);
     }
-
-    /**
-     * Checks the poney information.
-     */
-    public void check() {
-        System.out.println("Poney color : " 
-                + getColor() + " row : " + getY() + " is nian : " + isNian
-                + " progression : " + getX());
-    }
     
     /**
      * Sets isNian.
@@ -60,7 +51,7 @@ public final class PoneyView extends AbstractObjectsView {
      * @param width.
      * @param height.
      */
-    public void getValuesFromModel(final AbstractObjectsModel o, 
+    public void getValuesFromModel(final AbstractObjectModel o, 
             final int width, final int height) {
         super.getValuesFromModel(o, width, height);
         if (o instanceof PoneyModel && o.getColor() == getColor()) { 

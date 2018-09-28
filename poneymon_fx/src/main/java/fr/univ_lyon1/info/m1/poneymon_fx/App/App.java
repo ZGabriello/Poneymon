@@ -18,7 +18,7 @@ public final class App extends Application {
     public static final int NB_PONEYS = 5;
     public static final int NB_TOURS = 5;
     public static final String[] colorMap = new String[] 
-        { "blue", "green", "orange", "purple", "yellow" }; 
+        { "blue", "green", "orange", "purple", "yellow"}; 
     
     private static Model m;
     private static Controller c;

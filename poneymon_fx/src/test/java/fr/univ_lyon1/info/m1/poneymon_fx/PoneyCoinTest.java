@@ -9,7 +9,7 @@ import fr.univ_lyon1.info.m1.poneymon_fx.Model.CoinModel;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.Model;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.PoneyModel;
 
-class PoneyTest {
+class PoneyCoinTest {
 
     /**
      * Test for the step method.
@@ -106,8 +106,5 @@ class PoneyTest {
         m.step();
         // Then
         assertEquals(p.getIsNian(), true);
-    }
-
-    
-    
+    } 
 }

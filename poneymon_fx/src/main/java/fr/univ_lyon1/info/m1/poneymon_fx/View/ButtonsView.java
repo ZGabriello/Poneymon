@@ -47,7 +47,7 @@ public final class ButtonsView extends AbstractView {
         hb.getChildren().add(pause);
         hb.getChildren().add(restart);
 
-        buttons = new Button[App.NB_PONEYS];
+        buttons = new Button[2];
         for (int i = 0; i < 2; i++) {
             final String color = App.colorMap[i];
             buttons[i] = new Button(color);
