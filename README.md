@@ -32,9 +32,8 @@ If not, we messed up.
 
 ## Game Command 
 
-#Buttons
 You can pause and restart the game. The restart button keeps the poneys' number of victories.
-You can activate the first two poneys nian mode with the buttons related to their color.
+You can activate the first two poneys nian mode with the buttons related to their color, or the keys "A" and "Z".
 
 There also is a window where poneys' information is displayed, plus another window where the rank of each poney is displayed.
 
