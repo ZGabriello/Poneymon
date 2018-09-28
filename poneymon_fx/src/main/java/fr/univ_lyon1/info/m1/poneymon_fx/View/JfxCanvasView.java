@@ -16,6 +16,7 @@ import javafx.scene.paint.Color;
 public final class JfxCanvasView extends Canvas {
 
     private List<String> inputs = new ArrayList<String>();
+    private Factory factory;
     private List<AbstractObjectView> objectsView = new ArrayList<AbstractObjectView>();
     private HashMap<String, Integer> keyMap = new HashMap<String, Integer>();
     private final GraphicsContext gc;
@@ -35,7 +36,8 @@ public final class JfxCanvasView extends Canvas {
 
         gc = this.getGraphicsContext2D();
         
-        objectsView = Factory.getInstance().getObjects();
+        factory = Factory.getInstance();
+        objectsView = factory.getObjects();
         
         this.setFocusTraversable(true);
         setInputs();

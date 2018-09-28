@@ -6,17 +6,21 @@ import java.util.List;
 public class Factory {
     private static Factory INSTANCE;
     List<AbstractObjectView> objectsView = new ArrayList<AbstractObjectView>();
+    FactoryAbstractObjectsView factoryPoney;
+    FactoryAbstractObjectsView factoryCoin;
     
     /**
      * Creates the Factory and its component.
      * 
      */
     private Factory() {
-        for (AbstractObjectView poney : (new FactoryPoneyView()).createObjects()) {
+        factoryPoney = new FactoryPoneyView();
+        factoryCoin = new FactoryCoinView();
+        for (AbstractObjectView poney : factoryPoney.createObjects()) {
             objectsView.add(poney);
         }
         
-        for (AbstractObjectView coin : (new FactoryCoinView()).createObjects()) {
+        for (AbstractObjectView coin : factoryCoin.createObjects()) {
             objectsView.add(coin);
         }
     }

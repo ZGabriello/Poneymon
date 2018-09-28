@@ -15,6 +15,7 @@ import java.util.TreeMap;
 
 public final class Model {
     private static Model INSTANCE;
+    private Factory factory;
     private List<AbstractObjectModel> objectsModel = new ArrayList<AbstractObjectModel>();
     private Controller controller;
     private boolean paused;
@@ -27,12 +28,13 @@ public final class Model {
      * @param c.
      */
     private Model() {
+        factory = Factory.getInstance();
         sc = new StateContext[App.NB_PONEYS];
         for (int i = 0; i < sc.length; i++) {
             sc[i] = new StateContext();
         }
        
-        objectsModel = Factory.getInstance().getObjects();
+        objectsModel = factory.getObjects();
     }
     
     /**
