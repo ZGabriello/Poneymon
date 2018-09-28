@@ -111,9 +111,7 @@ public abstract class AbstractObjectView {
      */
     public void getValuesFromModel(final AbstractObjectModel o, final int width, 
             final int height) {
-        if (o.getType() == type && o.getColor() == color) {
-            setX(o.getX() * width - (width / 10)); //TODO why /10 ?
-            setY(o.getY() * height / App.NB_PONEYS);
-        }
+        setX(o.getX() * width - (width / 10)); //TODO why /10 ?
+        setY(o.getY() * height / App.NB_PONEYS);
     }
 }

@@ -11,7 +11,8 @@ public class FactoryCoinView implements FactoryAbstractObjectsView {
     public AbstractObjectView[] createObjects() {
         AbstractObjectView[] coinsModel = new CoinView[App.NB_PONEYS];
         for (int i = 0; i < App.NB_PONEYS; i++) {
-            coinsModel[i] = new CoinView(App.colorMap[i]);
+            int j = (i < 5) ? i : (i - 5);
+            coinsModel[i] = new CoinView(App.colorMap[j]);
         }
         return coinsModel;
     }

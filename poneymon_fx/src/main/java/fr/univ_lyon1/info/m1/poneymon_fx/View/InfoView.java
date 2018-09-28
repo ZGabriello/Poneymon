@@ -13,7 +13,7 @@ public final class InfoView extends AbstractView {
     private final HBox hb;
     private final Button[] buttons;
     private final InfoCanvasView infoCanvasView;
-    private String askedColor;
+    private int askedIndex;
 
     /**
      * Creates ScoreView.
@@ -27,17 +27,19 @@ public final class InfoView extends AbstractView {
         
         getStage().setTitle("Informations");
         //Default askedColor
-        askedColor = "blue";
+        askedIndex = 0;
         
         hb = new HBox();
         
         buttons = new Button[App.NB_PONEYS];
         for (int i = 0; i < App.NB_PONEYS; i++) {
-            final String color = App.colorMap[i];
+            int j = (i < 5) ? i : (i - 5);
+            final String color = App.colorMap[j];
+            final int k = i;
             buttons[i] = new Button(color);
             buttons[i].setOnMouseClicked(new EventHandler<MouseEvent>() {
                 public void handle(MouseEvent arg0) {
-                    askedColor = color;
+                    askedIndex = k;
                 }
             });
             hb.getChildren().add(buttons[i]);
@@ -51,7 +53,7 @@ public final class InfoView extends AbstractView {
      * 
      */
     public void runCanvas() {
-        infoCanvasView.run(getFieldModel(), askedColor);
+        infoCanvasView.run(getFieldModel(), askedIndex);
     }
     
     /**

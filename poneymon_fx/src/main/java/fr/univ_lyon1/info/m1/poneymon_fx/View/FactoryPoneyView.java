@@ -11,7 +11,8 @@ public class FactoryPoneyView implements FactoryAbstractObjectsView {
     public AbstractObjectView[] createObjects() {
         AbstractObjectView[] poneysModel = new PoneyView[App.NB_PONEYS];
         for (int i = 0; i < App.NB_PONEYS; i++) {
-            poneysModel[i] = new PoneyView(App.colorMap[i]);
+            int j = (i < 5) ? i : (i - 5);
+            poneysModel[i] = new PoneyView(App.colorMap[j]);
         }
         return poneysModel;
     }

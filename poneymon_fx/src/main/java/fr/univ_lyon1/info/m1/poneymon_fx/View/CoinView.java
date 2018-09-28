@@ -53,8 +53,6 @@ public final class CoinView extends AbstractObjectView {
     public void getValuesFromModel(final AbstractObjectModel o, final int width, 
             final int height) {
         super.getValuesFromModel(o, width, height);
-        if (o instanceof CoinModel && o.getColor() == getColor()) { 
-            setVisible(((CoinModel) o).getVisible());
-        }
+        setVisible(((CoinModel) o).getVisible());
     }
 }

@@ -17,7 +17,7 @@ public final class JfxCanvasView extends Canvas {
 
     private List<String> inputs = new ArrayList<String>();
     private List<AbstractObjectView> objectsView = new ArrayList<AbstractObjectView>();
-    private HashMap<String, String> keyMap = new HashMap<String, String>();
+    private HashMap<String, Integer> keyMap = new HashMap<String, Integer>();
     private final GraphicsContext gc;
     private final int width;
     private final int height;
@@ -37,6 +37,7 @@ public final class JfxCanvasView extends Canvas {
         
         objectsView = Factory.getInstance().getObjects();
         
+        this.setFocusTraversable(true);
         setInputs();
     }
     
@@ -60,13 +61,8 @@ public final class JfxCanvasView extends Canvas {
         }
         
         //Get values from model.
-        /*for (AbstractObjectModel objectModel : m.getObjectsModel()) {
-            for (AbstractObjectView objectView : objectsView) {
-                objectView.getValuesFromModel(objectModel, width, height);
-            }
-        }*/
         List<AbstractObjectModel> objectsModel = m.getObjectsModel();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < objectsModel.size(); i++) {
             objectsView.get(i).getValuesFromModel(objectsModel.get(i), width, height);
         }
         
@@ -82,12 +78,14 @@ public final class JfxCanvasView extends Canvas {
      * 
      */
     public void setInputs() {
-        this.setFocusTraversable(true);
         
         //Add a string to input if a key is presssed.
         this.setOnKeyPressed(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent e) {
-                inputs.add(e.getCode().toString());
+                if (e.getCode().toString() == "Q" 
+                        || e.getCode().toString() == "W") {
+                    inputs.add(e.getCode().toString());
+                }
             }
         });
 
@@ -97,8 +95,8 @@ public final class JfxCanvasView extends Canvas {
             }
         });
 
-        keyMap.put("Q", "blue");
-        keyMap.put("W", "green");
+        keyMap.put("Q", 0);
+        keyMap.put("W", 1);
     }
     
     /**

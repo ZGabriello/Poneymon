@@ -54,8 +54,6 @@ public final class PoneyView extends AbstractObjectView {
     public void getValuesFromModel(final AbstractObjectModel o, 
             final int width, final int height) {
         super.getValuesFromModel(o, width, height);
-        if (o instanceof PoneyModel && o.getColor() == getColor()) { 
-            setIsNian(((PoneyModel) o).getIsNian());
-        }
+        setIsNian(((PoneyModel) o).getIsNian());
     }
 }

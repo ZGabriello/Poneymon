@@ -16,12 +16,14 @@ public abstract class AbstractObjectModel {
      * 
      * @param i.
      */
-    public AbstractObjectModel(/*final*/ int i, final String t) {
+    public AbstractObjectModel(final int i, final String t) {
         randomGenerator = new Random();
-        color = App.colorMap[i];
         type = t;
         x = 0;
         y = i;
+        // If number of poneys is above 5
+        int j = (i < 5) ? i : (i - 5);
+        color = App.colorMap[j];
     }
 
     public void checkInfo() {

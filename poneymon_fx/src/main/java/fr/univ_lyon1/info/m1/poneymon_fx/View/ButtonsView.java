@@ -50,10 +50,11 @@ public final class ButtonsView extends AbstractView {
         buttons = new Button[2];
         for (int i = 0; i < 2; i++) {
             final String color = App.colorMap[i];
+            final int index = i;
             buttons[i] = new Button(color);
             buttons[i].setOnMouseClicked(new EventHandler<MouseEvent>() {
                 public void handle(MouseEvent arg0) {
-                    getFieldModel().setIsNianManually(true, color);
+                    getFieldModel().setIsNianManually(true, index);
                 }
             });
             hb.getChildren().add(buttons[i]);

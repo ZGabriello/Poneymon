@@ -3,6 +3,7 @@ package fr.univ_lyon1.info.m1.poneymon_fx.Model;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 
 import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
@@ -18,6 +19,7 @@ public final class Model {
     private Controller controller;
     private boolean paused;
     private StateContext[] sc;
+    private String colorWinner;
 
     /**
      * Creates the FieldModel.
@@ -72,14 +74,14 @@ public final class Model {
      */
     public void step() {
         checkPoneyCoin();
-        for (AbstractObjectModel objectModel : objectsModel) {
-            if (objectModel instanceof PoneyModel) {
-                if (objectModel.getY() > 1) {
-                    //Let the IA do its job for the three last poneys
-                    sc[objectModel.getY()].nianIa((PoneyModel) objectModel);
-                }
-                ((PoneyModel) objectModel).step();
+        for (int i = 0; i < App.NB_PONEYS; i++) {
+            //Get the current poney object
+            PoneyModel p = (PoneyModel) objectsModel.get(i);
+            if (p.getY() > 1) {
+                //Let the IA do its job for the three last poneys
+                sc[p.getY()].nianIa(p);
             }
+            p.step(); 
         }
     }
     
@@ -87,22 +89,20 @@ public final class Model {
      * Checks if a poney has taken a coin or if a coin needs to be reset.
      */
     public void checkPoneyCoin() {
-        for (AbstractObjectModel poney : objectsModel) {
-            if (poney instanceof PoneyModel) {
-                for (AbstractObjectModel coin : objectsModel) { 
-                    if (coin instanceof CoinModel
-                            && coin.getColor() == poney.getColor()) {
-                        //Reset the coin if the poney starts a new lap.
-                        if (poney.getX() == 0) { 
-                            ((CoinModel) coin).reset();
-                        }
-                        //If the poney is above the coin.
-                        if (poney.getX() > coin.getX() - 0.07 
-                                && ((CoinModel) coin).getVisible()) {
-                            ((PoneyModel) poney).setNian(true);
-                            ((CoinModel) coin).setVisible(false);
-                        }
-                    }       
+        for (int i = 0; i < App.NB_PONEYS; i++) {
+            PoneyModel p = (PoneyModel) objectsModel.get(i);
+            for (int j = App.NB_PONEYS; j < (App.NB_PONEYS * 2); j++) {
+                CoinModel c = (CoinModel) objectsModel.get(j);
+                if (p.getY() == c.getY()) {
+                    if (p.getX() == 0) { 
+                        c.reset();
+                    }
+                    //If the poney is above the coin.
+                    if (p.getX() > c.getX() - 0.07 
+                            && c.getVisible()) {
+                        p.setNian(true);
+                        c.setVisible(false);
+                    }
                 }
             }
         }
@@ -114,12 +114,8 @@ public final class Model {
      * @param b.
      * @param color.
      */
-    public void setIsNianManually(final boolean b, final String color) {
-        for (AbstractObjectModel object : objectsModel) { 
-            if (object instanceof PoneyModel && object.getColor() == color) {
-                ((PoneyModel) object).setNianManually(b);
-            }
-        }
+    public void setIsNianManually(final boolean b, final int index) {
+        ((PoneyModel) objectsModel.get(index)).setNianManually(b);
     }
 
     /**
@@ -164,11 +160,10 @@ public final class Model {
      * @return true or false.
      */
     public boolean checkWinner() {
-        for (AbstractObjectModel object : objectsModel) { 
-            if (object instanceof PoneyModel) {
-                if (((PoneyModel) object).getIsWinner()) {
-                    return true;
-                }
+        for (int i = 0; i < App.NB_PONEYS; i++) {
+            if (((PoneyModel) objectsModel.get(i)).getIsWinner()) {
+                colorWinner = objectsModel.get(i).getColor();
+                return true;
             }
         }
         return false;
@@ -180,15 +175,8 @@ public final class Model {
      * @return color.
      */
     public String colorWinner() {
-        for (AbstractObjectModel object : objectsModel) { 
-            if (object instanceof PoneyModel) {
-                if (((PoneyModel) object).getIsWinner()) {
-                    String winner = "The " + object.getColor() + " poney won. ";
-                    return winner;
-                }
-            }
-        }
-        return null;
+        String winner = "The " + colorWinner + " poney won. ";
+        return winner;
     }
 
     /**
@@ -197,11 +185,10 @@ public final class Model {
      * @return scores.
      */
     public String[] getRank() {
-        TreeMap<Double, String> tmap = new TreeMap<Double, String>();
-        for (AbstractObjectModel object : objectsModel) { 
-            if (object instanceof PoneyModel) {
-                tmap.put(((PoneyModel) object).getTraveledDistance(), object.getColor());
-            }
+        Map<Double, String> tmap = new TreeMap<Double, String>();
+        for (int i = 0; i < App.NB_PONEYS; i++) {
+            PoneyModel p = (PoneyModel) objectsModel.get(i);
+            tmap.put(p.getTraveledDistance(), p.getColor());
         }
         int i = 1; // For rank displaying, must be from one to five so it's readable.
         int j = 0; // For scores incrementing, must be from zero to 4.
@@ -220,13 +207,14 @@ public final class Model {
     /**
      * Checks all objects' informations for the model.
      */
-    public String[] checkInformations(final String color) {
-        for (AbstractObjectModel object : objectsModel) {
+    public String[] checkInformations(final int i) {
+        return objectsModel.get(i).check();
+        /*for (AbstractObjectModel object : objectsModel) {
             if (object.getColor() == color) {
                 return object.check();
             }
         }
-        return null;
+        return null;*/
     }
     
     /**
