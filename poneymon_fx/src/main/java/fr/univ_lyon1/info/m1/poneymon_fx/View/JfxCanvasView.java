@@ -85,8 +85,8 @@ public final class JfxCanvasView extends Canvas {
         //Add a string to input if a key is presssed.
         this.setOnKeyPressed(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent e) {
-                if (e.getCode().toString() == "Q" 
-                        || e.getCode().toString() == "W") {
+                if (e.getCode().toString() == "E" 
+                        || e.getCode().toString() == "R") {
                     inputs.add(e.getCode().toString());
                 }
             }
@@ -98,8 +98,8 @@ public final class JfxCanvasView extends Canvas {
             }
         });
 
-        keyMap.put("Q", 0);
-        keyMap.put("W", 1);
+        keyMap.put("E", 0);
+        keyMap.put("R", 1);
     }
     
     /**

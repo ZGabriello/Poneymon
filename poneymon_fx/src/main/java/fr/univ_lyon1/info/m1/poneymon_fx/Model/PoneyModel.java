@@ -102,6 +102,15 @@ public final class PoneyModel extends AbstractObjectModel {
     }
     
     /**
+     * Sets the speed.
+     * 
+     * @param d.
+     */
+    public void setSpeed(double d) {
+        speed = d;
+    }
+    
+    /**
      * Sets the boolean isNian (for a user action).
      * 
      * @param b.

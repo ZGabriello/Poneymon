@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import fr.univ_lyon1.info.m1.poneymon_fx.Controller.Controller;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.CoinModel;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.Model;
 import fr.univ_lyon1.info.m1.poneymon_fx.Model.PoneyModel;
@@ -91,20 +90,13 @@ class PoneyCoinTest {
     @Test
     public void testNianCoin() {
         // Given
-        Controller c = Controller.getInstance();
         Model m = Model.getInstance();
-        m.setController(c);
-        c.setModel(m);
         // When
-        PoneyModel p = new PoneyModel(0);
-        CoinModel coin = new CoinModel(0);
-        p.setX(0.6);
-        coin.setX(0.3);
-        coin.setVisible(true);
-        m.getObjectsModel().add(p);
-        m.getObjectsModel().add(coin);
+        m.getObjectsModel().get(0).setX(0.6);
+        m.getObjectsModel().get(5).setX(0.3);
+        ((CoinModel) m.getObjectsModel().get(5)).setVisible(true);
         m.step();
         // Then
-        //assertEquals(p.getIsNian(), true);
-    } 
+        assertEquals(((PoneyModel) m.getObjectsModel().get(0)).getIsNian(), true);
+    }
 }
