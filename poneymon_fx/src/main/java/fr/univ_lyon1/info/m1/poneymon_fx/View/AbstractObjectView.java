@@ -93,7 +93,7 @@ public abstract class AbstractObjectView {
      */
     public void getValuesFromModel(final AbstractObjectModel o, final int width, 
             final int height) {
-        setX(o.getX() * width - (width / 10)); //TODO why /10 ?
+        setX(o.getX() * width - (width / 5));
         setY(o.getY() * height / App.NB_PONEYS);
     }
 }
