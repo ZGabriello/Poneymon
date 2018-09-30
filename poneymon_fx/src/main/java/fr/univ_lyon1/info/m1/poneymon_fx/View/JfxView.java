@@ -10,17 +10,16 @@ public final class JfxView extends AbstractView {
     /**
      * Creates JfxView.
      * 
-     * @param s.
-     * @param w.
-     * @param h.
-     * @param c.
-     * @param m.
+     * @param stage.
+     * @param width.
+     * @param height.
+     * @param model.
      */
-    public JfxView(final Stage s, final int w, final int h, final Model m) {
-        super(s, m);
+    public JfxView(final Stage stage, final int width, final int height, final Model model) {
+        super(stage, model);
         
         getStage().setTitle("Poneymon");
-        fieldCanvasView = new JfxCanvasView(w, h);
+        fieldCanvasView = new JfxCanvasView(width, height);
     }
 
     /**

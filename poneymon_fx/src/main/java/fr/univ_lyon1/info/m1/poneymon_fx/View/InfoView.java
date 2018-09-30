@@ -18,12 +18,11 @@ public final class InfoView extends AbstractView {
     /**
      * Creates ScoreView.
      * 
-     * @param s.
-     * @param c.
-     * @param m.
+     * @param stage.
+     * @param model.
      */
-    public InfoView(final Stage s, final Model m) {
-        super(s, m);
+    public InfoView(final Stage stage, final Model model) {
+        super(stage, model);
         
         getStage().setTitle("Informations");
         //Default askedColor

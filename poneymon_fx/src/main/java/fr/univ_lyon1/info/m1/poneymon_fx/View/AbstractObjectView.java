@@ -28,6 +28,7 @@ public abstract class AbstractObjectView {
     /**
      * Gets X.
      * 
+     * @return x;
      */
     public double getX() {
         return x;
@@ -44,6 +45,8 @@ public abstract class AbstractObjectView {
     
     /**
      * Gets Y.
+     * 
+     * @return row;
      * 
      */
     public double getY() {
@@ -62,6 +65,8 @@ public abstract class AbstractObjectView {
     /**
      * Gets color.
      * 
+     * @return color;
+     * 
      */
     public String getColor() {
         return color;
@@ -70,7 +75,7 @@ public abstract class AbstractObjectView {
     /**
      * Sets image.
      * 
-     * @param s.
+     * @param i.
      */
     public void setImage(final Image i) {
         image = i;
@@ -79,6 +84,7 @@ public abstract class AbstractObjectView {
     /**
      * Gets image.
      * 
+     * @return image;
      */
     public Image getImage() {
         return image;

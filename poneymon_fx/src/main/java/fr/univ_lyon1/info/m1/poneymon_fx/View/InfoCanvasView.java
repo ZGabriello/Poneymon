@@ -17,10 +17,11 @@ public final class InfoCanvasView extends Canvas {
     /**
      * Fills the canvas, displays the score.
      * 
-     * @param m.
+     * @param model.
+     * @param index.
      * 
      */
-    public void run(final Model m, final int index) {
+    public void run(final Model model, final int index) {
         //Fill the canvas.
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRect(0, 0, 300, 300);
@@ -29,7 +30,7 @@ public final class InfoCanvasView extends Canvas {
         gc.setFill(Color.BLACK);
         
         //Get the array string for scores.
-        String[] info = m.checkInformations(index);
+        String[] info = model.checkInformations(index);
         for (int i = 0; i < info.length; i++) {
             gc.fillText(info[i], 0, i * 20 + 50);
         } 

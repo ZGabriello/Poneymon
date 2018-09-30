@@ -16,12 +16,11 @@ public final class ButtonsView extends AbstractView {
     /**
      * Creates ButtonsView.
      * 
-     * @param s.
-     * @param c.
-     * @param m.
+     * @param stage.
+     * @param model.
      */
-    public ButtonsView(final Stage s, final Model m) {
-        super(s, m);
+    public ButtonsView(final Stage stage, final Model model) {
+        super(stage, model);
         
         getStage().setTitle("Nian activation");
 

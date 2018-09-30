@@ -14,12 +14,15 @@ public abstract class AbstractView {
 
     /**
      * Creates abstractView.
+     * 
+     * @param stage.
+     * @param model.
      */
-    public AbstractView(final Stage s, final Model m) {
+    public AbstractView(final Stage stage, final Model model) {
         root = new Group();
         scene = new Scene(root);
-        stage = s;
-        fieldModel = m;
+        this.stage = stage;
+        fieldModel = model;
     }
 
     /**

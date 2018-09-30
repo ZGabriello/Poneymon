@@ -10,12 +10,11 @@ public final class ScoreView extends AbstractView {
     /**
      * Creates ScoreView.
      * 
-     * @param s.
-     * @param c.
-     * @param m.
+     * @param stage.
+     * @param model.
      */
-    public ScoreView(final Stage s, final Model m) {
-        super(s, m);
+    public ScoreView(final Stage stage, final Model model) {
+        super(stage, model);
         
         getStage().setTitle("Rank");
         scoreCanvasView = new ScoreCanvasView();

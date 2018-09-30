@@ -91,7 +91,7 @@ public final class Model {
      * Sets the poney of the color given isNian field to true or false (for a user action).
      * 
      * @param b.
-     * @param color.
+     * @param index.
      */
     public void setIsNianManually(final boolean b, final int index) {
         ((PoneyModel) objectsModel.get(index)).setNianManually(b);
@@ -170,6 +170,9 @@ public final class Model {
     
     /**
      * Checks all objects' informations for the model.
+     * 
+     * @param i the index.
+     * @return string String[].
      */
     public String[] checkInformations(final int i) {
         return objectsModel.get(i).check();

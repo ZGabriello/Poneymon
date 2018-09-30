@@ -32,19 +32,19 @@ public final class Controller {
     /**
      * Adds a view to the controller.
      * 
-     * @param v.
+     * @param view.
      */
-    public void addView(final AbstractView v) {
-        views.add(v);
+    public void addView(final AbstractView view) {
+        views.add(view);
     }
 
     /**
      * Sets the model.
      * 
-     * @param m.
+     * @param model.
      */
-    public void setModel(final Model m) {
-        model = m;
+    public void setModel(final Model model) {
+        this.model = model;
     }
     
     /**
