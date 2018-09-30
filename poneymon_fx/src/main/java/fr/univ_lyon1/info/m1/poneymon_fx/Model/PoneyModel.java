@@ -20,7 +20,7 @@ public final class PoneyModel extends AbstractObjectModel {
      * @param i.
      */
     public PoneyModel(final int i) {
-        super(i, "poney");
+        super(i);
         speed = getRandom().nextFloat() * (high - low) + low;
         lap = 0;
         canChange = true;

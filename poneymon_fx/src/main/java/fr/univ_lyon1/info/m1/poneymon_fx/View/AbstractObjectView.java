@@ -8,10 +8,9 @@ import javafx.scene.image.Image;
 public abstract class AbstractObjectView {
 
     private Image image;
-    private String type;
     private String color;
     private double x;
-    private double y;
+    private double row;
     
     public void display(final GraphicsContext gc, final int width, final int height) {
 
@@ -40,7 +39,7 @@ public abstract class AbstractObjectView {
      * @param d.
      */
     public void setY(final double d) {
-        y = d;
+        row = d;
     }
     
     /**
@@ -48,24 +47,7 @@ public abstract class AbstractObjectView {
      * 
      */
     public double getY() {
-        return y;
-    }
-    
-    /**
-     * Sets type.
-     * 
-     * @param s.
-     */
-    public void setType(final String s) {
-        type = s;
-    }
-    
-    /**
-     * Gets type.
-     * 
-     */
-    public String getType() {
-        return type;
+        return row;
     }
     
     /**

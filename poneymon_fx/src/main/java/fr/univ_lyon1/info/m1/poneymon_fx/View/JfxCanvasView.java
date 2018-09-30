@@ -16,9 +16,10 @@ import javafx.scene.paint.Color;
 public final class JfxCanvasView extends Canvas {
 
     private List<String> inputs = new ArrayList<String>();
-    private Factory factory;
+    private List<AbstractObjectModel> objectsModel;
     private List<AbstractObjectView> objectsView = new ArrayList<AbstractObjectView>();
-    private HashMap<String, Integer> keyMap = new HashMap<String, Integer>();
+    private final Factory factory;
+    private final HashMap<String, Integer> keyMap = new HashMap<String, Integer>();
     private final GraphicsContext gc;
     private final int width;
     private final int height;
@@ -63,7 +64,7 @@ public final class JfxCanvasView extends Canvas {
         }
         
         //Get values from model.
-        List<AbstractObjectModel> objectsModel = m.getObjectsModel();
+        objectsModel = m.getObjectsModel();
         for (int i = 0; i < objectsModel.size(); i++) {
             objectsView.get(i).getValuesFromModel(objectsModel.get(i), width, height);
         }

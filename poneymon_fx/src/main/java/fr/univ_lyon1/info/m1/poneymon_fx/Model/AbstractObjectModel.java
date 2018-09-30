@@ -7,8 +7,7 @@ import fr.univ_lyon1.info.m1.poneymon_fx.App.App;
 public abstract class AbstractObjectModel {
     private final Random randomGenerator;
     private final String color;
-    private final String type;
-    private final int y;
+    private final int row;
     private double x;
     
     /**
@@ -16,11 +15,10 @@ public abstract class AbstractObjectModel {
      * 
      * @param i.
      */
-    public AbstractObjectModel(final int i, final String t) {
+    public AbstractObjectModel(final int i) {
         randomGenerator = new Random();
-        type = t;
         x = 0;
-        y = i;
+        row = i;
         // If number of poneys is above 5
         int j = (i < 5) ? i : (i - 5);
         color = App.colorMap[j];
@@ -58,16 +56,7 @@ public abstract class AbstractObjectModel {
      * @return row.
      */
     public int getY() {
-        return y;
-    }
-    
-    /**
-     * Gets the object's type (poney or coin for the moment).
-     * 
-     * @return row.
-     */
-    public String getType() {
-        return type;
+        return row;
     }
     
     /**

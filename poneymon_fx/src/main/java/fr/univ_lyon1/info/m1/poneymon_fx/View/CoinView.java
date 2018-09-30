@@ -18,7 +18,6 @@ public final class CoinView extends AbstractObjectView {
     public CoinView(final String c) {
         setImage(new Image("assets/gold-coin.gif"));
         setColor(c);
-        setType("coin");
     }
 
     /**

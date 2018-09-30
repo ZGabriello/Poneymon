@@ -12,7 +12,7 @@ public final class CoinModel extends AbstractObjectModel {
      * @param i.
      */
     public CoinModel(final int i) {
-        super(i, "coin");
+        super(i);
         setX(getRandom().nextFloat() * (high - low) + low);
         setVisible();
     }

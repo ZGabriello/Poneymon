@@ -50,9 +50,8 @@ public final class Model {
     }
     
     
-    /*The steps execute sequentially.This is a business requirement. 
-     * that manages 
-     * this should be part of the business object model (Model). */
+    /*The steps execute sequentially. This is a business requirement, 
+     * this should be part of model. */
     /**
      * Starts the timer.
      * 
@@ -84,29 +83,6 @@ public final class Model {
                 sc[p.getY()].nianIa(p);
             }
             p.step(); 
-        }
-    }
-    
-    /**
-     * Checks if a poney has taken a coin or if a coin needs to be reset.
-     */
-    public void checkPoneyCoin() {
-        for (int i = 0; i < App.NB_PONEYS; i++) {
-            PoneyModel p = (PoneyModel) objectsModel.get(i);
-            for (int j = App.NB_PONEYS; j < (App.NB_PONEYS * 2); j++) {
-                CoinModel c = (CoinModel) objectsModel.get(j);
-                if (p.getY() == c.getY()) {
-                    if (p.getX() == 0) { 
-                        c.reset();
-                    }
-                    //If the poney is above the coin.
-                    if (p.getX() > c.getX() - 0.07 
-                            && c.getVisible()) {
-                        p.setNian(true);
-                        c.setVisible(false);
-                    }
-                }
-            }
         }
     }
 
@@ -155,28 +131,13 @@ public final class Model {
     public List<AbstractObjectModel> getObjectsModel() {
         return objectsModel;
     }
-
-    /**
-     * Checks if there's a winner.
-     * 
-     * @return true or false.
-     */
-    public boolean checkWinner() {
-        for (int i = 0; i < App.NB_PONEYS; i++) {
-            if (((PoneyModel) objectsModel.get(i)).getIsWinner()) {
-                colorWinner = objectsModel.get(i).getColor();
-                return true;
-            }
-        }
-        return false;
-    }
     
     /**
      * Returns the color of the winner.
      * 
      * @return color.
      */
-    public String colorWinner() {
+    public String getWinner() {
         String winner = "The " + colorWinner + " poney won. ";
         return winner;
     }
@@ -211,12 +172,6 @@ public final class Model {
      */
     public String[] checkInformations(final int i) {
         return objectsModel.get(i).check();
-        /*for (AbstractObjectModel object : objectsModel) {
-            if (object.getColor() == color) {
-                return object.check();
-            }
-        }
-        return null;*/
     }
     
     /**
@@ -231,4 +186,46 @@ public final class Model {
         }
         setPaused(false);
     }
+    
+    
+    /*      GAME LOGIC      */
+    
+    /**
+     * Checks if a poney has taken a coin or if a coin needs to be reset.
+     */
+    public void checkPoneyCoin() {
+        for (int i = 0; i < App.NB_PONEYS; i++) {
+            PoneyModel p = (PoneyModel) objectsModel.get(i);
+            for (int j = App.NB_PONEYS; j < (App.NB_PONEYS * 2); j++) {
+                CoinModel c = (CoinModel) objectsModel.get(j);
+                if (p.getY() == c.getY()) {
+                    if (p.getX() == 0) { 
+                        c.reset();
+                    }
+                    //If the poney is above the coin.
+                    if (p.getX() > c.getX() - 0.07 
+                            && c.getVisible()) {
+                        p.setNian(true);
+                        c.setVisible(false);
+                    }
+                }
+            }
+        }
+    }
+    
+    /**
+     * Checks if there's a winner.
+     * 
+     * @return true or false.
+     */
+    public boolean checkWinner() {
+        for (int i = 0; i < App.NB_PONEYS; i++) {
+            if (((PoneyModel) objectsModel.get(i)).getIsWinner()) {
+                colorWinner = objectsModel.get(i).getColor();
+                return true;
+            }
+        }
+        return false;
+    }
+    
 }

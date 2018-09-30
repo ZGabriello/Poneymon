@@ -36,7 +36,7 @@ public final class ScoreCanvasView extends Canvas {
         } 
         
         if (m.checkWinner()) {
-            String winner = m.colorWinner();
+            String winner = m.getWinner();
             gc.fillText(winner, 0, (App.NB_PONEYS + 1) * 20 + 20);
         }
         

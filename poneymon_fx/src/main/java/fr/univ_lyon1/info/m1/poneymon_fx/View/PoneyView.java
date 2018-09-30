@@ -19,7 +19,6 @@ public final class PoneyView extends AbstractObjectView {
      */
     public PoneyView(final String c) {
         setColor(c);
-        setType("poney");
         poneyRunning = new Image("assets/pony-" + getColor() + "-running.gif");
         poneyRainbow = new Image("assets/pony-" + getColor() + "-rainbow.gif");
     }
