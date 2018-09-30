@@ -2,7 +2,7 @@
 
 Work done for a school subject at University Claude Bernard Lyon 1 (M1if01).
 
-Poneymon is game where 5 poneys race. To win, they must complete 5 laps.
+Poneymon is a game where 5 poneys race. To win, they must complete 5 laps.
 
 The first two poneys are controlled by humans. The last three are controlled by a basic artificial intelligence.
 
@@ -33,7 +33,7 @@ If not, we messed up.
 ## Game Command 
 
 You can pause and restart the game. The restart button keeps the poneys' number of victories.
-You can activate the first two poneys nian mode with the buttons related to their color, or the keys "A" and "Z".
+You can activate the first two poneys nian mode with the buttons related to their color, or the keys "E" and "R".
 
 There also is a window where poneys' information is displayed, plus another window where the rank of each poney is displayed.
 
