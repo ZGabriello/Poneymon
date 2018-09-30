@@ -11,6 +11,7 @@ The programm follows the MVC pattern, and the build is managed by Maven.
 ## Getting Started
 
 In the terminal, go the folder you want to download the project.
+
 First, clone the git project.
 
 ```
